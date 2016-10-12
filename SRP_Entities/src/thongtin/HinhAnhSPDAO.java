@@ -61,7 +61,7 @@ public class HinhAnhSPDAO {
     }
 
     //Tìm sản phẩm 
-    public HinhAnhSP findBySanPham(String msHinh) throws Exception {
+    public HinhAnhSP findByHinhAnh(String msHinh) throws Exception {
         String sql = "select * form HINH_ANH_SP where msHinh = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, msHinh);
