@@ -39,16 +39,16 @@ public class XMLConvert<T extends Serializable> {//
     }
 
     /*public static void main(String[] args) throws Exception{
-		Sinhvien sv=new Sinhvien(1001, "than thi det", new Date());
-		
-		XMLConvert<Sinhvien>xs=new XMLConvert<Sinhvien>(sv);
-		String xml=xs.object2XML(sv);
-		System.out.println(xml);
-		
-		Sinhvien ss=xs.xml2Object(xml);
-		System.out.println(ss.getMssv()+"\t"+ss.getHoten());
-		
-		Person p=new Person(1001, "dsd", new Date());
-		XMLConvert<Person>xs1=new XMLConvert<Person>(p);
+        Sinhvien sv=new Sinhvien(1001, "than thi det", new Date());
+
+        XMLConvert<Sinhvien>xs=new XMLConvert<Sinhvien>(sv);
+        String xml=xs.object2XML(sv);
+        System.out.println(xml);
+
+        Sinhvien ss=xs.xml2Object(xml);
+        System.out.println(ss.getMssv()+"\t"+ss.getHoten());
+
+        Person p=new Person(1001, "dsd", new Date());
+        XMLConvert<Person>xs1=new XMLConvert<Person>(p);
 	}*/
 }
