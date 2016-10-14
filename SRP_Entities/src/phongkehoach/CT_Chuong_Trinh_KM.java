@@ -5,6 +5,7 @@
  */
 package Phong_ke_hoach;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author WIN7
  */
-public class CT_Chuong_Trinh_KM {
+public class CT_Chuong_Trinh_KM implements Serializable{
     private String MaSP;
     private float  PhanTramKM;
     private String GhiChu;

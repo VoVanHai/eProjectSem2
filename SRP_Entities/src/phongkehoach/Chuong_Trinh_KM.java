@@ -5,13 +5,14 @@
  */
 package Phong_ke_hoach;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author WIN7
  */
-public class Chuong_Trinh_KM {
+public class Chuong_Trinh_KM implements Serializable{
     private int MaCT;
     private String TenCT;
     private Date NgayBD;
