@@ -1,4 +1,4 @@
-package UI_Warehouse;
+package Frm_Warehouse;
 
 import javax.swing.JLabel;
 
@@ -12,6 +12,6 @@ import javax.swing.JLabel;
  *
  * @author TrungChi
  */
-public class UI_KHACH_HANG {
-    private JLabel
+public class Frm_KHACH_HANG {
+    
 }
