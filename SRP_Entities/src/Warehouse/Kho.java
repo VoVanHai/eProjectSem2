@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
-public class KHO implements Serializable{
+public class Kho implements Serializable{
     private String MaKho;
     private String TenKho;
     private String DiaChi;
@@ -20,7 +20,7 @@ public class KHO implements Serializable{
     private String GhiChu;
     private int TrangThai;
 
-    public KHO(String MaKho, String TenKho, String DiaChi, String SoDT, String GhiChu, int TrangThai) {
+    public Kho(String MaKho, String TenKho, String DiaChi, String SoDT, String GhiChu, int TrangThai) {
         this.MaKho      = MaKho;
         this.TenKho     = TenKho;
         this.DiaChi     = DiaChi;
@@ -95,7 +95,7 @@ public class KHO implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final KHO other = (KHO) obj;
+        final Kho other = (Kho) obj;
         if (!Objects.equals(this.MaKho, other.MaKho)) {
             return false;
         }

@@ -6,41 +6,38 @@
 package Warehouse;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class PHIEU_YC_XUAT_KHO implements Serializable{
-    private String SoPhieuYCXK;
+public class PhieuXuatKho implements Serializable{
+    private String SoPhieuXK;
     private String MaNV;
-    private String MaKho;
+    private String MaCuaHanf;
     private String NgayLap;
     private String GhiChu;
     private int    TrangThai;
-    
-    private ArrayList<CT_PHIEU_YC_XUAT_KHO> ct_Yc_Xk;
 
-    public PHIEU_YC_XUAT_KHO(String SoPhieuYCXK, String MaNV, String MaKho, String NgayLap, String GhiChu, int TrangThai) {
-        this.SoPhieuYCXK    = SoPhieuYCXK;
-        this.MaNV           = MaNV;
-        this.MaKho          = MaKho;
-        this.NgayLap        = NgayLap;
-        this.GhiChu         = GhiChu;
-        this.TrangThai      = TrangThai;
+    public PhieuXuatKho(String SoPhieuXK, String MaNV, String MaCuaHanf, String NgayLap, String GhiChu, int TrangThai) {
+        this.SoPhieuXK  = SoPhieuXK;
+        this.MaNV       = MaNV;
+        this.MaCuaHanf  = MaCuaHanf;
+        this.NgayLap    = NgayLap;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
-    public PHIEU_YC_XUAT_KHO() {
+    public PhieuXuatKho() {
     }
 
-    public String getSoPhieuYCXK() {
-        return SoPhieuYCXK;
+    public String getSoPhieuXK() {
+        return SoPhieuXK;
     }
 
-    public void setSoPhieuYCXK(String SoPhieuYCXK) {
-        this.SoPhieuYCXK = SoPhieuYCXK;
+    public void setSoPhieuXK(String SoPhieuXK) {
+        this.SoPhieuXK = SoPhieuXK;
     }
 
     public String getMaNV() {
@@ -51,12 +48,12 @@ public class PHIEU_YC_XUAT_KHO implements Serializable{
         this.MaNV = MaNV;
     }
 
-    public String getMaKho() {
-        return MaKho;
+    public String getMaCuaHanf() {
+        return MaCuaHanf;
     }
 
-    public void setMaKho(String MaKho) {
-        this.MaKho = MaKho;
+    public void setMaCuaHanf(String MaCuaHanf) {
+        this.MaCuaHanf = MaCuaHanf;
     }
 
     public String getNgayLap() {
@@ -85,8 +82,8 @@ public class PHIEU_YC_XUAT_KHO implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.SoPhieuYCXK);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.SoPhieuXK);
         return hash;
     }
 
@@ -101,8 +98,8 @@ public class PHIEU_YC_XUAT_KHO implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PHIEU_YC_XUAT_KHO other = (PHIEU_YC_XUAT_KHO) obj;
-        if (!Objects.equals(this.SoPhieuYCXK, other.SoPhieuYCXK)) {
+        final PhieuXuatKho other = (PhieuXuatKho) obj;
+        if (!Objects.equals(this.SoPhieuXK, other.SoPhieuXK)) {
             return false;
         }
         return true;
@@ -110,12 +107,8 @@ public class PHIEU_YC_XUAT_KHO implements Serializable{
 
     @Override
     public String toString() {
-        return "PHIEU_YC_XUAT_KHO{" + "SoPhieuYCXK=" + SoPhieuYCXK + ", MaNV=" + MaNV + ", MaKho=" + MaKho + ", NgayLap=" + NgayLap + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "PHIEU_XUAT_KHO{" + "SoPhieuXK=" + SoPhieuXK + ", MaNV=" + MaNV + ", MaCuaHanf=" + MaCuaHanf + ", NgayLap=" + NgayLap + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
     }
     
-    public void addCTPXK()
-    {
-        CT_PHIEU_YC_XUAT_KHO chiTiet = new CT_PHIEU_YC_XUAT_KHO();
-        ct_Yc_Xk.add(chiTiet);
-    }
+    
 }

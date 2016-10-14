@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class KHACH_HANG implements Serializable{
+public class KhachHang implements Serializable{
     private String MaKH;
     private String TenKH;
     private String SDT;
@@ -24,7 +24,7 @@ public class KHACH_HANG implements Serializable{
     private String GhiChu;
     private int TrangThai;
 
-    public KHACH_HANG(String MaKH, String TenKH, String SDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) {
+    public KhachHang(String MaKH, String TenKH, String SDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) {
         this.MaKH       = MaKH;
         this.TenKH      = TenKH;
         this.SDT        = SDT;
@@ -37,7 +37,7 @@ public class KHACH_HANG implements Serializable{
         this.TrangThai  = TrangThai;
     }
 
-    public KHACH_HANG() {
+    public KhachHang() {
     }
 
     public String getMaKH() {
@@ -138,7 +138,7 @@ public class KHACH_HANG implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final KHACH_HANG other = (KHACH_HANG) obj;
+        final KhachHang other = (KhachHang) obj;
         if (!Objects.equals(this.MaKH, other.MaKH)) {
             return false;
         }

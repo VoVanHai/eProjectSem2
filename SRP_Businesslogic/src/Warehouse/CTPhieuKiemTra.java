@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class CT_PHIEU_KT implements Serializable{
+public class CTPhieuKiemTra implements Serializable{
     private String SoPhieu;
     private String MaSP;
     private String TenSP;
@@ -23,7 +23,7 @@ public class CT_PHIEU_KT implements Serializable{
     private String GhiChu;
     private int    TrangThai;
 
-    public CT_PHIEU_KT(String SoPhieu, String MaSP, String TenSP, String MaNCC, float TongSo, float HuHong, String NguyenNhan, String GhiChu, int TrangThai) {
+    public CTPhieuKiemTra(String SoPhieu, String MaSP, String TenSP, String MaNCC, float TongSo, float HuHong, String NguyenNhan, String GhiChu, int TrangThai) {
         this.SoPhieu    = SoPhieu;
         this.MaSP       = MaSP;
         this.TenSP      = TenSP;
@@ -35,7 +35,7 @@ public class CT_PHIEU_KT implements Serializable{
         this.TrangThai  = TrangThai;
     }
 
-    public CT_PHIEU_KT() {
+    public CTPhieuKiemTra() {
     }
 
     public String getSoPhieu() {
@@ -128,7 +128,7 @@ public class CT_PHIEU_KT implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CT_PHIEU_KT other = (CT_PHIEU_KT) obj;
+        final CTPhieuKiemTra other = (CTPhieuKiemTra) obj;
         if (!Objects.equals(this.SoPhieu, other.SoPhieu)) {
             return false;
         }

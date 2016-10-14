@@ -12,20 +12,20 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class CT_PHIEU_YC_XUAT_KHO implements Serializable{
+public class CTPhieuYCXuatKho implements Serializable{
     private String  SoPhieuYCXK;
     private String  MaSP;
     private float   SoLuong;
     private String  GhiChu;
 
-    public CT_PHIEU_YC_XUAT_KHO(String SoPhieuYCXK, String MaSP, float SoLuong, String GhiChu) {
+    public CTPhieuYCXuatKho(String SoPhieuYCXK, String MaSP, float SoLuong, String GhiChu) {
         this.SoPhieuYCXK    = SoPhieuYCXK;
         this.MaSP           = MaSP;
         this.SoLuong        = SoLuong;
         this.GhiChu         = GhiChu;
     }
 
-    public CT_PHIEU_YC_XUAT_KHO() {
+    public CTPhieuYCXuatKho() {
     }
 
     public String getSoPhieuYCXK() {
@@ -78,7 +78,7 @@ public class CT_PHIEU_YC_XUAT_KHO implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CT_PHIEU_YC_XUAT_KHO other = (CT_PHIEU_YC_XUAT_KHO) obj;
+        final CTPhieuYCXuatKho other = (CTPhieuYCXuatKho) obj;
         if (!Objects.equals(this.SoPhieuYCXK, other.SoPhieuYCXK)) {
             return false;
         }

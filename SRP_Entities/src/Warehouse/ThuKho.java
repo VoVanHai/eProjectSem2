@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
-public class THU_KHO implements Serializable{
+public class ThuKho implements Serializable{
     private String MaNV;
     private String MaKho;
     private Date startDate;
@@ -21,7 +21,7 @@ public class THU_KHO implements Serializable{
     private String GhiChu;
     private String MaCV;
 
-    public THU_KHO(String MaNV, String MaKho, Date startDate, Date endDate, String GhiChu, String MaCV) {
+    public ThuKho(String MaNV, String MaKho, Date startDate, Date endDate, String GhiChu, String MaCV) {
         this.MaNV       = MaNV;
         this.MaKho      = MaKho;
         this.startDate  = startDate;
@@ -96,7 +96,7 @@ public class THU_KHO implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final THU_KHO other = (THU_KHO) obj;
+        final ThuKho other = (ThuKho) obj;
         if (!Objects.equals(this.MaNV, other.MaNV)) {
             return false;
         }
@@ -106,6 +106,5 @@ public class THU_KHO implements Serializable{
     @Override
     public String toString() {
         return "ThuKho{" + "MaNV=" + MaNV + ", MaKho=" + MaKho + ", startDate=" + startDate + ", endDate=" + endDate + ", GhiChu=" + GhiChu + ", MaCV=" + MaCV + '}';
-    }
-    
+    }   
 }

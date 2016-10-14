@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class PHIEU_KIEM_TRA implements Serializable{
+public class PhieuKiemTra implements Serializable{
     private String SoPhieu;
     private String MaKho;
     private String MaNV;
@@ -21,9 +21,9 @@ public class PHIEU_KIEM_TRA implements Serializable{
     private String GhiChu;
     private int    TrangThai;
     
-    private ArrayList<CT_PHIEU_KT> ct_Kt;
+    private ArrayList<CTPhieuKiemTra> ct_Kt;
 
-    public PHIEU_KIEM_TRA(String SoPhieu, String MaKho, String MaNV, String NgayKT, String GhiChu, int TrangThai) {
+    public PhieuKiemTra(String SoPhieu, String MaKho, String MaNV, String NgayKT, String GhiChu, int TrangThai) {
         this.SoPhieu    = SoPhieu;
         this.MaKho      = MaKho;
         this.MaNV       = MaNV;
@@ -32,7 +32,7 @@ public class PHIEU_KIEM_TRA implements Serializable{
         this.TrangThai  = TrangThai;
     }
 
-    public PHIEU_KIEM_TRA() {
+    public PhieuKiemTra() {
     }
 
     public String getSoPhieu() {
@@ -101,7 +101,7 @@ public class PHIEU_KIEM_TRA implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PHIEU_KIEM_TRA other = (PHIEU_KIEM_TRA) obj;
+        final PhieuKiemTra other = (PhieuKiemTra) obj;
         if (!Objects.equals(this.SoPhieu, other.SoPhieu)) {
             return false;
         }
@@ -115,7 +115,7 @@ public class PHIEU_KIEM_TRA implements Serializable{
     
     public void add()
     {
-        CT_PHIEU_KT chiTiet = new CT_PHIEU_KT();
+        CTPhieuKiemTra chiTiet = new CTPhieuKiemTra();
         ct_Kt.add(chiTiet);
     }
 }

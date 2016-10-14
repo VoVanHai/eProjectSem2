@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-<<<<<<< HEAD
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/D:/CNCAPTECH/ACCP1508/SEM_2/Subject_08_Project/Project/eProjectSem2/SRP_Entities/src/Warehouse/THU_KHO.java</file>
             <file>file:/D:/CNCAPTECH/ACCP1508/SEM_2/Subject_08_Project/Project/eProjectSem2/SRP_Entities/src/Warehouse/KHACH_HANG.java</file>
             <file>file:/D:/CNCAPTECH/ACCP1508/SEM_2/Subject_08_Project/Project/eProjectSem2/SRP_Entities/src/Warehouse/PHIEU_XUAT_KHO.java</file>
-=======
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sales/Khachhang.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sanpham/SanPham.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sanpham/SanPhamDAO.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sanpham/HinhAnhSP.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sales/Nhanvien.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_Entities/src/sanpham/HinhAnhSPDAO.java</file>
->>>>>>> 30a261f7dd949dbf2fa19e31ae2403684e1f76c1
+            <file>file:/D:/CNCAPTECH/ACCP1508/SEM_2/Subject_08_Project/Project/eProjectSem2/SRP_Entities/src/Warehouse/KHO.java</file>
+            <file>file:/D:/CNCAPTECH/ACCP1508/SEM_2/Subject_08_Project/Project/eProjectSem2/SRP_Entities/src/Warehouse/Frm_KHACH_HANG.java</file>
         </group>
     </open-files>
-=======
->>>>>>> be8129ac10c3a917c564f22bdf611329305d80cd
 </project-private>
