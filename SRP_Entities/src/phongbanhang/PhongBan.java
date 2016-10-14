@@ -5,49 +5,40 @@
  */
 package thongtin;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
- * @author VINH MARK
+ * @author Trương Hồng Đoàn
  */
-public class Barcode {
-    private String barcode;
-    private String MaSP;
-    private String MaNV;
+public class PhongBan implements Serializable{
+    private String MaPB;
+    private String TenPB;
     private String GhiChu;
     private int TrangThai;
 
-    public Barcode(String barcode, String MaSP, String MaNV, String GhiChu, int TrangThai) {
-        this.barcode = barcode;
-        this.MaSP = MaSP;
-        this.MaNV = MaNV;
+    public PhongBan(String MaPB, String TenPB, String GhiChu, int TrangThai) {
+        this.MaPB = MaPB;
+        this.TenPB = TenPB;
         this.GhiChu = GhiChu;
         this.TrangThai = TrangThai;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getMaPB() {
+        return MaPB;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setMaPB(String MaPB) {
+        this.MaPB = MaPB;
     }
 
-    public String getMaSP() {
-        return MaSP;
+    public String getTenPB() {
+        return TenPB;
     }
 
-    public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
-    }
-
-    public String getMaNV() {
-        return MaNV;
-    }
-
-    public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+    public void setTenPB(String TenPB) {
+        this.TenPB = TenPB;
     }
 
     public String getGhiChu() {
@@ -69,7 +60,7 @@ public class Barcode {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.barcode);
+        hash = 59 * hash + Objects.hashCode(this.MaPB);
         return hash;
     }
 
@@ -84,8 +75,8 @@ public class Barcode {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Barcode other = (Barcode) obj;
-        if (!Objects.equals(this.barcode, other.barcode)) {
+        final PhongBan other = (PhongBan) obj;
+        if (!Objects.equals(this.MaPB, other.MaPB)) {
             return false;
         }
         return true;
@@ -93,7 +84,7 @@ public class Barcode {
 
     @Override
     public String toString() {
-        return "Barcode{" + "barcode=" + barcode + ", MaSP=" + MaSP + ", MaNV=" + MaNV + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "PhongBan{" + "MaPB=" + MaPB + ", TenPB=" + TenPB + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
     }
     
 }
