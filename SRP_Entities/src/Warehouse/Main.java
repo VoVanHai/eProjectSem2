@@ -1,6 +1,4 @@
-package Frm_Warehouse;
-
-import javax.swing.JLabel;
+package Warehouse;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,6 +10,10 @@ import javax.swing.JLabel;
  *
  * @author TrungChi
  */
-public class Frm_KHACH_HANG {
-    
+
+public class Main {
+    public static void main(String[] args) {
+        Frm_KHACH_HANG frmKhachHang= new Frm_KHACH_HANG();   
+        frmKhachHang.setVisible(true);
+    }
 }
