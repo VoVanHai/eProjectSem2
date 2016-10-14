@@ -5,13 +5,14 @@
  */
 package Phong_ke_hoach;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author WIN7
  */
-public class Chuc_Vu {
+public class Chuc_Vu implements Serializable{
     private String MaCV;
     private String TenCV;
     private String GhiChu;

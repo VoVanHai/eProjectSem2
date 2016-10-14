@@ -5,13 +5,14 @@
  */
 package Phong_ke_hoach;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author WIN7
  */
-public class Nhan_Vien {
+public class Nhan_Vien implements Serializable{
     private String MaNV;
     private String TenNV;
     private String SDT;

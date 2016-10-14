@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thongtin;
+package phongbanhang;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -12,7 +13,7 @@ import java.sql.DriverManager;
  *
  * @author VINH MARK
  */
-public class ConnectFactory {
+public class ConnectFactory implements Serializable{
     private static ConnectFactory factory = null;
     private Connection con;
 

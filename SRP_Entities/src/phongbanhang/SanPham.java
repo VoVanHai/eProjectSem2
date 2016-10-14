@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package thongtin;
+package phongbanhang;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author VINH MARK
  */
-public class SanPham {
+public class SanPham implements Serializable{
     private String MaSP;
     private String TenSP;
     private String MotaSP;
