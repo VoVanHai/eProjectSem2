@@ -146,7 +146,6 @@ public class Frm_KHACH_HANG extends JFrame{
     
     public static void main(String[] args) {
         Frm_KHACH_HANG frmKhachHang= new Frm_KHACH_HANG();   
-        frmKhachHang.setVisible(true);
-        
+        frmKhachHang.setVisible(true);        
     }
 }

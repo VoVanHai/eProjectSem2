@@ -5,13 +5,14 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class PHIEU_XUAT_KHO {
+public class PHIEU_XUAT_KHO implements Serializable{
     private String SoPhieuXK;
     private String MaNV;
     private String MaCuaHanf;
@@ -20,12 +21,12 @@ public class PHIEU_XUAT_KHO {
     private int    TrangThai;
 
     public PHIEU_XUAT_KHO(String SoPhieuXK, String MaNV, String MaCuaHanf, String NgayLap, String GhiChu, int TrangThai) {
-        this.SoPhieuXK = SoPhieuXK;
-        this.MaNV = MaNV;
-        this.MaCuaHanf = MaCuaHanf;
-        this.NgayLap = NgayLap;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.SoPhieuXK  = SoPhieuXK;
+        this.MaNV       = MaNV;
+        this.MaCuaHanf  = MaCuaHanf;
+        this.NgayLap    = NgayLap;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
     public PHIEU_XUAT_KHO() {

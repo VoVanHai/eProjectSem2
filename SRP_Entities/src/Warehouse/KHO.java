@@ -5,13 +5,14 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Administrator
  */
-public class KHO {
+public class KHO implements Serializable{
     private String MaKho;
     private String TenKho;
     private String DiaChi;
@@ -20,12 +21,12 @@ public class KHO {
     private int TrangThai;
 
     public KHO(String MaKho, String TenKho, String DiaChi, String SoDT, String GhiChu, int TrangThai) {
-        this.MaKho = MaKho;
-        this.TenKho = TenKho;
-        this.DiaChi = DiaChi;
-        this.SoDT = SoDT;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.MaKho      = MaKho;
+        this.TenKho     = TenKho;
+        this.DiaChi     = DiaChi;
+        this.SoDT       = SoDT;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
     public String getMaKho() {

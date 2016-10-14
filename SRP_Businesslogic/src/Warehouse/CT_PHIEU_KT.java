@@ -5,13 +5,14 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class CT_PHIEU_KT {
+public class CT_PHIEU_KT implements Serializable{
     private String SoPhieu;
     private String MaSP;
     private String TenSP;
@@ -23,15 +24,15 @@ public class CT_PHIEU_KT {
     private int    TrangThai;
 
     public CT_PHIEU_KT(String SoPhieu, String MaSP, String TenSP, String MaNCC, float TongSo, float HuHong, String NguyenNhan, String GhiChu, int TrangThai) {
-        this.SoPhieu = SoPhieu;
-        this.MaSP = MaSP;
-        this.TenSP = TenSP;
-        this.MaNCC = MaNCC;
-        this.TongSo = TongSo;
-        this.HuHong = HuHong;
+        this.SoPhieu    = SoPhieu;
+        this.MaSP       = MaSP;
+        this.TenSP      = TenSP;
+        this.MaNCC      = MaNCC;
+        this.TongSo     = TongSo;
+        this.HuHong     = HuHong;
         this.NguyenNhan = NguyenNhan;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
     public CT_PHIEU_KT() {

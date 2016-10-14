@@ -5,23 +5,24 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class CT_PHIEU_YC_XUAT_KHO {
-    private String SoPhieuYCXK;
-    private String MaSP;
-    private float SoLuong;
-    private String GhiChu;
+public class CT_PHIEU_YC_XUAT_KHO implements Serializable{
+    private String  SoPhieuYCXK;
+    private String  MaSP;
+    private float   SoLuong;
+    private String  GhiChu;
 
     public CT_PHIEU_YC_XUAT_KHO(String SoPhieuYCXK, String MaSP, float SoLuong, String GhiChu) {
-        this.SoPhieuYCXK = SoPhieuYCXK;
-        this.MaSP = MaSP;
-        this.SoLuong = SoLuong;
-        this.GhiChu = GhiChu;
+        this.SoPhieuYCXK    = SoPhieuYCXK;
+        this.MaSP           = MaSP;
+        this.SoLuong        = SoLuong;
+        this.GhiChu         = GhiChu;
     }
 
     public CT_PHIEU_YC_XUAT_KHO() {

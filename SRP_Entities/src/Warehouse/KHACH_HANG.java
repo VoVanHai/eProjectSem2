@@ -5,13 +5,14 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class KHACH_HANG {
+public class KHACH_HANG implements Serializable{
     private String MaKH;
     private String TenKH;
     private String SDT;
@@ -24,16 +25,16 @@ public class KHACH_HANG {
     private int TrangThai;
 
     public KHACH_HANG(String MaKH, String TenKH, String SDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) {
-        this.MaKH = MaKH;
-        this.TenKH = TenKH;
-        this.SDT = SDT;
-        this.DiaChi = DiaChi;
-        this.CongViec = CongViec;
-        this.SoCMND = SoCMND;
-        this.GioiTinh = GioiTinh;
-        this.LoaiTK = LoaiTK;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.MaKH       = MaKH;
+        this.TenKH      = TenKH;
+        this.SDT        = SDT;
+        this.DiaChi     = DiaChi;
+        this.CongViec   = CongViec;
+        this.SoCMND     = SoCMND;
+        this.GioiTinh   = GioiTinh;
+        this.LoaiTK     = LoaiTK;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
     public KHACH_HANG() {

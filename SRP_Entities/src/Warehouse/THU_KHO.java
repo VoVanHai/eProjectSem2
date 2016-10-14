@@ -5,6 +5,7 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
-public class THU_KHO {
+public class THU_KHO implements Serializable{
     private String MaNV;
     private String MaKho;
     private Date startDate;
@@ -21,12 +22,12 @@ public class THU_KHO {
     private String MaCV;
 
     public THU_KHO(String MaNV, String MaKho, Date startDate, Date endDate, String GhiChu, String MaCV) {
-        this.MaNV = MaNV;
-        this.MaKho = MaKho;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.GhiChu = GhiChu;
-        this.MaCV = MaCV;
+        this.MaNV       = MaNV;
+        this.MaKho      = MaKho;
+        this.startDate  = startDate;
+        this.endDate    = endDate;
+        this.GhiChu     = GhiChu;
+        this.MaCV       = MaCV;
     }
 
     public String getMaNV() {

@@ -5,6 +5,7 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class PHIEU_KIEM_TRA {
+public class PHIEU_KIEM_TRA implements Serializable{
     private String SoPhieu;
     private String MaKho;
     private String MaNV;
@@ -23,12 +24,12 @@ public class PHIEU_KIEM_TRA {
     private ArrayList<CT_PHIEU_KT> ct_Kt;
 
     public PHIEU_KIEM_TRA(String SoPhieu, String MaKho, String MaNV, String NgayKT, String GhiChu, int TrangThai) {
-        this.SoPhieu = SoPhieu;
-        this.MaKho = MaKho;
-        this.MaNV = MaNV;
-        this.NgayKT = NgayKT;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.SoPhieu    = SoPhieu;
+        this.MaKho      = MaKho;
+        this.MaNV       = MaNV;
+        this.NgayKT     = NgayKT;
+        this.GhiChu     = GhiChu;
+        this.TrangThai  = TrangThai;
     }
 
     public PHIEU_KIEM_TRA() {

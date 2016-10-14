@@ -5,6 +5,7 @@
  */
 package Warehouse;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,23 +13,23 @@ import java.util.Objects;
  *
  * @author TrungChi
  */
-public class PHIEU_YC_XUAT_KHO {
+public class PHIEU_YC_XUAT_KHO implements Serializable{
     private String SoPhieuYCXK;
     private String MaNV;
     private String MaKho;
     private String NgayLap;
     private String GhiChu;
-    private int TrangThai;
+    private int    TrangThai;
     
     private ArrayList<CT_PHIEU_YC_XUAT_KHO> ct_Yc_Xk;
 
     public PHIEU_YC_XUAT_KHO(String SoPhieuYCXK, String MaNV, String MaKho, String NgayLap, String GhiChu, int TrangThai) {
-        this.SoPhieuYCXK = SoPhieuYCXK;
-        this.MaNV = MaNV;
-        this.MaKho = MaKho;
-        this.NgayLap = NgayLap;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.SoPhieuYCXK    = SoPhieuYCXK;
+        this.MaNV           = MaNV;
+        this.MaKho          = MaKho;
+        this.NgayLap        = NgayLap;
+        this.GhiChu         = GhiChu;
+        this.TrangThai      = TrangThai;
     }
 
     public PHIEU_YC_XUAT_KHO() {
