@@ -5,12 +5,35 @@
  */
 package dataaccess.sale;
 
+import java.util.ArrayList;
+import sale.SanPham;
+
 
 /**
  *
  * @author VINH MARK
  */
-public class SanPhamImp{
+public class SanPhamImp implements NhomBanHangDAO<SanPham>{
+
+    @Override
+    public boolean add(SanPham dao) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean remove(SanPham dao) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean find(SanPham dao) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<SanPham> getAll() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
     
