@@ -6,30 +6,31 @@
 package dataaccess.sale;
 
 import java.util.ArrayList;
+import sale.Barcode;
 
 /**
  *
  * @author VINH MARK
  */
-public class BarcodeImp implements NhomBanHangDAO<BarcodeImp>{
+public class BarcodeImp implements NhomBanHangDAO<Barcode>{
 
     @Override
-    public boolean add(BarcodeImp dao) throws Exception {
+    public boolean add(Barcode dao) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean remove(BarcodeImp dao) throws Exception {
+    public boolean remove(Barcode dao) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean find(BarcodeImp dao) throws Exception {
+    public boolean find(Barcode dao) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<BarcodeImp> getAll() throws Exception {
+    public ArrayList<Barcode> getAll() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
