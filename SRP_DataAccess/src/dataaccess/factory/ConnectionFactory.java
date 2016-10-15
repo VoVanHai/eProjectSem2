@@ -15,7 +15,7 @@ public class ConnectionFactory {
     private ConnectionFactory() throws Exception {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String url = "jdbc:sqlserver://localhost:1433;databaseName=QL_BAN_HANG";
-        con = DriverManager.getConnection(url, "sa", "12345678");//change user/passwprd
+        con = DriverManager.getConnection(url, "sa", "123456");//change user/passwprd
     }
 
     public synchronized static ConnectionFactory getInstance() throws Exception {
