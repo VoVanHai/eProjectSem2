@@ -5,11 +5,13 @@
  */
 package sale;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VINH MARK
  */
-public class HinhAnhSP {
+public class HinhAnhSP implements Serializable{
     private int msHinh;
     private String tenHinh;
     private String duongdan;
