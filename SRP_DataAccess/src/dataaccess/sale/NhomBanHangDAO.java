@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public interface NhomBanHangDAO<T> {
     boolean add(T dao) throws Exception;
     boolean remove(T dao) throws Exception;
-    boolean find(T dao) throws Exception;
+    T find(T dao) throws Exception;
+    boolean update(T dao) throws Exception;
     ArrayList<T> getAll() throws Exception;
 }

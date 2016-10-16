@@ -19,7 +19,7 @@ public class SanPham implements Serializable{
     private String MotaSP;
     private String MaNCC;
     private String KhoiLuong;
-    private String KichThuocSp;
+    private String KichThuocSP;
     private String MauSac;
     private String ThanhPhan;
     private String NhaSX;
@@ -37,7 +37,7 @@ public class SanPham implements Serializable{
         this.MotaSP = MotaSP;
         this.MaNCC = MaNCC;
         this.KhoiLuong = KhoiLuong;
-        this.KichThuocSp = KichThuocSp;
+        this.KichThuocSP = KichThuocSp;
         this.MauSac = MauSac;
         this.ThanhPhan = ThanhPhan;
         this.NhaSX = NhaSX;
@@ -87,12 +87,12 @@ public class SanPham implements Serializable{
         this.KhoiLuong = KhoiLuong;
     }
 
-    public String getKichThuocSp() {
-        return KichThuocSp;
+    public String getKichThuocSP() {
+        return KichThuocSP;
     }
 
-    public void setKichThuocSp(String KichThuocSp) {
-        this.KichThuocSp = KichThuocSp;
+    public void setKichThuocSP(String KichThuocSp) {
+        this.KichThuocSP = KichThuocSp;
     }
 
     public String getMauSac() {
@@ -178,7 +178,7 @@ public class SanPham implements Serializable{
 
     @Override
     public String toString() {
-        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", MotaSP=" + MotaSP + ", NhaCC=" + MaNCC + ", KhoiLuong=" + KhoiLuong + ", KichThuocSp=" + KichThuocSp + ", MauSac=" + MauSac + ", ThanhPhan=" + ThanhPhan + ", NhaSX=" + NhaSX + ", NgaySX=" + NgaySX + ", HanSuDung=" + HanSuDung + ", HinhAnh=" + HinhAnh + ", TinhTrang=" + TinhTrang + '}';
+        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", MotaSP=" + MotaSP + ", NhaCC=" + MaNCC + ", KhoiLuong=" + KhoiLuong + ", KichThuocSp=" + KichThuocSP + ", MauSac=" + MauSac + ", ThanhPhan=" + ThanhPhan + ", NhaSX=" + NhaSX + ", NgaySX=" + NgaySX + ", HanSuDung=" + HanSuDung + ", HinhAnh=" + HinhAnh + ", TinhTrang=" + TinhTrang + '}';
     }
     
 }
