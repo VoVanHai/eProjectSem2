@@ -51,7 +51,7 @@ public class HDImp implements NhomBanHangDAO<HD>{
     @Override
     public ArrayList<HD> getAll() throws Exception {
         ArrayList<HD> lst = new ArrayList<>();
-        String sql = "select * from HD_BAN_HANG";
+        String sql = "select * from HD_BAN_HANG" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
@@ -65,7 +65,7 @@ public class HDImp implements NhomBanHangDAO<HD>{
     @Override
     public HD find(HD dao) throws Exception {
         String soHD;
-        String sql=" select *from HD_BAN_HANG where soHD= ? ";
+        String sql=" select *from HD_BAN_HANG where soHD= ? " + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql); 
         ps.setString(1, dao.getSoHD());
         ResultSet rs=ps.executeQuery();

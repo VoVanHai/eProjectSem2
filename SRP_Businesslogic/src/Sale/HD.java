@@ -15,24 +15,25 @@ import java.util.Scanner;
  *
  * @author Tien-Dung
  */
-public class HD implements Serializable{
+public class HD implements Serializable {
+
     private String soHD;
     private Date ngayHD;
     private String maNV;
     private int money;
     private String maKH;
-    private String tinhTrang;
+    private String TinhTrang;
 
     public HD() {
     }
 
-    public HD(String soHD, Date ngayHD, String maNV, int money, String maKH, String tinhTrang) {
+    public HD(String soHD, Date ngayHD, String maNV, int money, String maKH, String TinhTrang) {
         this.soHD = soHD;
         this.ngayHD = ngayHD;
         this.maNV = maNV;
         this.money = money;
         this.maKH = maKH;
-        this.tinhTrang = tinhTrang;
+        this.TinhTrang = TinhTrang;
     }
 
     public String getSoHD() {
@@ -56,7 +57,7 @@ public class HD implements Serializable{
     }
 
     public String getTinhTrang() {
-        return tinhTrang;
+        return TinhTrang;
     }
 
     public void setSoHD(String soHD) {
@@ -80,13 +81,89 @@ public class HD implements Serializable{
     }
 
     public void setTinhTrang(String tinhTrang) {
-        this.tinhTrang = tinhTrang;
+        this.TinhTrang = tinhTrang;
     }
 
     @Override
     public String toString() {
-        return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD +
-                ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + tinhTrang + '}';
+        return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD
+                + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + TinhTrang + '}';
     }
-    
+
+    private class Ct_Hd_Ban_Hang {
+
+        private String soHD;
+        private String maSP;
+        private int soLuong;
+        private int dongiaBan;
+        private int giaKM;
+
+        public Ct_Hd_Ban_Hang() {
+        }
+
+        public Ct_Hd_Ban_Hang(String soHD, String maSP, int soLuong, int dongiaBan, int giaKM) {
+            this.soHD = soHD;
+            this.maSP = maSP;
+            this.soLuong = soLuong;
+            this.dongiaBan = dongiaBan;
+            this.giaKM = giaKM;
+        }
+
+        public String getSoHD() {
+            return soHD;
+        }
+
+        public String getMaSP() {
+            return maSP;
+        }
+
+        public int getSoLuong() {
+            return soLuong;
+        }
+
+        public int getDongiaBan() {
+            return dongiaBan;
+        }
+
+        public int getGiaKM() {
+            return giaKM;
+        }
+
+        public void setSoHD(String soHD) {
+            this.soHD = soHD;
+        }
+
+        public void setMaSP(String maSP) {
+            this.maSP = maSP;
+        }
+
+        public void setSoLuong(int soLuong) {
+            this.soLuong = soLuong;
+        }
+
+        public void setDongiaBan(int dongiaBan) {
+            this.dongiaBan = dongiaBan;
+        }
+
+        public void setGiaKM(int giaKM) {
+            this.giaKM = giaKM;
+        }
+
+        public void newCT() {
+            Scanner s = new Scanner(System.in);
+            System.out.println("Nhap so HD: ");
+            soHD = s.nextLine();
+
+            System.out.println("Nhap ma san pham: ");
+            maSP = s.nextLine();
+
+        }
+
+        @Override
+        public String toString() {
+            return "CT_HD_BH{" + "soHD=" + soHD + ", maSP=" + maSP + ", soLuong=" + soLuong + ", dongiaBan=" + dongiaBan + ", giaKM=" + giaKM + '}';
+        }
+
+    }
+
 }
