@@ -48,7 +48,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean remove(SanPham dao) throws Exception {
-        String sql = "delete from SAN_PHAM where MaSP =?";
+        String sql = "UPDATE SAN_PHAM" +" SET TinhTrang = 0" +" WHERE MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         return ps.executeUpdate() > 0;
@@ -77,7 +77,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
     @Override
     public SanPham find(SanPham dao) throws Exception {
         String MaSP;
-        String sql = "select * form SAN_PHAM where MaSP = ?";
+        String sql = "select * form SAN_PHAM where MaSP = ?" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         ResultSet rs = ps.executeQuery();
@@ -103,7 +103,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
     @Override
     public ArrayList<SanPham> getAll() throws Exception {
         ArrayList<SanPham> lst = new ArrayList<>();
-        String sql = "select * from SAN_PHAM";
+        String sql = "select * from SAN_PHAM" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){

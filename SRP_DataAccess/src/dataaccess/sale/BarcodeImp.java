@@ -40,7 +40,7 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
 
     @Override
     public boolean remove(Barcode dao) throws Exception {
-        String sql = "delete from BARCODE where barcode = ?";
+        String sql = "UPDATE BARCODE" +" SET TinhTrang = 0" +" WHERE barcode=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getBarcode());
         return ps.executeUpdate() > 0;
@@ -49,7 +49,7 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
     @Override
     public Barcode find(Barcode dao) throws Exception {
         String msHinh;
-        String sql = "select * form BARCODE where barcode = ?";
+        String sql = "select * form BARCODE where barcode = ?" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getBarcode());
         ResultSet rs = ps.executeQuery();
@@ -63,7 +63,7 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
     @Override
     public ArrayList<Barcode> getAll() throws Exception {
         ArrayList<Barcode> lst = new ArrayList<>();
-        String sql = "select * from BARCODE";
+        String sql = "select * from BARCODE" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){

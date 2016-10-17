@@ -5,12 +5,13 @@
  */
 package Sale;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Tien-Dung
  */
-public class HD_ST {
-   
+public class Test {
+    public static void main(String[] args) {
+        HD hd=new HD();
+        hd.tex();
+    }
 }

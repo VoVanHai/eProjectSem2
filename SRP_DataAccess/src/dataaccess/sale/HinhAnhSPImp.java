@@ -32,7 +32,7 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
 
     @Override
     public boolean remove(HinhAnhSP dao) throws Exception {
-        String sql = "delete from HINH_ANH_SP where MaSP = ?";
+        String sql = "UPDATE BARCODE" +" SET TinhTrang = 0" +" WHERE msHinh=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dao.getMsHinh());
         return ps.executeUpdate() > 0;
@@ -41,13 +41,14 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
     @Override
     public HinhAnhSP find(HinhAnhSP dao) throws Exception {
         String msHinh;
-        String sql = "select * form HINH_ANH_SP where msHinh = ?";
+        String sql = "select * form HINH_ANH_SP where msHinh = ?" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dao.getMsHinh());
         ResultSet rs = ps.executeQuery();
         HinhAnhSP ha = null;
         if (rs.next()) {
-            ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"), rs.getString("đuongdan"), rs.getString("MaSP"));
+            ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"),
+                    rs.getString("đuongdan"), rs.getString("MaSP"));
         }
         return ha;
     }
@@ -55,11 +56,11 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
     @Override
     public ArrayList<HinhAnhSP> getAll() throws Exception {
         ArrayList<HinhAnhSP> lst = new ArrayList<>();
-        String sql = "select * from HINH_ANH_SP";
+        String sql = "select * from HINH_ANH_SP" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
-            HinhAnhSP ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"), rs.getString("đuongdan"), rs.getString("MaSP"));
+            HinhAnhSP ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"), rs.getString("duongdan"), rs.getString("MaSP"));
             lst.add(ha);
         }
         return lst;
