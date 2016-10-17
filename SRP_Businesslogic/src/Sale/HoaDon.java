@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Tien-Dung
  */
-public class HD implements Serializable {
+public class HoaDon implements Serializable {
 
     private String soHD;
     private Date ngayHD;
@@ -24,10 +24,10 @@ public class HD implements Serializable {
     private String maKH;
     private String TinhTrang;
 
-    public HD() {
+    public HoaDon() {
     }
 
-    public HD(String soHD, Date ngayHD, String maNV, int money, String maKH, String TinhTrang) {
+    public HoaDon(String soHD, Date ngayHD, String maNV, int money, String maKH, String TinhTrang) {
         this.soHD = soHD;
         this.ngayHD = ngayHD;
         this.maNV = maNV;
@@ -89,7 +89,10 @@ public class HD implements Serializable {
         return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD
                 + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + TinhTrang + '}';
     }
-
+         void tex(){
+    Ct_Hd_Ban_Hang ct=new Ct_Hd_Ban_Hang();
+    ct.display();  
+     }
     private class Ct_Hd_Ban_Hang {
 
         private String soHD;
@@ -162,6 +165,12 @@ public class HD implements Serializable {
         @Override
         public String toString() {
             return "CT_HD_BH{" + "soHD=" + soHD + ", maSP=" + maSP + ", soLuong=" + soLuong + ", dongiaBan=" + dongiaBan + ", giaKM=" + giaKM + '}';
+        }
+
+        private void display() {
+            Scanner s=new Scanner(System.in);
+            System.out.println("Nhap tien: ");
+            money=s.nextInt();
         }
 
     }
