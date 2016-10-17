@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Phong_ke_hoach;
+package phongkehoach;
 
 import java.io.Serializable;
 import java.util.Objects;
