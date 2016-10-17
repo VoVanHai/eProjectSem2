@@ -20,7 +20,7 @@ public class PhieuXuatKho implements Serializable{
     private String GhiChu;
     private int    TrangThai;
 
-    public PhieuXuatKho(String SoPhieuXK, String MaNV, String MaCuaHanf, String NgayLap, String GhiChu, int TrangThai) {
+    public PhieuXuatKho(String SoPhieuXK, String MaNV, String MaCuaHang, String NgayLap, String GhiChu, int TrangThai) {
         this.SoPhieuXK  = SoPhieuXK;
         this.MaNV       = MaNV;
         this.MaCuaHanf  = MaCuaHanf;

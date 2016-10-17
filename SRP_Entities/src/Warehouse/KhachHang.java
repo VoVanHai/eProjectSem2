@@ -15,7 +15,7 @@ import java.util.Objects;
 public class KhachHang implements Serializable{
     private String MaKH;
     private String TenKH;
-    private String SDT;
+    private String SoDT;
     private String DiaChi;
     private String CongViec;
     private String SoCMND;
@@ -24,10 +24,10 @@ public class KhachHang implements Serializable{
     private String GhiChu;
     private int TrangThai;
 
-    public KhachHang(String MaKH, String TenKH, String SDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) {
+    public KhachHang(String MaKH, String TenKH, String SoDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) {
         this.MaKH       = MaKH;
         this.TenKH      = TenKH;
-        this.SDT        = SDT;
+        this.SoDT        = SoDT;
         this.DiaChi     = DiaChi;
         this.CongViec   = CongViec;
         this.SoCMND     = SoCMND;
@@ -57,11 +57,11 @@ public class KhachHang implements Serializable{
     }
 
     public String getSDT() {
-        return SDT;
+        return SoDT;
     }
 
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setSDT(String SoDT) {
+        this.SoDT = SoDT;
     }
 
     public String getDiaChi() {
@@ -147,7 +147,7 @@ public class KhachHang implements Serializable{
 
     @Override
     public String toString() {
-        return "KHACH_HANG{" + "MaKH=" + MaKH + ", TenKH=" + TenKH + ", SDT=" + SDT + ", DiaChi=" + DiaChi + ", CongViec=" + CongViec + ", SoCMND=" + SoCMND + ", GioiTinh=" + GioiTinh + ", LoaiTK=" + LoaiTK + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "KHACH_HANG{" + "MaKH=" + MaKH + ", TenKH=" + TenKH + ", SDT=" + SoDT + ", DiaChi=" + DiaChi + ", CongViec=" + CongViec + ", SoCMND=" + SoCMND + ", GioiTinh=" + GioiTinh + ", LoaiTK=" + LoaiTK + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
     }
     
     
