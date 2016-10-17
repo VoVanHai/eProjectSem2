@@ -47,7 +47,7 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
     @Override
     public CT_HD_BH find(CT_HD_BH dao) throws Exception {
         String maSP;
-        String sql=" select *from CT_HD_BAN_HANG where soHD= ? ";
+        String sql=" select *from CT_HD_BAN_HANG where soHD= ? " + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql); 
         ps.setString(1, dao.getMaSP());
         ResultSet rs=ps.executeQuery();
@@ -62,7 +62,7 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
     @Override
     public ArrayList<CT_HD_BH> getAll() throws Exception {
         ArrayList<CT_HD_BH> lst = new ArrayList<>();
-        String sql = "select * from CT_HD_BAN_HANG";
+        String sql = "select * from CT_HD_BAN_HANG" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
