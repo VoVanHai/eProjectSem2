@@ -3,40 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Warehouse;
+package repository;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author TrungChi
  */
-public class CTPhieuYCNhapKho {
-    private String  SoPhieuYCNK;
+public class CTPhieuYCXuatKho implements Serializable{
+    private String  SoPhieuYCXK;
     private String  MaSP;
-    private String  TenSP;
     private float   SoLuong;
     private String  GhiChu;
-    private int     TrangThai;
 
-    public CTPhieuYCNhapKho() {
-    }
-
-    public CTPhieuYCNhapKho(String SoPhieuYCNK, String MaSP, String TenSP, float SoLuong, String GhiChu, int TrangThai) {
-        this.SoPhieuYCNK    = SoPhieuYCNK;
+    public CTPhieuYCXuatKho(String SoPhieuYCXK, String MaSP, float SoLuong, String GhiChu) {
+        this.SoPhieuYCXK    = SoPhieuYCXK;
         this.MaSP           = MaSP;
-        this.TenSP          = TenSP;
         this.SoLuong        = SoLuong;
         this.GhiChu         = GhiChu;
-        this.TrangThai      = TrangThai;
     }
 
-    public String getSoPhieuYCNK() {
-        return SoPhieuYCNK;
+    public CTPhieuYCXuatKho() {
     }
 
-    public void setSoPhieuYCNK(String SoPhieuYCNK) {
-        this.SoPhieuYCNK = SoPhieuYCNK;
+    public String getSoPhieuYCXK() {
+        return SoPhieuYCXK;
+    }
+
+    public void setSoPhieuYCXK(String SoPhieuYCXK) {
+        this.SoPhieuYCXK = SoPhieuYCXK;
     }
 
     public String getMaSP() {
@@ -45,14 +42,6 @@ public class CTPhieuYCNhapKho {
 
     public void setMaSP(String MaSP) {
         this.MaSP = MaSP;
-    }
-
-    public String getTenSP() {
-        return TenSP;
-    }
-
-    public void setTenSP(String TenSP) {
-        this.TenSP = TenSP;
     }
 
     public float getSoLuong() {
@@ -71,18 +60,10 @@ public class CTPhieuYCNhapKho {
         this.GhiChu = GhiChu;
     }
 
-    public int getTrangThai() {
-        return TrangThai;
-    }
-
-    public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.SoPhieuYCNK);
+        hash = 67 * hash + Objects.hashCode(this.SoPhieuYCXK);
         return hash;
     }
 
@@ -97,8 +78,8 @@ public class CTPhieuYCNhapKho {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CTPhieuYCNhapKho other = (CTPhieuYCNhapKho) obj;
-        if (!Objects.equals(this.SoPhieuYCNK, other.SoPhieuYCNK)) {
+        final CTPhieuYCXuatKho other = (CTPhieuYCXuatKho) obj;
+        if (!Objects.equals(this.SoPhieuYCXK, other.SoPhieuYCXK)) {
             return false;
         }
         return true;
@@ -106,6 +87,6 @@ public class CTPhieuYCNhapKho {
 
     @Override
     public String toString() {
-        return "CTPhieuYCNhapKho{" + "SoPhieuYCNK=" + SoPhieuYCNK + ", MaSP=" + MaSP + ", TenSP=" + TenSP + ", SoLuong=" + SoLuong + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "CT_PHIEU_YC_XUAT_KHO{" + "SoPhieuYCXK=" + SoPhieuYCXK + ", MaSP=" + MaSP + ", SoLuong=" + SoLuong + ", GhiChu=" + GhiChu + '}';
     }
 }
