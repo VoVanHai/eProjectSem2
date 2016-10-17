@@ -15,14 +15,13 @@ public class HinhAnhSP implements Serializable{
     private int msHinh;
     private String tenHinh;
     private String duongdan;
+    private String MaSP;
 
-    public HinhAnhSP() {
-    }
-
-    public HinhAnhSP(int msHinh, String tenHinh, String duongdan) {
+    public HinhAnhSP(int msHinh, String tenHinh, String duongdan, String MaSP) {
         this.msHinh = msHinh;
         this.tenHinh = tenHinh;
         this.duongdan = duongdan;
+        this.MaSP = MaSP;
     }
 
     public int getMsHinh() {
@@ -49,10 +48,18 @@ public class HinhAnhSP implements Serializable{
         this.duongdan = duongdan;
     }
 
+    public String getMaSP() {
+        return MaSP;
+    }
+
+    public void setMaSP(String MaSP) {
+        this.MaSP = MaSP;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + this.msHinh;
+        hash = 83 * hash + this.msHinh;
         return hash;
     }
 
@@ -76,7 +83,8 @@ public class HinhAnhSP implements Serializable{
 
     @Override
     public String toString() {
-        return "HinhAnhSP{" + "msHinh=" + msHinh + ", tenHinh=" + tenHinh + ", duongdan=" + duongdan + '}';
+        return "HinhAnhSP{" + "msHinh=" + msHinh + ", tenHinh=" + tenHinh + ", duongdan=" + duongdan + ", MaSP=" + MaSP + '}';
     }
+
     
 }
