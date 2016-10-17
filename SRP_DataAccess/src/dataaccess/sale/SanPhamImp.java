@@ -26,21 +26,17 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean add(SanPham dao) throws Exception {
-        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         ps.setString(2, dao.getTenSP());
         ps.setString(3, dao.getMotaSP());
         ps.setString(4, dao.getMaNCC());
-        ps.setString(5, dao.getKhoiLuong());
-        ps.setString(6, dao.getKichThuocSP());
-        ps.setString(7, dao.getMauSac());
-        ps.setString(8, dao.getThanhPhan());
-        ps.setString(9, dao.getNhaSX());
-        ps.setDate(10, dao.getNgaySX());
-        ps.setDate(11, dao.getHanSuDung());
-        ps.setInt(12, dao.getHinhAnh());
-        ps.setInt(13, dao.getTinhTrang());
+        ps.setString(5, dao.getNhaSX());
+        ps.setString(6, dao.getHinhAnh());
+        ps.setDate(7, dao.getNgaySX());
+        ps.setDate(8, dao.getHanSuDung());
+        ps.setInt(9, dao.getTrangThai());
 
         return ps.executeUpdate() > 0;
 
@@ -56,24 +52,21 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean update(SanPham dao) throws Exception {
-        String sql = "update SAN_PHAM set TenSP =? , MotaSP =? , MaNCC = ? , KhoiLuong = ? ,KichThuocSP = ? , MauSac=?, ThanhPhan=?,NhaSX =?,NgaySX=?,HanSuDung = ? ,HinhAnh=?,TinhTrang = ? " + " where MaSP=?";
+        String sql = "update SAN_PHAM set TenSP =? , MotaSP =? , MaNCC = ? ,NhaSX =?,HinhAnh=?,NgaySX=?,HanSuDung = ? ,TinhTrang = ? " + " where MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getTenSP());
         ps.setString(2, dao.getMotaSP());
         ps.setString(3, dao.getMaNCC());
-        ps.setString(4, dao.getKhoiLuong());
-        ps.setString(5, dao.getKichThuocSP());
-        ps.setString(6, dao.getMauSac());
-        ps.setString(7, dao.getThanhPhan());
-        ps.setString(8, dao.getNhaSX());
-        ps.setDate(9, dao.getNgaySX());
-        ps.setDate(10, dao.getHanSuDung());
-        ps.setInt(11, dao.getHinhAnh());
-        ps.setInt(12, dao.getTinhTrang());
-        ps.setString(13, dao.getMaSP());
-        return ps.executeUpdate() > 0;
-    }
+        ps.setString(4, dao.getNhaSX());
+        ps.setString(5, dao.getHinhAnh());
+        ps.setDate(6, dao.getNgaySX());
+        ps.setDate(7, dao.getHanSuDung());
+        ps.setInt(8, dao.getTrangThai());
+        ps.setString(9, dao.getMaSP());
     
+        return ps.executeUpdate() > 0;
+    
+    }
     @Override
     public SanPham find(SanPham dao) throws Exception {
         String MaSP;
@@ -86,16 +79,12 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
             sp = new SanPham(rs.getString("MaSP"), 
                     rs.getString("TenSP"), 
                     rs.getString("MotaSP"), 
-                    rs.getString("NhaCC"), 
-                    rs.getString("KhoiLuong"), 
-                    rs.getString("KichThuocSP"), 
-                    rs.getString("MauSac"),
-                    rs.getString("ThanhPhan"),
-                    rs.getString("MaNSX"),
+                    rs.getString("MaNCC"), 
+                    rs.getString("NhaSX"),
+                    rs.getString("HinhAnh"),
                     rs.getDate("NgaySX"),
                     rs.getDate("HanSuDung"),
-                    rs.getInt("HinhAnh"), 
-                    rs.getInt("TinhTrang"));
+                    rs.getInt("TrangThai"));
         }
         return sp;
     }
@@ -110,16 +99,12 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
             SanPham sp = new SanPham(rs.getString("MaSP"), 
                     rs.getString("TenSP"), 
                     rs.getString("MotaSP"), 
-                    rs.getString("NhaCC"),
-                    rs.getString("KhoiLuong"),
-                    rs.getString("KichThuocSP"),
-                    rs.getString("MauSac"),
-                    rs.getString("ThanhPhan"),
-                    rs.getString("MaNSX"), 
+                    rs.getString("MaNCC"), 
+                    rs.getString("NhaSX"),
+                    rs.getString("HinhAnh"),
                     rs.getDate("NgaySX"),
                     rs.getDate("HanSuDung"),
-                    rs.getInt("HinhAnh"),
-                    rs.getInt("TinhTrang"));
+                    rs.getInt("TrangThai"));
             lst.add(sp);
         }
         return lst;
