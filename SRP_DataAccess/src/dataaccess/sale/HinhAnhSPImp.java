@@ -32,7 +32,7 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
 
     @Override
     public boolean remove(HinhAnhSP dao) throws Exception {
-        String sql = "delete from HINH_ANH_SP where MaSP = ?";
+        String sql = "delete from HINH_ANH_SP where msHinh = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dao.getMsHinh());
         return ps.executeUpdate() > 0;
@@ -47,7 +47,8 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
         ResultSet rs = ps.executeQuery();
         HinhAnhSP ha = null;
         if (rs.next()) {
-            ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"), rs.getString("đuongdan"), rs.getString("MaSP"));
+            ha = new HinhAnhSP(rs.getInt("msHinh"),rs.getString("tenHinh"),
+                    rs.getString("đuongdan"), rs.getString("MaSP"));
         }
         return ha;
     }
