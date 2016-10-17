@@ -32,7 +32,7 @@ public class HinhAnhSPImp implements NhomBanHangDAO<HinhAnhSP>{
 
     @Override
     public boolean remove(HinhAnhSP dao) throws Exception {
-        String sql = "delete from HINH_ANH_SP where msHinh = ?";
+        String sql = "UPDATE BARCODE" +" SET TinhTrang = 0" +" WHERE msHinh=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, dao.getMsHinh());
         return ps.executeUpdate() > 0;

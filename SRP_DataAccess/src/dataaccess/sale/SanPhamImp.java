@@ -48,7 +48,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean remove(SanPham dao) throws Exception {
-        String sql = "delete from SAN_PHAM where MaSP =?";
+        String sql = "UPDATE SAN_PHAM" +" SET TinhTrang = 0" +" WHERE MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         return ps.executeUpdate() > 0;

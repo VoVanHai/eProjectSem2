@@ -40,7 +40,7 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
 
     @Override
     public boolean remove(Barcode dao) throws Exception {
-        String sql = "delete from BARCODE where barcode = ?";
+        String sql = "UPDATE BARCODE" +" SET TinhTrang = 0" +" WHERE barcode=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getBarcode());
         return ps.executeUpdate() > 0;
