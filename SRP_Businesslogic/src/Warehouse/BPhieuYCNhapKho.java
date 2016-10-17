@@ -60,6 +60,7 @@ public class BPhieuYCNhapKho extends Bussiness{
             if(rs.next() && rs.getFloat("SoLuong") >= 0)
             {
                 SoLuong += rs.getFloat("SoLuong");
+                
             }
         } catch (Exception e) {
         }

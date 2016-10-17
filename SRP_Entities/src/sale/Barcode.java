@@ -3,28 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Phong_ke_hoach;
+package sale;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
- * @author WIN7
+ * @author VINH MARK
  */
-public class TK_Dang_Nhap implements Serializable{
+public class Barcode implements Serializable{
+    private String barcode;
+    private String MaSP;
     private String MaNV;
-    private String TenTK;
-    private int MatKhau;
     private String GhiChu;
     private int TrangThai;
 
-    public TK_Dang_Nhap(String MaNV, String TenTK, int MatKhau, String GhiChu, int TrangThai) {
+    public Barcode(String barcode, String MaSP, String MaNV, String GhiChu, int TrangThai) {
+        this.barcode = barcode;
+        this.MaSP = MaSP;
         this.MaNV = MaNV;
-        this.TenTK = TenTK;
-        this.MatKhau = MatKhau;
         this.GhiChu = GhiChu;
         this.TrangThai = TrangThai;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public String getMaSP() {
+        return MaSP;
+    }
+
+    public void setMaSP(String MaSP) {
+        this.MaSP = MaSP;
     }
 
     public String getMaNV() {
@@ -33,22 +49,6 @@ public class TK_Dang_Nhap implements Serializable{
 
     public void setMaNV(String MaNV) {
         this.MaNV = MaNV;
-    }
-
-    public String getTenTK() {
-        return TenTK;
-    }
-
-    public void setTenTK(String TenTK) {
-        this.TenTK = TenTK;
-    }
-
-    public int getMatKhau() {
-        return MatKhau;
-    }
-
-    public void setMatKhau(int MatKhau) {
-        this.MatKhau = MatKhau;
     }
 
     public String getGhiChu() {
@@ -69,9 +69,8 @@ public class TK_Dang_Nhap implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.MaNV);
-        hash = 89 * hash + Objects.hashCode(this.TenTK);
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.barcode);
         return hash;
     }
 
@@ -86,20 +85,16 @@ public class TK_Dang_Nhap implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final TK_Dang_Nhap other = (TK_Dang_Nhap) obj;
-        if (!Objects.equals(this.MaNV, other.MaNV)) {
-            return false;
-        }
-        if (!Objects.equals(this.TenTK, other.TenTK)) {
+        final Barcode other = (Barcode) obj;
+        if (!Objects.equals(this.barcode, other.barcode)) {
             return false;
         }
         return true;
     }
 
-
     @Override
     public String toString() {
-        return "TK_Dang_Nhap{" + "MaNV=" + MaNV + ", TenTK=" + TenTK + ", MatKhau=" + MatKhau + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Barcode{" + "barcode=" + barcode + ", MaSP=" + MaSP + ", MaNV=" + MaNV + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
     }
     
 }
