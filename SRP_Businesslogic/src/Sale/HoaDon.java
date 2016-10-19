@@ -8,6 +8,7 @@ package Sale;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -89,10 +90,7 @@ public class HoaDon implements Serializable {
         return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD
                 + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + TinhTrang + '}';
     }
-         void tex(){
-    Ct_Hd_Ban_Hang ct=new Ct_Hd_Ban_Hang();
-    ct.display();  
-     }
+    ArrayList<Ct_Hd_Ban_Hang> cthd=new ArrayList<>();
     private class Ct_Hd_Ban_Hang {
 
         private String soHD;
