@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author Tien-Dung
  */
-public class HDImp implements NhomBanHangDAO<HD>{
+public class HDImp implements NhomBanHangDAO<HoaDon>{
     
     private Connection con;
 
@@ -78,7 +78,7 @@ public class HDImp implements NhomBanHangDAO<HD>{
     }
 
     @Override
-    public boolean update(HD dao) throws Exception {
+    public boolean update(HoaDon dao) throws Exception {
         String sql = "update HD_BAN_HANG set soHD = ? ,ngayHD = ? , maNV = ?, money=?, maKH=?,tinhTrang=?"
                 + " where soHD = ?";
         PreparedStatement ps = con.prepareStatement(sql);
