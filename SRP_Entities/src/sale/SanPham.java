@@ -18,25 +18,34 @@ public class SanPham implements Serializable{
     private String TenSP;
     private String MotaSP;
     private String MaNCC;
+    private String KhoiLuong;
+    private String KichThuocSP;
+    private String MauSac;
+    private String ThanhPhan;
     private String NhaSX;
-    private String HinhAnh;
     private Date NgaySX;
     private Date HanSuDung;
-    private int TrangThai;
+    private int HinhAnh;
+    private int TinhTrang;
 
-    public SanPham(String MaSP, String TenSP, String MotaSP, String MaNCC, String NhaSX, String HinhAnh, Date NgaySX, Date HanSuDung, int TrangThai) {
+    public SanPham() {
+    }
+
+    public SanPham(String MaSP, String TenSP, String MotaSP, String NhaCC, String KhoiLuong, String KichThuocSp, String MauSac, String ThanhPhan, String MaNSX, Date NgaySX, Date HanSuDung, int HinhAnh, int TinhTrang) {
         this.MaSP = MaSP;
         this.TenSP = TenSP;
         this.MotaSP = MotaSP;
         this.MaNCC = MaNCC;
+        this.KhoiLuong = KhoiLuong;
+        this.KichThuocSP = KichThuocSp;
+        this.MauSac = MauSac;
+        this.ThanhPhan = ThanhPhan;
         this.NhaSX = NhaSX;
-        this.HinhAnh = HinhAnh;
         this.NgaySX = NgaySX;
         this.HanSuDung = HanSuDung;
-        this.TrangThai = TrangThai;
+        this.HinhAnh = HinhAnh;
+        this.TinhTrang = TinhTrang;
     }
-
-    
 
     public String getMaSP() {
         return MaSP;
@@ -66,8 +75,40 @@ public class SanPham implements Serializable{
         return MaNCC;
     }
 
-    public void setMaNCC(String MaNCC) {
+    public void setNhaCC(String MaNCC) {
         this.MaNCC = MaNCC;
+    }
+
+    public String getKhoiLuong() {
+        return KhoiLuong;
+    }
+
+    public void setKhoiLuong(String KhoiLuong) {
+        this.KhoiLuong = KhoiLuong;
+    }
+
+    public String getKichThuocSP() {
+        return KichThuocSP;
+    }
+
+    public void setKichThuocSP(String KichThuocSp) {
+        this.KichThuocSP = KichThuocSp;
+    }
+
+    public String getMauSac() {
+        return MauSac;
+    }
+
+    public void setMauSac(String MauSac) {
+        this.MauSac = MauSac;
+    }
+
+    public String getThanhPhan() {
+        return ThanhPhan;
+    }
+
+    public void setThanhPhan(String ThanhPhan) {
+        this.ThanhPhan = ThanhPhan;
     }
 
     public String getNhaSX() {
@@ -76,14 +117,6 @@ public class SanPham implements Serializable{
 
     public void setNhaSX(String NhaSX) {
         this.NhaSX = NhaSX;
-    }
-
-    public String getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(String HinhAnh) {
-        this.HinhAnh = HinhAnh;
     }
 
     public Date getNgaySX() {
@@ -102,18 +135,26 @@ public class SanPham implements Serializable{
         this.HanSuDung = HanSuDung;
     }
 
-    public int getTrangThai() {
-        return TrangThai;
+    public int getHinhAnh() {
+        return HinhAnh;
     }
 
-    public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+    public void setHinhAnh(int HinhAnh) {
+        this.HinhAnh = HinhAnh;
+    }
+
+    public int getTinhTrang() {
+        return TinhTrang;
+    }
+
+    public void setTinhTrang(int TinhTrang) {
+        this.TinhTrang = TinhTrang;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.MaSP);
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.MaSP);
         return hash;
     }
 
@@ -137,8 +178,7 @@ public class SanPham implements Serializable{
 
     @Override
     public String toString() {
-        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", MotaSP=" + MotaSP + ", MaNCC=" + MaNCC + ", NhaSX=" + NhaSX + ", HinhAnh=" + HinhAnh + ", NgaySX=" + NgaySX + ", HanSuDung=" + HanSuDung + ", TrangThai=" + TrangThai + '}';
+        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", MotaSP=" + MotaSP + ", NhaCC=" + MaNCC + ", KhoiLuong=" + KhoiLuong + ", KichThuocSp=" + KichThuocSP + ", MauSac=" + MauSac + ", ThanhPhan=" + ThanhPhan + ", NhaSX=" + NhaSX + ", NgaySX=" + NgaySX + ", HanSuDung=" + HanSuDung + ", HinhAnh=" + HinhAnh + ", TinhTrang=" + TinhTrang + '}';
     }
-
     
 }
