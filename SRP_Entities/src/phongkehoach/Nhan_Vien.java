@@ -6,6 +6,7 @@
 package phongkehoach;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -24,8 +25,10 @@ public class Nhan_Vien implements Serializable{
     private String MaPB;
     private String GhiChu;
     private int TrangThai;
+    private Date NgaySinh;
+    private Date NgayBDLamViec;
 
-    public Nhan_Vien(String MaNV, String TenNV, String SDT, String DiaChi, String SoCMND, String QueQuan, String Email, String MaCV, String MaPB, String GhiChu, int TrangThai) {
+    public Nhan_Vien(String MaNV, String TenNV, String SDT, String DiaChi, String SoCMND, String QueQuan, String Email, String MaCV, String MaPB, String GhiChu, int TrangThai, Date NgaySinh, Date NgayBDLamViec) {
         this.MaNV = MaNV;
         this.TenNV = TenNV;
         this.SDT = SDT;
@@ -37,6 +40,8 @@ public class Nhan_Vien implements Serializable{
         this.MaPB = MaPB;
         this.GhiChu = GhiChu;
         this.TrangThai = TrangThai;
+        this.NgaySinh = NgaySinh;
+        this.NgayBDLamViec = NgayBDLamViec;
     }
 
     public String getMaNV() {
@@ -127,10 +132,26 @@ public class Nhan_Vien implements Serializable{
         this.TrangThai = TrangThai;
     }
 
+    public Date getNgaySinh() {
+        return NgaySinh;
+    }
+
+    public void setNgaySinh(Date NgaySinh) {
+        this.NgaySinh = NgaySinh;
+    }
+
+    public Date getNgayBDLamViec() {
+        return NgayBDLamViec;
+    }
+
+    public void setNgayBDLamViec(Date NgayBDLamViec) {
+        this.NgayBDLamViec = NgayBDLamViec;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.MaNV);
+        int hash = 5;
+        hash = 31 * hash + Objects.hashCode(this.MaNV);
         return hash;
     }
 
@@ -154,7 +175,9 @@ public class Nhan_Vien implements Serializable{
 
     @Override
     public String toString() {
-        return "Nhan_Vien{" + "MaNV=" + MaNV + ", TenNV=" + TenNV + ", SDT=" + SDT + ", DiaChi=" + DiaChi + ", SoCMND=" + SoCMND + ", QueQuan=" + QueQuan + ", Email=" + Email + ", MaCV=" + MaCV + ", MaPB=" + MaPB + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Nhan_Vien{" + "MaNV=" + MaNV + ", TenNV=" + TenNV + ", SDT=" + SDT + ", DiaChi=" + DiaChi + ", SoCMND=" + SoCMND + ", QueQuan=" + QueQuan + ", Email=" + Email + ", MaCV=" + MaCV + ", MaPB=" + MaPB + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + ", NgaySinh=" + NgaySinh + ", NgayBDLamViec=" + NgayBDLamViec + '}';
     }
+
+    
     
 }
