@@ -14,46 +14,46 @@ import java.util.Objects;
  * @author WIN7
  */
 public class CT_Chuong_Trinh_KM implements Serializable{
-    private String MaSP;
-    private float  PhanTramKM;
-    private String GhiChu;
+    private String maSP;
+    private float  phanTramKM;
+    private String ghiChu;
     private ArrayList<Chuong_Trinh_KM> ctctkm;
 
     public CT_Chuong_Trinh_KM(String MaSP, float PhanTramKM, String GhiChu) {
-        this.MaSP = MaSP;
-        this.PhanTramKM = PhanTramKM;
-        this.GhiChu = GhiChu;
+        this.maSP = MaSP;
+        this.phanTramKM = PhanTramKM;
+        this.ghiChu = GhiChu;
         ctctkm = new ArrayList<>();
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
+        this.maSP = MaSP;
     }
 
     public float getPhanTramKM() {
-        return PhanTramKM;
+        return phanTramKM;
     }
 
     public void setPhanTramKM(float PhanTramKM) {
-        this.PhanTramKM = PhanTramKM;
+        this.phanTramKM = PhanTramKM;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.MaSP);
+        hash = 37 * hash + Objects.hashCode(this.maSP);
         return hash;
     }
 
@@ -69,7 +69,7 @@ public class CT_Chuong_Trinh_KM implements Serializable{
             return false;
         }
         final CT_Chuong_Trinh_KM other = (CT_Chuong_Trinh_KM) obj;
-        if (!Objects.equals(this.MaSP, other.MaSP)) {
+        if (!Objects.equals(this.maSP, other.maSP)) {
             return false;
         }
         return true;
@@ -77,7 +77,7 @@ public class CT_Chuong_Trinh_KM implements Serializable{
 
     @Override
     public String toString() {
-        return "CT_Chuong_Trinh_KM{" + "MaSP=" + MaSP + ", PhanTramKM=" + PhanTramKM + ", GhiChu=" + GhiChu + ", ctctkm=" + ctctkm + '}';
+        return "CT_Chuong_Trinh_KM{" + "MaSP=" + maSP + ", PhanTramKM=" + phanTramKM + ", GhiChu=" + ghiChu + ", ctctkm=" + ctctkm + '}';
     }
     
     

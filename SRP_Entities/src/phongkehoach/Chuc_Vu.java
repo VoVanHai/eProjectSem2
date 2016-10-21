@@ -13,54 +13,54 @@ import java.util.Objects;
  * @author WIN7
  */
 public class Chuc_Vu implements Serializable{
-    private String MaCV;
-    private String TenCV;
-    private String GhiChu;
-    private int TrangThai;
+    private String maCV;
+    private String tenCV;
+    private String ghiChu;
+    private int trangThai;
 
     public Chuc_Vu(String MaCV, String TenCV, String GhiChu, int TrangThai) {
-        this.MaCV = MaCV;
-        this.TenCV = TenCV;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.maCV = MaCV;
+        this.tenCV = TenCV;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
     }
 
     public String getMaCV() {
-        return MaCV;
+        return maCV;
     }
 
     public void setMaCV(String MaCV) {
-        this.MaCV = MaCV;
+        this.maCV = MaCV;
     }
 
     public String getTenCV() {
-        return TenCV;
+        return tenCV;
     }
 
     public void setTenCV(String TenCV) {
-        this.TenCV = TenCV;
+        this.tenCV = TenCV;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.MaCV);
+        hash = 97 * hash + Objects.hashCode(this.maCV);
         return hash;
     }
 
@@ -76,7 +76,7 @@ public class Chuc_Vu implements Serializable{
             return false;
         }
         final Chuc_Vu other = (Chuc_Vu) obj;
-        if (!Objects.equals(this.MaCV, other.MaCV)) {
+        if (!Objects.equals(this.maCV, other.maCV)) {
             return false;
         }
         return true;
@@ -84,7 +84,7 @@ public class Chuc_Vu implements Serializable{
 
     @Override
     public String toString() {
-        return "Chuc_Vu{" + "MaCV=" + MaCV + ", TenCV=" + TenCV + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Chuc_Vu{" + "MaCV=" + maCV + ", TenCV=" + tenCV + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }

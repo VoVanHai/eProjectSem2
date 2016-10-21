@@ -13,74 +13,74 @@ import java.sql.Date;
  * @author WIN7
  */
 public class Chuong_Trinh_KM implements Serializable{
-    private int MaCT;
-    private String TenCT;
-    private Date NgayBD;
-    private Date NgayKT;
-    private String GhiChu;
-    private int TinhTrang;
+    private int maCT;
+    private String tenCT;
+    private Date ngayBD;
+    private Date ngayKT;
+    private String ghiChu;
+    private int tinhTrang;
 
     public Chuong_Trinh_KM(int MaCT, String TenCT, Date NgayBD, Date NgayKT, String GhiChu, int TinhTrang) {
-        this.MaCT = MaCT;
-        this.TenCT = TenCT;
-        this.NgayBD = NgayBD;
-        this.NgayKT = NgayKT;
-        this.GhiChu = GhiChu;
-        this.TinhTrang = TinhTrang;
+        this.maCT = MaCT;
+        this.tenCT = TenCT;
+        this.ngayBD = NgayBD;
+        this.ngayKT = NgayKT;
+        this.ghiChu = GhiChu;
+        this.tinhTrang = TinhTrang;
     }
 
     public int getMaCT() {
-        return MaCT;
+        return maCT;
     }
 
     public void setMaCT(int MaCT) {
-        this.MaCT = MaCT;
+        this.maCT = MaCT;
     }
 
     public String getTenCT() {
-        return TenCT;
+        return tenCT;
     }
 
     public void setTenCT(String TenCT) {
-        this.TenCT = TenCT;
+        this.tenCT = TenCT;
     }
 
     public Date getNgayBD() {
-        return NgayBD;
+        return ngayBD;
     }
 
     public void setNgayBD(Date NgayBD) {
-        this.NgayBD = NgayBD;
+        this.ngayBD = NgayBD;
     }
 
     public Date getNgayKT() {
-        return NgayKT;
+        return ngayKT;
     }
 
     public void setNgayKT(Date NgayKT) {
-        this.NgayKT = NgayKT;
+        this.ngayKT = NgayKT;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTinhTrang() {
-        return TinhTrang;
+        return tinhTrang;
     }
 
     public void setTinhTrang(int TinhTrang) {
-        this.TinhTrang = TinhTrang;
+        this.tinhTrang = TinhTrang;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + this.MaCT;
+        hash = 83 * hash + this.maCT;
         return hash;
     }
 
@@ -96,7 +96,7 @@ public class Chuong_Trinh_KM implements Serializable{
             return false;
         }
         final Chuong_Trinh_KM other = (Chuong_Trinh_KM) obj;
-        if (this.MaCT != other.MaCT) {
+        if (this.maCT != other.maCT) {
             return false;
         }
         return true;
@@ -104,7 +104,7 @@ public class Chuong_Trinh_KM implements Serializable{
 
     @Override
     public String toString() {
-        return "Chuong_Trinh_KM{" + "MaCT=" + MaCT + ", TenCT=" + TenCT + ", NgayBD=" + NgayBD + ", NgayKT=" + NgayKT + ", GhiChu=" + GhiChu + ", TinhTrang=" + TinhTrang + '}';
+        return "Chuong_Trinh_KM{" + "MaCT=" + maCT + ", TenCT=" + tenCT + ", NgayBD=" + ngayBD + ", NgayKT=" + ngayKT + ", GhiChu=" + ghiChu + ", TinhTrang=" + tinhTrang + '}';
     }
     
 }

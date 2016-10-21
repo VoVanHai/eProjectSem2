@@ -14,144 +14,144 @@ import java.util.Objects;
  * @author WIN7
  */
 public class Nhan_Vien implements Serializable{
-    private String MaNV;
-    private String TenNV;
-    private String SDT;
-    private String DiaChi;
-    private String SoCMND;
-    private String QueQuan;
-    private String Email;
-    private String MaCV;
-    private String MaPB;
-    private String GhiChu;
-    private int TrangThai;
-    private Date NgaySinh;
-    private Date NgayBDLamViec;
+    private String maNV;
+    private String tenNV;
+    private String sDT;
+    private String diaChi;
+    private String soCMND;
+    private String queQuan;
+    private String email;
+    private String maCV;
+    private String maPB;
+    private String ghiChu;
+    private int trangThai;
+    private Date ngaySinh;
+    private Date ngayBDLamViec;
 
     public Nhan_Vien(String MaNV, String TenNV, String SDT, String DiaChi, String SoCMND, String QueQuan, String Email, String MaCV, String MaPB, String GhiChu, int TrangThai, Date NgaySinh, Date NgayBDLamViec) {
-        this.MaNV = MaNV;
-        this.TenNV = TenNV;
-        this.SDT = SDT;
-        this.DiaChi = DiaChi;
-        this.SoCMND = SoCMND;
-        this.QueQuan = QueQuan;
-        this.Email = Email;
-        this.MaCV = MaCV;
-        this.MaPB = MaPB;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
-        this.NgaySinh = NgaySinh;
-        this.NgayBDLamViec = NgayBDLamViec;
+        this.maNV = MaNV;
+        this.tenNV = TenNV;
+        this.sDT = SDT;
+        this.diaChi = DiaChi;
+        this.soCMND = SoCMND;
+        this.queQuan = QueQuan;
+        this.email = Email;
+        this.maCV = MaCV;
+        this.maPB = MaPB;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
+        this.ngaySinh = NgaySinh;
+        this.ngayBDLamViec = NgayBDLamViec;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+        this.maNV = MaNV;
     }
 
     public String getTenNV() {
-        return TenNV;
+        return tenNV;
     }
 
     public void setTenNV(String TenNV) {
-        this.TenNV = TenNV;
+        this.tenNV = TenNV;
     }
 
     public String getSDT() {
-        return SDT;
+        return sDT;
     }
 
     public void setSDT(String SDT) {
-        this.SDT = SDT;
+        this.sDT = SDT;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
+        this.diaChi = DiaChi;
     }
 
     public String getSoCMND() {
-        return SoCMND;
+        return soCMND;
     }
 
     public void setSoCMND(String SoCMND) {
-        this.SoCMND = SoCMND;
+        this.soCMND = SoCMND;
     }
 
     public String getQueQuan() {
-        return QueQuan;
+        return queQuan;
     }
 
     public void setQueQuan(String QueQuan) {
-        this.QueQuan = QueQuan;
+        this.queQuan = QueQuan;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public String getMaCV() {
-        return MaCV;
+        return maCV;
     }
 
     public void setMaCV(String MaCV) {
-        this.MaCV = MaCV;
+        this.maCV = MaCV;
     }
 
     public String getMaPB() {
-        return MaPB;
+        return maPB;
     }
 
     public void setMaPB(String MaPB) {
-        this.MaPB = MaPB;
+        this.maPB = MaPB;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     public Date getNgaySinh() {
-        return NgaySinh;
+        return ngaySinh;
     }
 
     public void setNgaySinh(Date NgaySinh) {
-        this.NgaySinh = NgaySinh;
+        this.ngaySinh = NgaySinh;
     }
 
     public Date getNgayBDLamViec() {
-        return NgayBDLamViec;
+        return ngayBDLamViec;
     }
 
     public void setNgayBDLamViec(Date NgayBDLamViec) {
-        this.NgayBDLamViec = NgayBDLamViec;
+        this.ngayBDLamViec = NgayBDLamViec;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.MaNV);
+        hash = 31 * hash + Objects.hashCode(this.maNV);
         return hash;
     }
 
@@ -167,7 +167,7 @@ public class Nhan_Vien implements Serializable{
             return false;
         }
         final Nhan_Vien other = (Nhan_Vien) obj;
-        if (!Objects.equals(this.MaNV, other.MaNV)) {
+        if (!Objects.equals(this.maNV, other.maNV)) {
             return false;
         }
         return true;
@@ -175,7 +175,7 @@ public class Nhan_Vien implements Serializable{
 
     @Override
     public String toString() {
-        return "Nhan_Vien{" + "MaNV=" + MaNV + ", TenNV=" + TenNV + ", SDT=" + SDT + ", DiaChi=" + DiaChi + ", SoCMND=" + SoCMND + ", QueQuan=" + QueQuan + ", Email=" + Email + ", MaCV=" + MaCV + ", MaPB=" + MaPB + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + ", NgaySinh=" + NgaySinh + ", NgayBDLamViec=" + NgayBDLamViec + '}';
+        return "Nhan_Vien{" + "MaNV=" + maNV + ", TenNV=" + tenNV + ", SDT=" + sDT + ", DiaChi=" + diaChi + ", SoCMND=" + soCMND + ", QueQuan=" + queQuan + ", Email=" + email + ", MaCV=" + maCV + ", MaPB=" + maPB + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + ", NgaySinh=" + ngaySinh + ", NgayBDLamViec=" + ngayBDLamViec + '}';
     }
 
     

@@ -14,74 +14,74 @@ import java.util.Objects;
  * @author WIN7
  */
 public class Phieu_Mua_Hang implements Serializable{
-    private String SoPhieu;
-    private String MaNV;
-    private String MaNCC;
-    private Date NgayLapPhieu;
-    private String GhiChu;
-    private int TrangThai;
+    private String soPhieu;
+    private String maNV;
+    private String maNCC;
+    private Date ngayLapPhieu;
+    private String ghiChu;
+    private int trangThai;
 
     public Phieu_Mua_Hang(String SoPhieu, String MaNV, String MaNCC, Date NgayLapPhieu, String GhiChu, int TrangThai) {
-        this.SoPhieu = SoPhieu;
-        this.MaNV = MaNV;
-        this.MaNCC = MaNCC;
-        this.NgayLapPhieu = NgayLapPhieu;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.soPhieu = SoPhieu;
+        this.maNV = MaNV;
+        this.maNCC = MaNCC;
+        this.ngayLapPhieu = NgayLapPhieu;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
     }
 
     public String getSoPhieu() {
-        return SoPhieu;
+        return soPhieu;
     }
 
     public void setSoPhieu(String SoPhieu) {
-        this.SoPhieu = SoPhieu;
+        this.soPhieu = SoPhieu;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+        this.maNV = MaNV;
     }
 
     public String getMaNCC() {
-        return MaNCC;
+        return maNCC;
     }
 
     public void setMaNCC(String MaNCC) {
-        this.MaNCC = MaNCC;
+        this.maNCC = MaNCC;
     }
 
     public Date getNgayLapPhieu() {
-        return NgayLapPhieu;
+        return ngayLapPhieu;
     }
 
     public void setNgayLapPhieu(Date NgayLapPhieu) {
-        this.NgayLapPhieu = NgayLapPhieu;
+        this.ngayLapPhieu = NgayLapPhieu;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.SoPhieu);
+        hash = 67 * hash + Objects.hashCode(this.soPhieu);
         return hash;
     }
 
@@ -97,7 +97,7 @@ public class Phieu_Mua_Hang implements Serializable{
             return false;
         }
         final Phieu_Mua_Hang other = (Phieu_Mua_Hang) obj;
-        if (!Objects.equals(this.SoPhieu, other.SoPhieu)) {
+        if (!Objects.equals(this.soPhieu, other.soPhieu)) {
             return false;
         }
         return true;
@@ -105,7 +105,7 @@ public class Phieu_Mua_Hang implements Serializable{
 
     @Override
     public String toString() {
-        return "Phieu_Mua_Hang{" + "SoPhieu=" + SoPhieu + ", MaNV=" + MaNV + ", MaNCC=" + MaNCC + ", NgayLapPhieu=" + NgayLapPhieu + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Phieu_Mua_Hang{" + "SoPhieu=" + soPhieu + ", MaNV=" + maNV + ", MaNCC=" + maNCC + ", NgayLapPhieu=" + ngayLapPhieu + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }

@@ -14,46 +14,46 @@ import java.util.Objects;
  * @author WIN7
  */
 public class CT_Phieu_Mua_Hang implements Serializable{
-    private String MaSP;
-    private String TenSP;
-    private int SoLuong;
+    private String maSP;
+    private String tenSP;
+    private int soLuong;
     private ArrayList<Phieu_Mua_Hang> ctpmh;
 
     public CT_Phieu_Mua_Hang(String MaSP, String TenSP, int SoLuong) {
-        this.MaSP = MaSP;
-        this.TenSP = TenSP;
-        this.SoLuong = SoLuong;
+        this.maSP = MaSP;
+        this.tenSP = TenSP;
+        this.soLuong = SoLuong;
         ctpmh= new ArrayList<>();
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
+        this.maSP = MaSP;
     }
 
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
     }
 
     public void setTenSP(String TenSP) {
-        this.TenSP = TenSP;
+        this.tenSP = TenSP;
     }
 
     public int getSoLuong() {
-        return SoLuong;
+        return soLuong;
     }
 
     public void setSoLuong(int SoLuong) {
-        this.SoLuong = SoLuong;
+        this.soLuong = SoLuong;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.MaSP);
+        hash = 29 * hash + Objects.hashCode(this.maSP);
         return hash;
     }
 
@@ -69,7 +69,7 @@ public class CT_Phieu_Mua_Hang implements Serializable{
             return false;
         }
         final CT_Phieu_Mua_Hang other = (CT_Phieu_Mua_Hang) obj;
-        if (!Objects.equals(this.MaSP, other.MaSP)) {
+        if (!Objects.equals(this.maSP, other.maSP)) {
             return false;
         }
         return true;
@@ -77,7 +77,7 @@ public class CT_Phieu_Mua_Hang implements Serializable{
 
     @Override
     public String toString() {
-        return "CT_Phieu_Mua_Hang{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", SoLuong=" + SoLuong + ", ctpmh=" + ctpmh + '}';
+        return "CT_Phieu_Mua_Hang{" + "MaSP=" + maSP + ", TenSP=" + tenSP + ", SoLuong=" + soLuong + ", ctpmh=" + ctpmh + '}';
     }
     
     
