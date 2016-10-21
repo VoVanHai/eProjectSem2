@@ -14,104 +14,104 @@ import java.util.Objects;
  * @author VINH MARK
  */
 public class SanPham implements Serializable{
-    private String MaSP;
-    private String TenSP;
-    private String MotaSP;
-    private String MaNCC;
-    private String NhaSX;
-    private String HinhAnh;
-    private Date NgaySX;
-    private Date HanSuDung;
-    private int TrangThai;
+    private String maSP;
+    private String tenSP;
+    private String motaSP;
+    private String maNCC;
+    private String nhaSX;
+    private String hinhAnh;
+    private Date ngaySX;
+    private Date hanSuDung;
+    private int trangThai;
 
     public SanPham(String MaSP, String TenSP, String MotaSP, String MaNCC, String NhaSX, String HinhAnh, Date NgaySX, Date HanSuDung, int TrangThai) {
-        this.MaSP = MaSP;
-        this.TenSP = TenSP;
-        this.MotaSP = MotaSP;
-        this.MaNCC = MaNCC;
-        this.NhaSX = NhaSX;
-        this.HinhAnh = HinhAnh;
-        this.NgaySX = NgaySX;
-        this.HanSuDung = HanSuDung;
-        this.TrangThai = TrangThai;
+        this.maSP = MaSP;
+        this.tenSP = TenSP;
+        this.motaSP = MotaSP;
+        this.maNCC = MaNCC;
+        this.nhaSX = NhaSX;
+        this.hinhAnh = HinhAnh;
+        this.ngaySX = NgaySX;
+        this.hanSuDung = HanSuDung;
+        this.trangThai = TrangThai;
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
+        this.maSP = MaSP;
     }
 
     public String getTenSP() {
-        return TenSP;
+        return tenSP;
     }
 
     public void setTenSP(String TenSP) {
-        this.TenSP = TenSP;
+        this.tenSP = TenSP;
     }
 
     public String getMotaSP() {
-        return MotaSP;
+        return motaSP;
     }
 
     public void setMotaSP(String MotaSP) {
-        this.MotaSP = MotaSP;
+        this.motaSP = MotaSP;
     }
 
     public String getMaNCC() {
-        return MaNCC;
+        return maNCC;
     }
 
     public void setMaNCC(String MaNCC) {
-        this.MaNCC = MaNCC;
+        this.maNCC = MaNCC;
     }
 
     public String getNhaSX() {
-        return NhaSX;
+        return nhaSX;
     }
 
     public void setNhaSX(String NhaSX) {
-        this.NhaSX = NhaSX;
+        this.nhaSX = NhaSX;
     }
 
     public String getHinhAnh() {
-        return HinhAnh;
+        return hinhAnh;
     }
 
     public void setHinhAnh(String HinhAnh) {
-        this.HinhAnh = HinhAnh;
+        this.hinhAnh = HinhAnh;
     }
 
     public Date getNgaySX() {
-        return NgaySX;
+        return ngaySX;
     }
 
     public void setNgaySX(Date NgaySX) {
-        this.NgaySX = NgaySX;
+        this.ngaySX = NgaySX;
     }
 
     public Date getHanSuDung() {
-        return HanSuDung;
+        return hanSuDung;
     }
 
     public void setHanSuDung(Date HanSuDung) {
-        this.HanSuDung = HanSuDung;
+        this.hanSuDung = HanSuDung;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + Objects.hashCode(this.MaSP);
+        hash = 31 * hash + Objects.hashCode(this.maSP);
         return hash;
     }
 
@@ -127,7 +127,7 @@ public class SanPham implements Serializable{
             return false;
         }
         final SanPham other = (SanPham) obj;
-        if (!Objects.equals(this.MaSP, other.MaSP)) {
+        if (!Objects.equals(this.maSP, other.maSP)) {
             return false;
         }
         return true;
@@ -135,7 +135,7 @@ public class SanPham implements Serializable{
 
     @Override
     public String toString() {
-        return "SanPham{" + "MaSP=" + MaSP + ", TenSP=" + TenSP + ", MotaSP=" + MotaSP + ", MaNCC=" + MaNCC + ", NhaSX=" + NhaSX + ", HinhAnh=" + HinhAnh + ", NgaySX=" + NgaySX + ", HanSuDung=" + HanSuDung + ", TrangThai=" + TrangThai + '}';
+        return "SanPham{" + "MaSP=" + maSP + ", TenSP=" + tenSP + ", MotaSP=" + motaSP + ", MaNCC=" + maNCC + ", NhaSX=" + nhaSX + ", HinhAnh=" + hinhAnh + ", NgaySX=" + ngaySX + ", HanSuDung=" + hanSuDung + ", TrangThai=" + trangThai + '}';
     }
 
     

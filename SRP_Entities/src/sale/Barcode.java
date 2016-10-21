@@ -14,17 +14,17 @@ import java.util.Objects;
  */
 public class Barcode implements Serializable{
     private String barcode;
-    private String MaSP;
-    private String MaNV;
-    private String GhiChu;
-    private int TrangThai;
+    private String maSP;
+    private String maNV;
+    private String ghiChu;
+    private int trangThai;
 
     public Barcode(String barcode, String MaSP, String MaNV, String GhiChu, int TrangThai) {
         this.barcode = barcode;
-        this.MaSP = MaSP;
-        this.MaNV = MaNV;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.maSP = MaSP;
+        this.maNV = MaNV;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
     }
 
     public String getBarcode() {
@@ -36,35 +36,35 @@ public class Barcode implements Serializable{
     }
 
     public String getMaSP() {
-        return MaSP;
+        return maSP;
     }
 
     public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
+        this.maSP = MaSP;
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+        this.maNV = MaNV;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
@@ -94,7 +94,7 @@ public class Barcode implements Serializable{
 
     @Override
     public String toString() {
-        return "Barcode{" + "barcode=" + barcode + ", MaSP=" + MaSP + ", MaNV=" + MaNV + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Barcode{" + "barcode=" + barcode + ", MaSP=" + maSP + ", MaNV=" + maNV + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }
