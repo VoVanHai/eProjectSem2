@@ -23,7 +23,7 @@ public class HoaDon implements Serializable {
     private String maNV;
     private int money;
     private String maKH;
-    private String TinhTrang;
+    private String tinhTrang;
 
     public HoaDon() {
     }
@@ -34,7 +34,7 @@ public class HoaDon implements Serializable {
         this.maNV = maNV;
         this.money = money;
         this.maKH = maKH;
-        this.TinhTrang = TinhTrang;
+        this.tinhTrang = TinhTrang;
     }
 
     public String getSoHD() {
@@ -58,7 +58,7 @@ public class HoaDon implements Serializable {
     }
 
     public String getTinhTrang() {
-        return TinhTrang;
+        return tinhTrang;
     }
 
     public void setSoHD(String soHD) {
@@ -82,15 +82,16 @@ public class HoaDon implements Serializable {
     }
 
     public void setTinhTrang(String tinhTrang) {
-        this.TinhTrang = tinhTrang;
+        this.tinhTrang = tinhTrang;
     }
 
     @Override
     public String toString() {
         return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD
-                + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + TinhTrang + '}';
+                + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + tinhTrang + '}';
     }
     ArrayList<Ct_Hd_Ban_Hang> cthd=new ArrayList<>();
+    
     private class Ct_Hd_Ban_Hang {
 
         private String soHD;
@@ -172,5 +173,4 @@ public class HoaDon implements Serializable {
         }
 
     }
-
 }
