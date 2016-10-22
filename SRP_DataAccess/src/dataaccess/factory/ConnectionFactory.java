@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 public class ConnectionFactory {
 
     
-    private Connection conDB          = null;
+    private Connection conDB;
     private static ConnectionFactory factory;
 
     private ConnectionFactory() throws Exception {

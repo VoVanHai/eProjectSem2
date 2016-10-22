@@ -5,8 +5,8 @@
  */
 package dataaccess.repository;
 
-import repository.KhachHang;
 import java.util.ArrayList;
+import repository.KhachHang;
 
 /**
  *
@@ -14,9 +14,11 @@ import java.util.ArrayList;
  */
 public interface KhachHangDAO {
     boolean add(KhachHang KH) throws Exception;
-    boolean remove(String MaKH) throws Exception;
-    boolean update(KhachHang newKH) throws Exception;    
+    boolean remove(int trangThai, String maKH) throws Exception;
+    boolean update(String MaKH, String TenKH, String SoDT, String DiaChi, String CongViec, String SoCMND, String GioiTinh, String LoaiTK, String GhiChu, int TrangThai) throws Exception;    
     ArrayList<KhachHang> getAll() throws Exception;
     KhachHang searchByID(String MaKH) throws Exception;
-    ArrayList<KhachHang> searchAll() throws Exception;    
+    ArrayList<KhachHang> searchByName(String s) throws Exception;
+    ArrayList<KhachHang> searchAll(String s) throws Exception;  
+    void close() throws Exception;
 }
