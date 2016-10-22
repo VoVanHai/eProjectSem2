@@ -3,39 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Phongkehoach;
+package phongkehoach;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Objects;
 
 /**
  *
  * @author WIN7
  */
-public class Phieu_Mua_Hang implements Serializable{
-    private String soPhieu;
+public class TK_Dang_Nhap implements Serializable{
     private String maNV;
-    private String maNCC;
-    private Date ngayLapPhieu;
+    private String tenTK;
+    private int matKhau;
     private String ghiChu;
     private int trangThai;
 
-    public Phieu_Mua_Hang(String SoPhieu, String MaNV, String MaNCC, Date NgayLapPhieu, String GhiChu, int TrangThai) {
-        this.soPhieu = SoPhieu;
+    public TK_Dang_Nhap(String MaNV, String TenTK, int MatKhau, String GhiChu, int TrangThai) {
         this.maNV = MaNV;
-        this.maNCC = MaNCC;
-        this.ngayLapPhieu = NgayLapPhieu;
+        this.tenTK = TenTK;
+        this.matKhau = MatKhau;
         this.ghiChu = GhiChu;
         this.trangThai = TrangThai;
-    }
-
-    public String getSoPhieu() {
-        return soPhieu;
-    }
-
-    public void setSoPhieu(String SoPhieu) {
-        this.soPhieu = SoPhieu;
     }
 
     public String getMaNV() {
@@ -46,20 +35,20 @@ public class Phieu_Mua_Hang implements Serializable{
         this.maNV = MaNV;
     }
 
-    public String getMaNCC() {
-        return maNCC;
+    public String getTenTK() {
+        return tenTK;
     }
 
-    public void setMaNCC(String MaNCC) {
-        this.maNCC = MaNCC;
+    public void setTenTK(String TenTK) {
+        this.tenTK = TenTK;
     }
 
-    public Date getNgayLapPhieu() {
-        return ngayLapPhieu;
+    public int getMatKhau() {
+        return matKhau;
     }
 
-    public void setNgayLapPhieu(Date NgayLapPhieu) {
-        this.ngayLapPhieu = NgayLapPhieu;
+    public void setMatKhau(int MatKhau) {
+        this.matKhau = MatKhau;
     }
 
     public String getGhiChu() {
@@ -80,8 +69,9 @@ public class Phieu_Mua_Hang implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.soPhieu);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.maNV);
+        hash = 89 * hash + Objects.hashCode(this.tenTK);
         return hash;
     }
 
@@ -96,16 +86,20 @@ public class Phieu_Mua_Hang implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Phieu_Mua_Hang other = (Phieu_Mua_Hang) obj;
-        if (!Objects.equals(this.soPhieu, other.soPhieu)) {
+        final TK_Dang_Nhap other = (TK_Dang_Nhap) obj;
+        if (!Objects.equals(this.maNV, other.maNV)) {
+            return false;
+        }
+        if (!Objects.equals(this.tenTK, other.tenTK)) {
             return false;
         }
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "Phieu_Mua_Hang{" + "SoPhieu=" + soPhieu + ", MaNV=" + maNV + ", MaNCC=" + maNCC + ", NgayLapPhieu=" + ngayLapPhieu + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
+        return "TK_Dang_Nhap{" + "MaNV=" + maNV + ", TenTK=" + tenTK + ", MatKhau=" + matKhau + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }

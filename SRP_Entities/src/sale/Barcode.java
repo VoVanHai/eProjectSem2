@@ -3,27 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Phongkehoach;
+package sale;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
- * @author WIN7
+ * @author VINH MARK
  */
-public class CT_Chuong_Trinh_KM implements Serializable{
+public class Barcode implements Serializable{
+    private String barcode;
     private String maSP;
-    private float  phanTramKM;
+    private String maNV;
     private String ghiChu;
-    private ArrayList<Chuong_Trinh_KM> ctctkm;
+    private int trangThai;
 
-    public CT_Chuong_Trinh_KM(String MaSP, float PhanTramKM, String GhiChu) {
+    public Barcode(String barcode, String MaSP, String MaNV, String GhiChu, int TrangThai) {
+        this.barcode = barcode;
         this.maSP = MaSP;
-        this.phanTramKM = PhanTramKM;
+        this.maNV = MaNV;
         this.ghiChu = GhiChu;
-        ctctkm = new ArrayList<>();
+        this.trangThai = TrangThai;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 
     public String getMaSP() {
@@ -34,12 +43,12 @@ public class CT_Chuong_Trinh_KM implements Serializable{
         this.maSP = MaSP;
     }
 
-    public float getPhanTramKM() {
-        return phanTramKM;
+    public String getMaNV() {
+        return maNV;
     }
 
-    public void setPhanTramKM(float PhanTramKM) {
-        this.phanTramKM = PhanTramKM;
+    public void setMaNV(String MaNV) {
+        this.maNV = MaNV;
     }
 
     public String getGhiChu() {
@@ -50,10 +59,18 @@ public class CT_Chuong_Trinh_KM implements Serializable{
         this.ghiChu = GhiChu;
     }
 
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int TrangThai) {
+        this.trangThai = TrangThai;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.maSP);
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.barcode);
         return hash;
     }
 
@@ -68,8 +85,8 @@ public class CT_Chuong_Trinh_KM implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CT_Chuong_Trinh_KM other = (CT_Chuong_Trinh_KM) obj;
-        if (!Objects.equals(this.maSP, other.maSP)) {
+        final Barcode other = (Barcode) obj;
+        if (!Objects.equals(this.barcode, other.barcode)) {
             return false;
         }
         return true;
@@ -77,8 +94,7 @@ public class CT_Chuong_Trinh_KM implements Serializable{
 
     @Override
     public String toString() {
-        return "CT_Chuong_Trinh_KM{" + "MaSP=" + maSP + ", PhanTramKM=" + phanTramKM + ", GhiChu=" + ghiChu + ", ctctkm=" + ctctkm + '}';
+        return "Barcode{" + "barcode=" + barcode + ", MaSP=" + maSP + ", MaNV=" + maNV + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
-    
     
 }
