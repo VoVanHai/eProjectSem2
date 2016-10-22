@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package dataaccess.sale;
-import Sale.CT_HD_BH;
+import sale.Ct_Hd_Ban_Hang;
 import dataaccess.factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Tien-Dung
  */
-public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
+public class CT_HDImp implements NhomBanHangDAO<Ct_Hd_Ban_Hang>{
 
        private Connection con;
 
@@ -25,7 +25,7 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
         con = ConnectionFactory.getInstance().getConection();
     }
     @Override
-    public boolean add(CT_HD_BH dao) throws Exception {
+    public boolean add(Ct_Hd_Ban_Hang dao) throws Exception {
         String sql="insert into CT_HD_BAN_HANG values (?,?,?,?,?) ";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getSoHD());
@@ -37,7 +37,7 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
     }
 
     @Override
-    public boolean remove(CT_HD_BH dao) throws Exception {
+    public boolean remove(Ct_Hd_Ban_Hang dao) throws Exception {
         String sql="delete from CT_HD_BAN_HANG where soHD= ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
@@ -45,28 +45,28 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
     }
 
     @Override
-    public CT_HD_BH find(CT_HD_BH dao) throws Exception {
+    public Ct_Hd_Ban_Hang find(Ct_Hd_Ban_Hang dao) throws Exception {
         String maSP;
         String sql=" select *from CT_HD_BAN_HANG where soHD= ? " + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql); 
         ps.setString(1, dao.getMaSP());
         ResultSet rs=ps.executeQuery();
-        CT_HD_BH ct=null;
+        Ct_Hd_Ban_Hang ct=null;
         if(rs.next()){
-            ct=new CT_HD_BH(rs.getString("soHD"),rs.getString("maSP") ,
+            ct=new Ct_Hd_Ban_Hang(rs.getString("soHD"),rs.getString("maSP") ,
                     rs.getInt("soLuong"), rs.getInt("dongiaBan"), rs.getInt("giaKM"));
         }
         return ct;
     }
 
     @Override
-    public ArrayList<CT_HD_BH> getAll() throws Exception {
-        ArrayList<CT_HD_BH> lst = new ArrayList<>();
+    public ArrayList<Ct_Hd_Ban_Hang> getAll() throws Exception {
+        ArrayList<Ct_Hd_Ban_Hang> lst = new ArrayList<>();
         String sql = "select * from CT_HD_BAN_HANG" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
-            CT_HD_BH ct = new CT_HD_BH(rs.getString("soHD"),rs.getString("maSP") ,
+            Ct_Hd_Ban_Hang ct = new Ct_Hd_Ban_Hang(rs.getString("soHD"),rs.getString("maSP") ,
                     rs.getInt("soLuong"), rs.getInt("dongiaBan"), rs.getInt("giaKM"));
             lst.add(ct);
         }
@@ -75,7 +75,7 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
     
 
     @Override
-    public boolean update(CT_HD_BH dao) throws Exception {
+    public boolean update(Ct_Hd_Ban_Hang dao) throws Exception {
         String sql = "update CT_HD_BAN_HANG set soHD = ? ,maSP = ? , soLuong = ?, dongiaBan=?, giaKM=?"
                 + " where soHD = ?";
         PreparedStatement ps = con.prepareStatement(sql);
@@ -85,6 +85,11 @@ public class CT_HDImp implements NhomBanHangDAO<CT_HD_BH>{
         ps.setInt(4, dao.getDongiaBan());
         ps.setInt(5, dao.getGiaKM());
        return ps.executeUpdate() > 0;
+    }
+
+    @Override
+    public void close() throws Exception {
+        
     }
     
 }

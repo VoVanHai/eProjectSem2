@@ -83,5 +83,10 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
         ps.setString(5, dao.getBarcode());
        return ps.executeUpdate() > 0;
     }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -6,7 +6,7 @@
 package dataaccess.sale;
 
 
-import Sale.HoaDon;
+import sale.HoaDon;
 import dataaccess.factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;
@@ -89,6 +89,11 @@ public class HDImp implements NhomBanHangDAO<HoaDon>{
         ps.setString(5, dao.getMaKH());
         ps.setString(6, dao.getTinhTrang());
        return ps.executeUpdate() > 0;
+    }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
