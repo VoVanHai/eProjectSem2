@@ -86,5 +86,10 @@ private Connection con ;
         }
         return lst;
     }
+
+    @Override
+    public void close() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
