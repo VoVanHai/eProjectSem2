@@ -16,8 +16,8 @@ public class NhaCungCap implements Serializable {
     private String maNCC;
     private String tenNCC;
     private String diaChi;
-    private String sDT;
-    private String email;
+    private String SDT;
+    private String Email;
     private String tenNguoiDaiDien;
     private String ghiChu;
     private int trangThai;
@@ -26,8 +26,8 @@ public class NhaCungCap implements Serializable {
         this.maNCC = MaNCC;
         this.tenNCC = TenNCC;
         this.diaChi = DiaChi;
-        this.sDT = SDT;
-        this.email = Email;
+        this.SDT = SDT;
+        this.Email = Email;
         this.tenNguoiDaiDien = TenNguoiDaiDien;
         this.ghiChu = GhiChu;
         this.trangThai = TrangThai;
@@ -58,19 +58,19 @@ public class NhaCungCap implements Serializable {
     }
 
     public String getSDT() {
-        return sDT;
+        return SDT;
     }
 
     public void setSDT(String SDT) {
-        this.sDT = SDT;
+        this.SDT = SDT;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String Email) {
-        this.email = Email;
+        this.Email = Email;
     }
 
     public String getTenNguoiDaiDien() {
@@ -124,7 +124,7 @@ public class NhaCungCap implements Serializable {
 
     @Override
     public String toString() {
-        return "NHA_CUNG_CAP{" + "MaNCC=" + maNCC + ", TenNCC=" + tenNCC + ", DiaChi=" + diaChi + ", SDT=" + sDT + ", Email=" + email + ", TenNguoiDaiDien=" + tenNguoiDaiDien + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
+        return "NHA_CUNG_CAP{" + "MaNCC=" + maNCC + ", TenNCC=" + tenNCC + ", DiaChi=" + diaChi + ", SDT=" + SDT + ", Email=" + Email + ", TenNguoiDaiDien=" + tenNguoiDaiDien + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }
