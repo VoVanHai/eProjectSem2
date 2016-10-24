@@ -13,94 +13,94 @@ import java.util.Objects;
  * @author Trương Hồng Đoàn
  */
 public class NhaCungCap implements Serializable {
-    private String MaNCC;
-    private String TenNCC;
-    private String DiaChi;
-    private String SDT;
-    private String Email;
-    private String TenNguoiDaiDien;
-    private String GhiChu;
-    private int TrangThai;
+    private String maNCC;
+    private String tenNCC;
+    private String diaChi;
+    private String sDT;
+    private String email;
+    private String tenNguoiDaiDien;
+    private String ghiChu;
+    private int trangThai;
 
     public NhaCungCap(String MaNCC, String TenNCC, String DiaChi, String SDT, String Email, String TenNguoiDaiDien, String GhiChu, int TrangThai) {
-        this.MaNCC = MaNCC;
-        this.TenNCC = TenNCC;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
-        this.Email = Email;
-        this.TenNguoiDaiDien = TenNguoiDaiDien;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        this.maNCC = MaNCC;
+        this.tenNCC = TenNCC;
+        this.diaChi = DiaChi;
+        this.sDT = SDT;
+        this.email = Email;
+        this.tenNguoiDaiDien = TenNguoiDaiDien;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
     }
 
     public String getMaNCC() {
-        return MaNCC;
+        return maNCC;
     }
 
     public void setMaNCC(String MaNCC) {
-        this.MaNCC = MaNCC;
+        this.maNCC = MaNCC;
     }
 
     public String getTenNCC() {
-        return TenNCC;
+        return tenNCC;
     }
 
     public void setTenNCC(String TenNCC) {
-        this.TenNCC = TenNCC;
+        this.tenNCC = TenNCC;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
+        this.diaChi = DiaChi;
     }
 
     public String getSDT() {
-        return SDT;
+        return sDT;
     }
 
     public void setSDT(String SDT) {
-        this.SDT = SDT;
+        this.sDT = SDT;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public String getTenNguoiDaiDien() {
-        return TenNguoiDaiDien;
+        return tenNguoiDaiDien;
     }
 
     public void setTenNguoiDaiDien(String TenNguoiDaiDien) {
-        this.TenNguoiDaiDien = TenNguoiDaiDien;
+        this.tenNguoiDaiDien = TenNguoiDaiDien;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.MaNCC);
+        hash = 23 * hash + Objects.hashCode(this.maNCC);
         return hash;
     }
 
@@ -116,7 +116,7 @@ public class NhaCungCap implements Serializable {
             return false;
         }
         final NhaCungCap other = (NhaCungCap) obj;
-        if (!Objects.equals(this.MaNCC, other.MaNCC)) {
+        if (!Objects.equals(this.maNCC, other.maNCC)) {
             return false;
         }
         return true;
@@ -124,7 +124,7 @@ public class NhaCungCap implements Serializable {
 
     @Override
     public String toString() {
-        return "NHA_CUNG_CAP{" + "MaNCC=" + MaNCC + ", TenNCC=" + TenNCC + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Email=" + Email + ", TenNguoiDaiDien=" + TenNguoiDaiDien + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "NHA_CUNG_CAP{" + "MaNCC=" + maNCC + ", TenNCC=" + tenNCC + ", DiaChi=" + diaChi + ", SDT=" + sDT + ", Email=" + email + ", TenNguoiDaiDien=" + tenNguoiDaiDien + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }
