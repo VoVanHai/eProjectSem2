@@ -89,7 +89,9 @@ public class CT_HDImp implements NhomBanHangDAO<Ct_Hd_Ban_Hang>{
 
     @Override
     public void close() throws Exception {
-        
+        if(con != null){
+            con.close();
+        }
     }
     
 }
