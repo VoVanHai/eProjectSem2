@@ -86,7 +86,9 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
 
     @Override
     public void close() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(con != null){
+            con.close();
+        }
     }
     
 }
