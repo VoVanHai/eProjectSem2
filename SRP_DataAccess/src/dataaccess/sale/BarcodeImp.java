@@ -54,7 +54,12 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode>{
         ResultSet rs = ps.executeQuery();
         Barcode ba = null;
         if (rs.next()) {
-            ba = new Barcode(rs.getString("barcode"),rs.getString("MaSP") , rs.getString("MaNV"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+            ba = new Barcode(
+                    rs.getString("barcode"),
+                    rs.getString("MaSP") ,
+                    rs.getString("MaNV"), 
+                    rs.getString("GhiChu"), 
+                    rs.getInt("TrangThai"));
         }
         return ba;
     }
