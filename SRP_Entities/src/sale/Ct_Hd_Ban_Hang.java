@@ -25,11 +25,11 @@ public class Ct_Hd_Ban_Hang implements Serializable{
         }
 
         public Ct_Hd_Ban_Hang(String soHD, String maSP, int soLuong, int dongiaBan, int giaKM) {
-            this.soHD = soHD;
-            this.maSP = maSP;
-            this.soLuong = soLuong;
-            this.dongiaBan = dongiaBan;
-            this.giaKM = giaKM;
+            setSoHD(soHD);
+            setMaSP(maSP);
+            setSoLuong(soLuong);
+            setDongiaBan(dongiaBan);
+            setGiaKM(giaKM);
             cthdbh=new ArrayList<>();
         }
 

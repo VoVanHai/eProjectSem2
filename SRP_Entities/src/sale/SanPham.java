@@ -25,15 +25,15 @@ public class SanPham implements Serializable{
     private int trangThai;
 
     public SanPham(String MaSP, String TenSP, String MotaSP, String MaNCC, String NhaSX, String HinhAnh, Date NgaySX, Date HanSuDung, int TrangThai) {
-        this.maSP = MaSP;
-        this.tenSP = TenSP;
-        this.motaSP = MotaSP;
-        this.maNCC = MaNCC;
-        this.nhaSX = NhaSX;
-        this.hinhAnh = HinhAnh;
-        this.ngaySX = NgaySX;
-        this.hanSuDung = HanSuDung;
-        this.trangThai = TrangThai;
+        setMaSP(MaSP);
+        setTenSP(TenSP);
+        setMotaSP(MotaSP);
+        setMaNCC(MaNCC);
+        setNhaSX(NhaSX);
+        setHinhAnh(HinhAnh);
+        setNgaySX(NgaySX);
+        setHanSuDung(HanSuDung);
+        setTrangThai(TrangThai);
     }
 
     public String getMaSP() {

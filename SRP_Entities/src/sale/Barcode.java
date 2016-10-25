@@ -20,11 +20,11 @@ public class Barcode implements Serializable{
     private int trangThai;
 
     public Barcode(String barcode, String MaSP, String MaNV, String GhiChu, int TrangThai) {
-        this.barcode = barcode;
-        this.maSP = MaSP;
-        this.maNV = MaNV;
-        this.ghiChu = GhiChu;
-        this.trangThai = TrangThai;
+        setBarcode(barcode);
+        setMaSP(MaSP);
+        setMaNV(MaNV);
+        setGhiChu(GhiChu);
+        setTrangThai(TrangThai);
     }
 
     public String getBarcode() {

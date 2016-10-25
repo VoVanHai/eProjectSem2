@@ -31,12 +31,12 @@ public class HoaDon implements Serializable {
     }
 
     public HoaDon(String soHD, Date ngayHD, String maNV, int money, String maKH, String TinhTrang) {
-        this.soHD = soHD;
-        this.ngayHD = ngayHD;
-        this.maNV = maNV;
-        this.money = money;
-        this.maKH = maKH;
-        this.tinhTrang = TinhTrang;
+        setSoHD(soHD);
+        setNgayHD(ngayHD);
+        setMaNV(maNV);
+        setMoney(money);
+        setMaKH(maKH);
+        setTinhTrang(TinhTrang);
         cthdbh=new ArrayList<>();
     }
 

@@ -19,10 +19,10 @@ public class PhongBan implements Serializable{
     private int TrangThai;
 
     public PhongBan(String MaPB, String TenPB, String GhiChu, int TrangThai) {
-        this.MaPB = MaPB;
-        this.TenPB = TenPB;
-        this.GhiChu = GhiChu;
-        this.TrangThai = TrangThai;
+        setMaPB(MaPB);
+        setTenPB(TenPB);
+        setGhiChu(GhiChu);
+        setTrangThai(TrangThai);
     }
 
     public String getMaPB() {

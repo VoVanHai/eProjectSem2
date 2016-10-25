@@ -21,12 +21,12 @@ public class CuaHang implements Serializable {
     private int trangThai;
 
     public CuaHang(String MaCuaHang, String TenCuaHang, String DiaChi, String SoDT, String GhiChu, int TrangThai) {
-        this.maCuaHang = MaCuaHang;
-        this.tenCuaHang = TenCuaHang;
-        this.diaChi = DiaChi;
-        this.soDT = SoDT;
-        this.ghiChu = GhiChu;
-        this.trangThai = TrangThai;
+        setMaCuaHang(MaCuaHang);
+        setTenCuaHang(TenCuaHang);
+        setDiaChi(DiaChi);
+        setSoDT(SoDT);
+        setGhiChu(GhiChu);
+        setTrangThai(TrangThai);
     }
 
     public String getMaCuaHang() {
