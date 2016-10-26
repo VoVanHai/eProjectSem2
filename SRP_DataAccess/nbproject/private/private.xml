@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/sale/BarcodeImp.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/phongkehoach/TKDangNhapImp.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/phongkehoach/ChucVuImp.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/phongkehoach/NhanVienImp.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/phongkehoach/PhieuMuaHangImp.java</file>
-            <file>file:/F:/OneDrive/Documents/NetBeansProjects/eProjectSem2/SRP_DataAccess/src/dataaccess/repository/PhieuYCXuatKhoDAOImpl.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
