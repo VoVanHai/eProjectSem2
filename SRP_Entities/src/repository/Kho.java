@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Warehouse;
+package Repository;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,74 +13,74 @@ import java.util.Objects;
  * @author Administrator
  */
 public class Kho implements Serializable{
-    private String MaKho;
-    private String TenKho;
-    private String DiaChi;
-    private String SoDT;
-    private String GhiChu;
-    private int TrangThai;
+    private String maKho;
+    private String tenKho;
+    private String diaChi;
+    private String soDT;
+    private String ghiChu;
+    private int trangThai;
 
-    public Kho(String MaKho, String TenKho, String DiaChi, String SoDT, String GhiChu, int TrangThai) {
-        this.MaKho      = MaKho;
-        this.TenKho     = TenKho;
-        this.DiaChi     = DiaChi;
-        this.SoDT       = SoDT;
-        this.GhiChu     = GhiChu;
-        this.TrangThai  = TrangThai;
+    public Kho(String maKho, String tenKho, String diaChi, String soDT, String ghiChu, int trangThai) {
+        setMaKho(maKho);
+        setTenKho(tenKho);
+        setDiaChi(diaChi);
+        setSoDT(soDT);
+        setGhiChu(ghiChu);
+        setTrangThai(trangThai);
     }
 
     public String getMaKho() {
-        return MaKho;
+        return maKho;
     }
 
     public void setMaKho(String MaKho) {
-        this.MaKho = MaKho;
+        this.maKho = MaKho;
     }
 
     public String getTenKho() {
-        return TenKho;
+        return tenKho;
     }
 
     public void setTenKho(String TenKho) {
-        this.TenKho = TenKho;
+        this.tenKho = TenKho;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
+        this.diaChi = DiaChi;
     }
 
     public String getSoDT() {
-        return SoDT;
+        return soDT;
     }
 
     public void setSoDT(String SoDT) {
-        this.SoDT = SoDT;
+        this.soDT = SoDT;
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public int getTrangThai() {
-        return TrangThai;
+        return trangThai;
     }
 
     public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.MaKho);
+        hash = 83 * hash + Objects.hashCode(this.maKho);
         return hash;
     }
 
@@ -96,7 +96,7 @@ public class Kho implements Serializable{
             return false;
         }
         final Kho other = (Kho) obj;
-        if (!Objects.equals(this.MaKho, other.MaKho)) {
+        if (!Objects.equals(this.maKho, other.maKho)) {
             return false;
         }
         return true;
@@ -104,7 +104,7 @@ public class Kho implements Serializable{
 
     @Override
     public String toString() {
-        return "Kho{" + "MaKho=" + MaKho + ", TenKho=" + TenKho + ", DiaChi=" + DiaChi + ", SoDT=" + SoDT + ", GhiChu=" + GhiChu + ", TrangThai=" + TrangThai + '}';
+        return "Kho{" + "MaKho=" + maKho + ", TenKho=" + tenKho + ", DiaChi=" + diaChi + ", SoDT=" + soDT + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }

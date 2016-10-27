@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Warehouse;
+package Repository;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -14,36 +14,36 @@ import java.util.Objects;
  * @author Administrator
  */
 public class ThuKho implements Serializable{
-    private String MaNV;
-    private String MaKho;
+    private String maNV;
+    private String maKho;
     private Date startDate;
     private Date endDate;
-    private String GhiChu;
-    private String MaCV;
+    private String ghiChu;
+    private String maCV;
 
-    public ThuKho(String MaNV, String MaKho, Date startDate, Date endDate, String GhiChu, String MaCV) {
-        this.MaNV       = MaNV;
-        this.MaKho      = MaKho;
-        this.startDate  = startDate;
-        this.endDate    = endDate;
-        this.GhiChu     = GhiChu;
-        this.MaCV       = MaCV;
+    public ThuKho(String maNV, String maKho, Date startDate, Date endDate, String ghiChu, String maCV) {
+        setMaNV(maNV);
+        setMaKho(maKho);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        setGhiChu(ghiChu);
+        setMaCV(maCV);
     }
 
     public String getMaNV() {
-        return MaNV;
+        return maNV;
     }
 
     public void setMaNV(String MaNV) {
-        this.MaNV = MaNV;
+        this.maNV = MaNV;
     }
 
     public String getMaKho() {
-        return MaKho;
+        return maKho;
     }
 
     public void setMaKho(String MaKho) {
-        this.MaKho = MaKho;
+        this.maKho = MaKho;
     }
 
     public Date getStartDate() {
@@ -63,25 +63,25 @@ public class ThuKho implements Serializable{
     }
 
     public String getGhiChu() {
-        return GhiChu;
+        return ghiChu;
     }
 
     public void setGhiChu(String GhiChu) {
-        this.GhiChu = GhiChu;
+        this.ghiChu = GhiChu;
     }
 
     public String getMaCV() {
-        return MaCV;
+        return maCV;
     }
 
     public void setMaCV(String MaCV) {
-        this.MaCV = MaCV;
+        this.maCV = MaCV;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.MaNV);
+        hash = 13 * hash + Objects.hashCode(this.maNV);
         return hash;
     }
 
@@ -97,7 +97,7 @@ public class ThuKho implements Serializable{
             return false;
         }
         final ThuKho other = (ThuKho) obj;
-        if (!Objects.equals(this.MaNV, other.MaNV)) {
+        if (!Objects.equals(this.maNV, other.maNV)) {
             return false;
         }
         return true;
@@ -105,6 +105,6 @@ public class ThuKho implements Serializable{
 
     @Override
     public String toString() {
-        return "ThuKho{" + "MaNV=" + MaNV + ", MaKho=" + MaKho + ", startDate=" + startDate + ", endDate=" + endDate + ", GhiChu=" + GhiChu + ", MaCV=" + MaCV + '}';
+        return "ThuKho{" + "MaNV=" + maNV + ", MaKho=" + maKho + ", startDate=" + startDate + ", endDate=" + endDate + ", GhiChu=" + ghiChu + ", MaCV=" + maCV + '}';
     }   
 }
