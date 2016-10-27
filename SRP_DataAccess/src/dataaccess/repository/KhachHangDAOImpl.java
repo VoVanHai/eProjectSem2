@@ -17,12 +17,14 @@ import java.util.ArrayList;
  *
  * @author TrungChi
  */
-public class KhachHangDAOImpl implements KhachHangDAO{
+public class KhachHangDAOImpl implements KhachHangDAO {
+
     private Connection con;
-    public KhachHangDAOImpl() throws Exception{
+
+    public KhachHangDAOImpl() throws Exception {
         con = ConnectionFactory.getInstance().getConection();
     }
-    
+
     @Override
     public boolean add(KhachHang KH) throws Exception {
         String sql = "INSERT INTO KHACH_HANG VALUES(?, ?, ?, ?, ?, ? , ?, ?, ?, ?)";
@@ -37,7 +39,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
         ps.setString(8, KH.getLoaiTK());
         ps.setString(9, KH.getGhiChu());
         ps.setInt(10, KH.getTrangThai());
-        
+
         return ps.executeUpdate() > 0;
     }
 
@@ -47,7 +49,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, trangThai);
         ps.setString(2, maKH);
-        
+
         return ps.executeUpdate() > 0;
     }
 
@@ -57,7 +59,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
                 + " GioiTinh = ?, LoaiTK = ?, GhiChu = ?, TrangThai = ? "
                 + "WHERE MaKH = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, TenKH);        
+        ps.setString(1, TenKH);
         ps.setString(2, SoDT);
         ps.setString(3, DiaChi);
         ps.setString(4, CongViec);
@@ -67,7 +69,7 @@ public class KhachHangDAOImpl implements KhachHangDAO{
         ps.setString(8, GhiChu);
         ps.setInt(9, TrangThai);
         ps.setString(10, MaKH);
-        
+
         return ps.executeUpdate() > 0;
     }
 
@@ -77,10 +79,10 @@ public class KhachHangDAOImpl implements KhachHangDAO{
         String sql = "SELECT * FROM KHACH_HANG";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             KhachHang kh = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDT"),
-                                         rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
-                                         rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+                    rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
+                    rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
             list.add(kh);
         }
         return list;
@@ -91,67 +93,72 @@ public class KhachHangDAOImpl implements KhachHangDAO{
         String sql = "SELECT * FROM KHACH_HANG WHERE MaKH = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, MaKH);
-        
+
         ResultSet rs = ps.executeQuery();
         KhachHang kh = null;
-        while(rs.next())
-        {
+        while (rs.next()) {
             kh = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDT"),
-                                         rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
-                                         rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+                    rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
+                    rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
         }
         return kh;
     }
-    
+
     public ArrayList<KhachHang> searchByName(String s) throws Exception {
         ArrayList<KhachHang> dsKH = new ArrayList<>();
-        String sql = "SELECT * FROM KHACH_HANG WHERE TenKH LIKE N'%"+s+"%'";
-        PreparedStatement ps = con.prepareStatement(sql);        
-        
+        String sql = "SELECT * FROM KHACH_HANG WHERE TenKH LIKE N'%" + s + "%'";
+        PreparedStatement ps = con.prepareStatement(sql);
+
         ResultSet rs = ps.executeQuery();
         KhachHang kh = null;
-        while(rs.next())
-        {
-            kh = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDT"),
-                                         rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
-                                         rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+        while (rs.next()) {
+            kh = new KhachHang(
+                    rs.getString("MaKH"),
+                    rs.getString("TenKH"),
+                    rs.getString("SoDT"),
+                    rs.getString("DiaChi"),
+                    rs.getString("CongViec"),
+                    rs.getString("SoCMND"),
+                    rs.getString("GioiTinh"),
+                    rs.getString("LoaiTK"),
+                    rs.getString("GhiChu"),
+                    rs.getInt("TrangThai"));
             dsKH.add(kh);
         }
-        
+
         return dsKH;
     }
 
     @Override
     public ArrayList<KhachHang> searchAll(String s) throws Exception {
         ArrayList<KhachHang> dsKH = new ArrayList<>();
-        String sql ="SELECT * FROM KHACH_HANG WHERE "
-            +" MaKH like N'%"+s+"%' or "
-            +" TenKH like N'%"+s+"%' or "
-            +" SoDT like N'%"+s+"%' or "
-            +" DiaChi like N'%"+s+"%' or "
-            +" CongViec like N'%"+s+"%' or "
-            +" SoCMND like '%"+s+"%' or "
-            +" GioiTinh like N'%"+s+"%' or "
-            +" LoaiTK like N'%"+s+"%' or "
-            +" GhiChu like N'%"+s+"%' or "
-            +" TrangThai like N'%"+s+"%'";
-        PreparedStatement ps = con.prepareStatement(sql);        
+        String sql = "SELECT * FROM KHACH_HANG WHERE "
+                + " MaKH like N'%" + s + "%' or "
+                + " TenKH like N'%" + s + "%' or "
+                + " SoDT like N'%" + s + "%' or "
+                + " DiaChi like N'%" + s + "%' or "
+                + " CongViec like N'%" + s + "%' or "
+                + " SoCMND like '%" + s + "%' or "
+                + " GioiTinh like N'%" + s + "%' or "
+                + " LoaiTK like N'%" + s + "%' or "
+                + " GhiChu like N'%" + s + "%' or "
+                + " TrangThai like N'%" + s + "%'";
+        PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        while(rs.next())
-        {
+        while (rs.next()) {
             KhachHang kh = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDT"),
-                                         rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
-                                         rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+                    rs.getString("DiaChi"), rs.getString("CongViec"), rs.getString("SoCMND"),
+                    rs.getString("GioiTinh"), rs.getString("LoaiTK"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
             dsKH.add(kh);
         }
         return dsKH;
     }
-    
+
     @Override
-    public void close() throws Exception{
-        if(con != null){
+    public void close() throws Exception {
+        if (con != null) {
             con.close();
         }
     }
-    
+
 }
