@@ -7,6 +7,7 @@ package phongkehoach;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,15 +19,25 @@ public class Chuong_Trinh_KM implements Serializable{
     private Date ngayBD;
     private Date ngayKT;
     private String ghiChu;
-    private int tinhTrang;
+    private int trangThai;
+    ArrayList<CT_Chuong_Trinh_KM> ctctkm;
 
-    public Chuong_Trinh_KM(int MaCT, String TenCT, Date NgayBD, Date NgayKT, String GhiChu, int TinhTrang) {
+    public Chuong_Trinh_KM(int MaCT, String TenCT, Date NgayBD, Date NgayKT, String GhiChu, int TrangThai) {
         this.maCT = MaCT;
         this.tenCT = TenCT;
         this.ngayBD = NgayBD;
         this.ngayKT = NgayKT;
         this.ghiChu = GhiChu;
-        this.tinhTrang = TinhTrang;
+        this.trangThai = TrangThai;
+        ctctkm=new ArrayList<>();
+    }
+
+    public ArrayList<CT_Chuong_Trinh_KM> getCtctkm() {
+        return ctctkm;
+    }
+
+    public void setCtctkm(ArrayList<CT_Chuong_Trinh_KM> ctctkm) {
+        this.ctctkm = ctctkm;
     }
 
     public int getMaCT() {
@@ -69,12 +80,12 @@ public class Chuong_Trinh_KM implements Serializable{
         this.ghiChu = GhiChu;
     }
 
-    public int getTinhTrang() {
-        return tinhTrang;
+    public int getTrangThai() {
+        return trangThai;
     }
 
-    public void setTinhTrang(int TinhTrang) {
-        this.tinhTrang = TinhTrang;
+    public void setTrangThai(int TrangThai) {
+        this.trangThai = TrangThai;
     }
 
     @Override
@@ -104,7 +115,7 @@ public class Chuong_Trinh_KM implements Serializable{
 
     @Override
     public String toString() {
-        return "Chuong_Trinh_KM{" + "MaCT=" + maCT + ", TenCT=" + tenCT + ", NgayBD=" + ngayBD + ", NgayKT=" + ngayKT + ", GhiChu=" + ghiChu + ", TinhTrang=" + tinhTrang + '}';
+        return "Chuong_Trinh_KM{" + "MaCT=" + maCT + ", TenCT=" + tenCT + ", NgayBD=" + ngayBD + ", NgayKT=" + ngayKT + ctctkm + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
     }
     
 }

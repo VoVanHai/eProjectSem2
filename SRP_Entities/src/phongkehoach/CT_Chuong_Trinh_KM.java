@@ -14,23 +14,23 @@ import java.util.Objects;
  * @author WIN7
  */
 public class CT_Chuong_Trinh_KM implements Serializable{
-    private String maCT;
+    private int maCT;
     private String maSP;
     private float  phanTramKM;
     private String ghiChu;
 
-    public CT_Chuong_Trinh_KM(String MaCT,String MaSP, float PhanTramKM, String GhiChu) {
+    public CT_Chuong_Trinh_KM(int MaCT,String MaSP, float PhanTramKM, String GhiChu) {
         this.maCT = MaCT;
         this.maSP = MaSP;
         this.phanTramKM = PhanTramKM;
         this.ghiChu = GhiChu;
     }
 
-    public String getMaCT() {
+    public int getMaCT() {
         return maCT;
     }
 
-    public void setMaCT(String maCT) {
+    public void setMaCT(int maCT) {
         this.maCT = maCT;
     }
 
