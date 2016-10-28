@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import Phongkehoach.Chuong_Trinh_KM;
+import phongkehoach.Chuong_Trinh_KM;
 public class CTKMImp implements PhongKeHoachDAO<Chuong_Trinh_KM>{
 
     @Override
