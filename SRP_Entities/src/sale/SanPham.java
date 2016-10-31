@@ -6,7 +6,7 @@
 package sale;
 
 import java.io.Serializable;
-import java.util.*;
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -16,102 +16,102 @@ import java.util.Objects;
 public class SanPham implements Serializable{
     private String maSP;
     private String tenSP;
-    private  String giaSP;
     private String motaSP;
     private String maNCC;
     private String nhaSX;
     private String hinhAnh;
     private Date ngaySX;
     private Date hanSuDung;
+    private int trangThai;
 
-    public SanPham(String maSP, String tenSP, String giaSP, String motaSP, String maNCC, String nhaSX, String hinhAnh, Date ngaySX, Date hanSuDung) {
-        this.maSP = maSP;
-        this.tenSP = tenSP;
-        this.giaSP = giaSP;
-        this.motaSP = motaSP;
-        this.maNCC = maNCC;
-        this.nhaSX = nhaSX;
-        this.hinhAnh = hinhAnh;
-        this.ngaySX = ngaySX;
-        this.hanSuDung = hanSuDung;
+    public SanPham(String MaSP, String TenSP, String MotaSP, String MaNCC, String NhaSX, String HinhAnh, Date NgaySX, Date HanSuDung, int TrangThai) {
+        setMaSP(MaSP);
+        setTenSP(TenSP);
+        setMotaSP(MotaSP);
+        setMaNCC(MaNCC);
+        setNhaSX(NhaSX);
+        setHinhAnh(HinhAnh);
+        setNgaySX(NgaySX);
+        setHanSuDung(HanSuDung);
+        setTrangThai(TrangThai);
     }
 
     public String getMaSP() {
         return maSP;
     }
 
-    public void setMaSP(String maSP) {
-        this.maSP = maSP;
+    public void setMaSP(String MaSP) {
+        this.maSP = MaSP;
     }
 
     public String getTenSP() {
         return tenSP;
     }
 
-    public void setTenSP(String tenSP) {
-        this.tenSP = tenSP;
-    }
-
-    public String getGiaSP() {
-        return giaSP;
-    }
-
-    public void setGiaSP(String giaSP) {
-        this.giaSP = giaSP;
+    public void setTenSP(String TenSP) {
+        this.tenSP = TenSP;
     }
 
     public String getMotaSP() {
         return motaSP;
     }
 
-    public void setMotaSP(String motaSP) {
-        this.motaSP = motaSP;
+    public void setMotaSP(String MotaSP) {
+        this.motaSP = MotaSP;
     }
 
     public String getMaNCC() {
         return maNCC;
     }
 
-    public void setMaNCC(String maNCC) {
-        this.maNCC = maNCC;
+    public void setMaNCC(String MaNCC) {
+        this.maNCC = MaNCC;
     }
 
     public String getNhaSX() {
         return nhaSX;
     }
 
-    public void setNhaSX(String nhaSX) {
-        this.nhaSX = nhaSX;
+    public void setNhaSX(String NhaSX) {
+        this.nhaSX = NhaSX;
     }
 
     public String getHinhAnh() {
         return hinhAnh;
     }
 
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
+    public void setHinhAnh(String HinhAnh) {
+        this.hinhAnh = HinhAnh;
     }
 
     public Date getNgaySX() {
         return ngaySX;
     }
 
-    public void setNgaySX(Date ngaySX) {
-        this.ngaySX = ngaySX;
+    public void setNgaySX(Date NgaySX) {
+        this.ngaySX = NgaySX;
     }
 
     public Date getHanSuDung() {
         return hanSuDung;
     }
 
-    public void setHanSuDung(Date hanSuDung) {
-        this.hanSuDung = hanSuDung;
+    public void setHanSuDung(Date HanSuDung) {
+        this.hanSuDung = HanSuDung;
+    }
+
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int TrangThai) {
+        this.trangThai = TrangThai;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.maSP);
+        int hash = 5;
+        hash = 31 * hash + Objects.hashCode(this.maSP);
         return hash;
     }
 
@@ -135,9 +135,9 @@ public class SanPham implements Serializable{
 
     @Override
     public String toString() {
-        return "SanPham{" + "maSP=" + maSP + ", tenSP=" + tenSP + ", giaSP=" + giaSP + ", motaSP=" + motaSP + ", maNCC=" + maNCC + ", nhaSX=" + nhaSX + ", hinhAnh=" + hinhAnh + ", ngaySX=" + ngaySX + ", hanSuDung=" + hanSuDung + '}';
+        return "SanPham{" + "MaSP=" + maSP + ", TenSP=" + tenSP + ", MotaSP=" + motaSP + ", MaNCC=" + maNCC + ", NhaSX=" + nhaSX + ", HinhAnh=" + hinhAnh + ", NgaySX=" + ngaySX + ", HanSuDung=" + hanSuDung + ", TrangThai=" + trangThai + '}';
     }
-    
 
+    
     
 }

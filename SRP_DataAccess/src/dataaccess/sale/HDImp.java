@@ -23,19 +23,32 @@ public class HDImp implements NhomBanHangDAO<HoaDon>{
     private Connection con;
 
     public HDImp() throws Exception{
+        //con = ConnectionFactory.getInstance().getConection();
+    }
+    
+    public void getConnection()throws Exception{
         con = ConnectionFactory.getInstance().getConection();
     }
+    
     @Override
     public boolean add(HoaDon dao) throws Exception {
-        String sql="insert into HD_BAN_HANG values (?,?,?,?,?) ";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, dao.getSoHD());
-        ps.setDate(2, (Date) dao.getNgayHD());
-        ps.setString(3, dao.getMaNV());
-        ps.setInt(4, dao.getMoney());
-        ps.setString(5, dao.getMaKH());
-        ps.setString(6, dao.getTinhTrang());
-        return ps.executeUpdate() > 0;
+     
+          java.sql.Date sqlDate = new java.sql.Date(dao.getNgayHD().getTime());
+        try {
+            getConnection();
+            
+            String sql="insert into HD_BAN_HANG values (?,?,?,?,?,?) ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, dao.getSoHD());
+            ps.setDate(2, sqlDate);
+            ps.setString(3, dao.getMaNV());   
+            ps.setString(4, dao.getMaKH());
+             ps.setInt(5, dao.getMoney());
+            ps.setString(6, dao.getTinhTrang());
+            return ps.executeUpdate() > 0;
+        } finally {
+            close();
+        }
     }
 
     @Override
@@ -91,9 +104,11 @@ public class HDImp implements NhomBanHangDAO<HoaDon>{
        return ps.executeUpdate() > 0;
     }
 
-    @Override
+   
     public void close() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(con !=null){
+            con.close();
+        }
     }
     
     

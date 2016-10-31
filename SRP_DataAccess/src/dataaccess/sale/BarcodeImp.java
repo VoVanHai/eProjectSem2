@@ -16,14 +16,15 @@ import sale.Barcode;
  *
  * @author VINH MARK
  */
-public class BarcodeImp implements NhomBanHangDAO<Barcode> {
+public class BarcodeImp implements NhomBanHangDAO<Barcode>{
+    
+    private Connection con ;
 
-    private Connection con;
-
-    public BarcodeImp() throws Exception {
+    public BarcodeImp() throws Exception{
         con = ConnectionFactory.getInstance().getConection();
     }
-
+    
+    
     @Override
     public boolean add(Barcode dao) throws Exception {
         String sql = "insert into BARCODE values (?,?,?,?,?)";
@@ -32,14 +33,13 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode> {
         ps.setString(2, dao.getMaSP());
         ps.setString(3, dao.getMaNV());
         ps.setString(4, dao.getGhiChu());
-        ps.setInt(4, dao.getTrangThai()
-        );
+        ps.setInt(4, dao.getTrangThai());
         return ps.executeUpdate() > 0;
     }
 
     @Override
     public boolean remove(Barcode dao) throws Exception {
-        String sql = "UPDATE BARCODE" + " SET TinhTrang = 0" + " WHERE barcode=?";
+        String sql = "UPDATE BARCODE" +" SET TinhTrang = 0" +" WHERE barcode=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getBarcode());
         return ps.executeUpdate() > 0;
@@ -56,9 +56,9 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode> {
         if (rs.next()) {
             ba = new Barcode(
                     rs.getString("barcode"),
-                    rs.getString("MaSP"),
-                    rs.getString("MaNV"),
-                    rs.getString("GhiChu"),
+                    rs.getString("MaSP") ,
+                    rs.getString("MaNV"), 
+                    rs.getString("GhiChu"), 
                     rs.getInt("TrangThai"));
         }
         return ba;
@@ -70,8 +70,8 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode> {
         String sql = "select * from BARCODE" + " where TinhTrang = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Barcode ba = new Barcode(rs.getString("barcode"), rs.getString("MaSP"), rs.getString("MaNV"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
+        while(rs.next()){
+            Barcode ba = new Barcode(rs.getString("barcode"),rs.getString("MaSP") , rs.getString("MaNV"), rs.getString("GhiChu"), rs.getInt("TrangThai"));
             lst.add(ba);
         }
         return lst;
@@ -86,14 +86,14 @@ public class BarcodeImp implements NhomBanHangDAO<Barcode> {
         ps.setString(3, dao.getGhiChu());
         ps.setInt(4, dao.getTrangThai());
         ps.setString(5, dao.getBarcode());
-        return ps.executeUpdate() > 0;
+       return ps.executeUpdate() > 0;
     }
 
-    @Override
+   
     public void close() throws Exception {
-        if (con != null) {
+        if(con != null){
             con.close();
         }
     }
-
+    
 }

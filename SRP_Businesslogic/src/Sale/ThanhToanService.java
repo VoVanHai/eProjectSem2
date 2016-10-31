@@ -5,11 +5,13 @@
  */
 package Sale;
 
+import sale.HoaDonBE;
+
 /**
  *
  * @author Tien-Dung
  */
 public interface ThanhToanService {
-    void lapphieu();
-    void inhd();
+    void lapphieu(HoaDonBE hdbe );
+    void inhd(HoaDonBE hdbe);
 }

@@ -87,7 +87,6 @@ private Connection con ;
         return lst;
     }
 
-    @Override
     public void close() throws Exception {
         if(con != null){
             con.close();

@@ -22,18 +22,27 @@ public class CT_HDImp implements NhomBanHangDAO<Ct_Hd_Ban_Hang>{
        private Connection con;
 
     public CT_HDImp() throws Exception{
+        //con = ConnectionFactory.getInstance().getConection();
+    }
+     public void getConnection()throws Exception{
         con = ConnectionFactory.getInstance().getConection();
     }
+    
     @Override
     public boolean add(Ct_Hd_Ban_Hang dao) throws Exception {
-        String sql="insert into CT_HD_BAN_HANG values (?,?,?,?,?) ";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, dao.getSoHD());
-        ps.setString(2, dao.getMaSP());
-        ps.setInt(3, dao.getSoLuong());
-        ps.setInt(4, dao.getDongiaBan());
-        ps.setInt(5, dao.getGiaKM());
-        return ps.executeUpdate() > 0;
+        try {
+            getConnection();
+            String sql="insert into CT_HD_BAN_HANG values (?,?,?,?,?) ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, dao.getSoHD());
+            ps.setString(2, dao.getMaSP());
+            ps.setInt(3, dao.getSoLuong());
+            ps.setInt(4, dao.getDongiaBan());
+            ps.setInt(5, dao.getGiaKM());
+            return ps.executeUpdate() > 0;
+        } finally {
+            close();
+        }
     }
 
     @Override
@@ -86,8 +95,6 @@ public class CT_HDImp implements NhomBanHangDAO<Ct_Hd_Ban_Hang>{
         ps.setInt(5, dao.getGiaKM());
        return ps.executeUpdate() > 0;
     }
-
-    @Override
     public void close() throws Exception {
         if(con != null){
             con.close();
