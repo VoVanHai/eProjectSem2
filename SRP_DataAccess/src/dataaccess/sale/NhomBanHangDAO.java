@@ -17,5 +17,4 @@ public interface NhomBanHangDAO<T> {
     T find(T dao) throws Exception;
     boolean update(T dao) throws Exception;
     ArrayList<T> getAll() throws Exception;
-    void close() throws Exception;
 }

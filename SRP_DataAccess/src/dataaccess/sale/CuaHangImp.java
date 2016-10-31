@@ -83,7 +83,7 @@ String sql = "UPDATE CUA_HANG" +" SET TrangThai = 0" +" WHERE MaCuaHang=?";
         return lst;
     }
 
-    @Override
+
     public void close() throws Exception {
         if(con != null){
             con.close();

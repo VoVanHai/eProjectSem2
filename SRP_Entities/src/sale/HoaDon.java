@@ -25,19 +25,20 @@ public class HoaDon implements Serializable {
     private int money;
     private String maKH;
     private String tinhTrang;
-    private ArrayList<Ct_Hd_Ban_Hang> cthdbh;
+    private ArrayList<Ct_Hd_Ban_Hang> cthdbh=new ArrayList<Ct_Hd_Ban_Hang>();
 
     public HoaDon() {
     }
 
     public HoaDon(String soHD, Date ngayHD, String maNV, int money, String maKH, String TinhTrang) {
-        setSoHD(soHD);
-        setNgayHD(ngayHD);
-        setMaNV(maNV);
-        setMoney(money);
-        setMaKH(maKH);
-        setTinhTrang(TinhTrang);
+        this.soHD = soHD;
+        this.ngayHD = ngayHD;
+        this.maNV = maNV;
+        this.money = money;
+        this.maKH = maKH;
+        this.tinhTrang = TinhTrang;
         cthdbh=new ArrayList<>();
+
     }
 
     public String getSoHD() {
@@ -118,4 +119,13 @@ public class HoaDon implements Serializable {
         return "HoaDon{" + "soHD=" + soHD + ", ngayHD=" + ngayHD
                 + ", maNV=" + maNV + ", money=" + money + ", maKH=" + maKH + ", tinhTrang=" + tinhTrang + '}';
     }
+    
+    public void setArraylist(ArrayList<Ct_Hd_Ban_Hang> cthdbh){
+        this.cthdbh=cthdbh;
+    }
+    
+    public ArrayList<Ct_Hd_Ban_Hang> getCt_Hd_Ban_Hang(){
+        return cthdbh;
+    }
+    
 }
