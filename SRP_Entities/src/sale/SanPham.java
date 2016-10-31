@@ -13,10 +13,11 @@ import java.util.Objects;
  *
  * @author VINH MARK
  */
-public class SanPham implements Serializable{
+public class SanPham implements Serializable {
+
     private String maSP;
     private String tenSP;
-    private  String giaSP;
+    private int giaSP;
     private String motaSP;
     private String maNCC;
     private String nhaSX;
@@ -24,7 +25,11 @@ public class SanPham implements Serializable{
     private Date ngaySX;
     private Date hanSuDung;
 
-    public SanPham(String maSP, String tenSP, String giaSP, String motaSP, String maNCC, String nhaSX, String hinhAnh, Date ngaySX, Date hanSuDung) {
+    public SanPham() {
+    }
+    
+
+    public SanPham(String maSP, String tenSP, int giaSP, String motaSP, String maNCC, String nhaSX, String hinhAnh, Date ngaySX, Date hanSuDung) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.giaSP = giaSP;
@@ -52,11 +57,11 @@ public class SanPham implements Serializable{
         this.tenSP = tenSP;
     }
 
-    public String getGiaSP() {
+    public int getGiaSP() {
         return giaSP;
     }
 
-    public void setGiaSP(String giaSP) {
+    public void setGiaSP(int giaSP) {
         this.giaSP = giaSP;
     }
 
@@ -137,7 +142,5 @@ public class SanPham implements Serializable{
     public String toString() {
         return "SanPham{" + "maSP=" + maSP + ", tenSP=" + tenSP + ", giaSP=" + giaSP + ", motaSP=" + motaSP + ", maNCC=" + maNCC + ", nhaSX=" + nhaSX + ", hinhAnh=" + hinhAnh + ", ngaySX=" + ngaySX + ", hanSuDung=" + hanSuDung + '}';
     }
-    
 
-    
 }
