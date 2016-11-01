@@ -18,7 +18,7 @@ public class JFrameMain extends javax.swing.JFrame {
 
     public JFrameMain() {
         initComponents();
-        this.setSize(1366, 720);
+        this.setSize(1366, 750);
         timer();
 
     }
@@ -58,19 +58,19 @@ public class JFrameMain extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jToolBar1 = new javax.swing.JToolBar();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
         jButton1logout = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         jButton4home = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
-        jButton1dailymney = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         jButton2moneyshopping = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
+        jButton1dailymney = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         jButton1cashbalance = new javax.swing.JButton();
-        jButton1moneyinves = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
+        jButton1moneyinves = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JToolBar.Separator();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2day = new javax.swing.JLabel();
@@ -80,11 +80,9 @@ public class JFrameMain extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
         jToolBar1.setToolTipText("");
-        jToolBar1.add(jSeparator1);
-        jToolBar1.add(jSeparator2);
 
-        jButton1logout.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1logout.setForeground(new java.awt.Color(255, 204, 51));
+        jButton1logout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1logout.setForeground(new java.awt.Color(255, 102, 102));
         jButton1logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/logout.jpe"))); // NOI18N
         jButton1logout.setText("Đăng Xuất");
         jButton1logout.setToolTipText("");
@@ -97,11 +95,11 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton1logout);
-        jToolBar1.add(jSeparator3);
+        jToolBar1.add(jSeparator1);
 
-        jButton4home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4home.setForeground(new java.awt.Color(255, 204, 51));
-        jButton4home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/home_house.png"))); // NOI18N
+        jButton4home.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton4home.setForeground(new java.awt.Color(255, 102, 102));
+        jButton4home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
         jButton4home.setText("Home");
         jButton4home.setFocusable(false);
         jButton4home.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -112,10 +110,25 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton4home);
-        jToolBar1.add(jSeparator4);
+        jToolBar1.add(jSeparator2);
 
-        jButton1dailymney.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1dailymney.setForeground(new java.awt.Color(255, 204, 51));
+        jButton2moneyshopping.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2moneyshopping.setForeground(new java.awt.Color(255, 102, 102));
+        jButton2moneyshopping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
+        jButton2moneyshopping.setText("Giỏ Hàng");
+        jButton2moneyshopping.setFocusable(false);
+        jButton2moneyshopping.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2moneyshopping.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2moneyshopping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2moneyshoppingActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2moneyshopping);
+        jToolBar1.add(jSeparator3);
+
+        jButton1dailymney.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1dailymney.setForeground(new java.awt.Color(255, 102, 102));
         jButton1dailymney.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
         jButton1dailymney.setText("Sản Phẩm");
         jButton1dailymney.setFocusable(false);
@@ -127,23 +140,40 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton1dailymney);
+        jToolBar1.add(jSeparator4);
 
-        jButton2moneyshopping.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2moneyshopping.setForeground(new java.awt.Color(255, 204, 51));
-        jButton2moneyshopping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/images.png"))); // NOI18N
-        jButton2moneyshopping.setText("Giỏ Hàng");
-        jButton2moneyshopping.setFocusable(false);
-        jButton2moneyshopping.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2moneyshopping.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2moneyshopping.addActionListener(new java.awt.event.ActionListener() {
+        jButton1cashbalance.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1cashbalance.setForeground(new java.awt.Color(255, 102, 102));
+        jButton1cashbalance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
+        jButton1cashbalance.setText("Cash balance");
+        jButton1cashbalance.setFocusable(false);
+        jButton1cashbalance.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1cashbalance.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1cashbalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2moneyshoppingActionPerformed(evt);
+                jButton1cashbalanceActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton2moneyshopping);
+        jToolBar1.add(jButton1cashbalance);
+        jToolBar1.add(jSeparator5);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 204, 51));
+        jButton1moneyinves.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1moneyinves.setForeground(new java.awt.Color(255, 102, 102));
+        jButton1moneyinves.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
+        jButton1moneyinves.setText("Money Invested");
+        jButton1moneyinves.setFocusable(false);
+        jButton1moneyinves.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1moneyinves.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1moneyinves.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1moneyinvesActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1moneyinves);
+        jToolBar1.add(jSeparator6);
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 102, 102));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
         jButton3.setText("income money");
         jButton3.setFocusable(false);
@@ -156,35 +186,7 @@ public class JFrameMain extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton3);
 
-        jButton1cashbalance.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1cashbalance.setForeground(new java.awt.Color(255, 204, 51));
-        jButton1cashbalance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
-        jButton1cashbalance.setText("Cash balance");
-        jButton1cashbalance.setFocusable(false);
-        jButton1cashbalance.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1cashbalance.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1cashbalance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1cashbalanceActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton1cashbalance);
-
-        jButton1moneyinves.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1moneyinves.setForeground(new java.awt.Color(255, 204, 51));
-        jButton1moneyinves.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
-        jButton1moneyinves.setText("Money Invested");
-        jButton1moneyinves.setFocusable(false);
-        jButton1moneyinves.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1moneyinves.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1moneyinves.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1moneyinvesActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton1moneyinves);
-        jToolBar1.add(jSeparator5);
-        jToolBar1.add(jSeparator6);
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Hello :");
@@ -202,22 +204,22 @@ public class JFrameMain extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(jLabel3timer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2day, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(jLabel3timer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2day, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3timer, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -234,8 +236,8 @@ public class JFrameMain extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 225, Short.MAX_VALUE))
         );
 
         getContentPane().add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -331,6 +333,22 @@ public class JFrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1moneyinvesActionPerformed
 
     public static void main(String[] args) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFrameLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         JFrameMain s = new JFrameMain();
         s.setVisible(true);
     }

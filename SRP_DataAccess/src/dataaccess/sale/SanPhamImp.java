@@ -33,17 +33,16 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean add(SanPham dao) throws Exception {
-        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,?,1)";
+        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,1)";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, dao.getMaSP());
-        ps.setString(2, dao.getTenSP());
-        ps.setInt(3, dao.getGiaSP());
-        ps.setString(4, dao.getMotaSP());
-        ps.setString(5, dao.getMaNCC());
-        ps.setString(6, dao.getNhaSX());
-        ps.setString(7, dao.getHinhAnh());
-        ps.setDate(8, new java.sql.Date(dao.getNgaySX().getTime()));
-        ps.setDate(9, new java.sql.Date(dao.getHanSuDung().getTime()));
+        ps.setString(1, dao.getTenSP());
+        ps.setInt(2, dao.getGiaSP());
+        ps.setString(3, dao.getMotaSP());
+        ps.setString(4, dao.getMaNCC());
+        ps.setString(5, dao.getNhaSX());
+        ps.setString(6, dao.getHinhAnh());
+        ps.setDate(7, new java.sql.Date(dao.getNgaySX().getTime()));
+        ps.setDate(8, new java.sql.Date(dao.getHanSuDung().getTime()));
 
         return ps.executeUpdate() > 0;
 
