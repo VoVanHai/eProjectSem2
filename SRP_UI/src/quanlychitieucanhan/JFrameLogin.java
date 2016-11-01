@@ -20,8 +20,7 @@ public class JFrameLogin extends javax.swing.JFrame {
 
     public JFrameLogin() {
         initComponents();
-        this.setLocation(100,140
-        );
+        this.setLocation(100,140);
     }
 
     /**

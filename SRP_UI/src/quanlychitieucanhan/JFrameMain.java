@@ -18,7 +18,7 @@ public class JFrameMain extends javax.swing.JFrame {
 
     public JFrameMain() {
         initComponents();
-        this.setSize(1600, 860);
+        this.setSize(1366, 720);
         timer();
 
     }
@@ -58,17 +58,17 @@ public class JFrameMain extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jToolBar1 = new javax.swing.JToolBar();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         jButton1logout = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         jButton4home = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         jButton1dailymney = new javax.swing.JButton();
         jButton2moneyshopping = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton1cashbalance = new javax.swing.JButton();
         jButton1moneyinves = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jSeparator6 = new javax.swing.JToolBar.Separator();
         jPanel1 = new javax.swing.JPanel();
@@ -79,10 +79,13 @@ public class JFrameMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jToolBar1.setRollover(true);
+        jToolBar1.setToolTipText("");
+        jToolBar1.add(jSeparator1);
+        jToolBar1.add(jSeparator2);
 
         jButton1logout.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1logout.setForeground(new java.awt.Color(255, 204, 51));
-        jButton1logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/logout_1.png"))); // NOI18N
+        jButton1logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/logout.jpe"))); // NOI18N
         jButton1logout.setText("Đăng Xuất");
         jButton1logout.setToolTipText("");
         jButton1logout.setFocusable(false);
@@ -94,6 +97,7 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton1logout);
+        jToolBar1.add(jSeparator3);
 
         jButton4home.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4home.setForeground(new java.awt.Color(255, 204, 51));
@@ -108,6 +112,7 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton4home);
+        jToolBar1.add(jSeparator4);
 
         jButton1dailymney.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1dailymney.setForeground(new java.awt.Color(255, 204, 51));
@@ -178,10 +183,6 @@ public class JFrameMain extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton1moneyinves);
-        jToolBar1.add(jSeparator1);
-        jToolBar1.add(jSeparator2);
-        jToolBar1.add(jSeparator3);
-        jToolBar1.add(jSeparator4);
         jToolBar1.add(jSeparator5);
         jToolBar1.add(jSeparator6);
 
@@ -201,25 +202,23 @@ public class JFrameMain extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jLabel3timer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2day, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3timer, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(jLabel3timer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 57, Short.MAX_VALUE))
         );
 
         jToolBar1.add(jPanel1);
@@ -267,7 +266,7 @@ public class JFrameMain extends javax.swing.JFrame {
     private void jButton1dailymneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1dailymneyActionPerformed
 
         try {
-              SanPhamUI jdaimoney = new SanPhamUI(this.jLabel2findusername.getText());
+              SanPhamUI jdaimoney = new SanPhamUI("ákdhsdkhfk");
         jdaimoney.setVisible(true);
   
         this.jDesktopPane1.add(jdaimoney);

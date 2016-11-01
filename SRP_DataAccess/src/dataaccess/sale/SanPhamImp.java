@@ -30,7 +30,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
             Logger.getLogger(SanPhamImp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public boolean add(SanPham dao) throws Exception {
         String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,?,1)";
@@ -51,7 +51,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean remove(SanPham dao) throws Exception {
-        String sql = "UPDATE SAN_PHAM" + " SET TinhTrang = 0" + " WHERE MaSP=?";
+        String sql = "UPDATE SAN_PHAM" + " SET TrangThai = 0" + " WHERE MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         return ps.executeUpdate() > 0;
@@ -78,21 +78,23 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
     @Override
     public SanPham find(SanPham dao) throws Exception {
         String MaSP;
-        String sql = "select * form SAN_PHAM where MaSP = ?" + " where TrangThai = 1";
+        String sql = "select * from SAN_PHAM where MaSP = ?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaSP());
         ResultSet rs = ps.executeQuery();
-        SanPham sp = null;
-        if (rs.next()) {
-            sp = new SanPham(rs.getString("MaSP"),
-                    rs.getString("TenSP"),
-                    rs.getInt("Gia"),
-                    rs.getString("MotaSP"),
-                    rs.getString("MaNCC"),
-                    rs.getString("NhaSX"),
-                    rs.getString("HinhAnh"),
-                    rs.getDate("NgaySX"),
-                    rs.getDate("HanSuDung"));
+        SanPham sp = new SanPham();
+        while (rs.next()) {
+
+            sp.setMaSP(rs.getString("MaSP"));
+            sp.setTenSP(rs.getString("TenSP"));
+            sp.setGiaSP(rs.getInt("Gia"));
+            sp.setMotaSP(rs.getString("MotaSP"));
+            sp.setMaNCC(rs.getString("MaNCC"));
+            sp.setNhaSX(rs.getString("NhaSX"));
+            sp.setHinhAnh(rs.getString("HinhAnh"));
+            sp.setNgaySX(Happy.Add(rs.getDate("NgaySX"), 2));
+            sp.setHanSuDung(Happy.Add(rs.getDate("HanSuDung"), 2));
+
         }
         return sp;
     }
@@ -118,7 +120,6 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
         return lst;
     }
 
-    @Override
     public void close() throws Exception {
         if (con != null) {
             con.close();

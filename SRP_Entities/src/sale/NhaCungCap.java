@@ -20,9 +20,14 @@ public class NhaCungCap implements Serializable {
     private String Email;
     private String tenNguoiDaiDien;
     private String ghiChu;
-    private int trangThai;
 
-    public NhaCungCap(String MaNCC, String TenNCC, String DiaChi, String SDT, String Email, String TenNguoiDaiDien, String GhiChu, int TrangThai) {
+    public NhaCungCap(String maNCC) {
+        this.maNCC = maNCC;
+    }
+    
+    
+
+    public NhaCungCap(String MaNCC, String TenNCC, String DiaChi, String SDT, String Email, String TenNguoiDaiDien, String GhiChu) {
         this.maNCC = MaNCC;
         this.tenNCC = TenNCC;
         this.diaChi = DiaChi;
@@ -30,7 +35,7 @@ public class NhaCungCap implements Serializable {
         this.Email = Email;
         this.tenNguoiDaiDien = TenNguoiDaiDien;
         this.ghiChu = GhiChu;
-        this.trangThai = TrangThai;
+        
     }
 
     public String getMaNCC() {
@@ -89,13 +94,6 @@ public class NhaCungCap implements Serializable {
         this.ghiChu = GhiChu;
     }
 
-    public int getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(int TrangThai) {
-        this.trangThai = TrangThai;
-    }
 
     @Override
     public int hashCode() {
@@ -124,7 +122,7 @@ public class NhaCungCap implements Serializable {
 
     @Override
     public String toString() {
-        return "NHA_CUNG_CAP{" + "MaNCC=" + maNCC + ", TenNCC=" + tenNCC + ", DiaChi=" + diaChi + ", SDT=" + SDT + ", Email=" + Email + ", TenNguoiDaiDien=" + tenNguoiDaiDien + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
+        return maNCC;
     }
     
 }
