@@ -5,54 +5,23 @@
  */
 package quanlychitieucanhan;
 
-import Cryptography.Valition;
 import java.util.*;
-import entities.*;
-import Data.*;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
 import javax.swing.table.*;
 
 public class JInternalFrameMoneyInvested extends javax.swing.JInternalFrame {
-
-    Userdao usdao = new Userdao();
-    Valition va = new Valition();
-    MoneyInvesdao midao = new MoneyInvesdao();
     Calendar c = Calendar.getInstance();
-
     public JInternalFrameMoneyInvested(String finsuername) {
         initComponents();
 
         this.setLocation(5, 98);
         this.setSize(1570, 720);
         this.jLabel9finusername.setVisible(false);
-        Users us = usdao.findusername(finsuername);
-        this.jLabel9finusername.setText(String.valueOf(us.getUsersid()));
             c.setTime(new Date());
-        findtable(midao.findday( Integer.parseInt(this.jLabel9finusername.getText()), (c.get(Calendar.MONTH)+1), c.get(Calendar.YEAR)));
     }
      SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd");
-    public void findtable(List<MoneyInvesteed> listmi) {
-        try {
-
-            DefaultTableModel dfm = new DefaultTableModel();
-            dfm.addColumn("Id");
-            dfm.addColumn("types of investments");
-            dfm.addColumn("Name in vestments");
-            dfm.addColumn("Money");
-            dfm.addColumn("Date");
-            dfm.addColumn("description");
-
-            for (MoneyInvesteed mi : listmi) {
-                dfm.addRow(new Object[]{mi.getId(), mi.getTypesofinvestments(), mi.getNameinvestments(), mi.getMoney(), sdf.format(mi.getDate()), mi.getDescription()});
-            }
-            this.jTable1moneyinves.setModel(dfm);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -393,85 +362,9 @@ public class JInternalFrameMoneyInvested extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1createActionPerformed
-        try {
-            String type = String.valueOf(this.jComboBox1type.getSelectedItem());
-            String namemoney = this.jTextField1namevestment.getText();
-            String money = this.jTextField2money.getText();
-            String descipt = this.jTextArea1descript.getText();
-            if (namemoney.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Name money empty");
-            } else if (money.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Money empty");
-            } else if (!va.checmoney(money)) {
-                JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-            } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                MoneyInvesteed im = new MoneyInvesteed();
-                im.setTypesofinvestments(type);
-                im.setNameinvestments(namemoney);
-                im.setMoney(Long.parseLong(money));
-                im.setDate(this.jCalendarCombo1date.getDate());
-                im.setDescription(descipt);
-                im.getUserid().setUsersid(Integer.parseInt(this.jLabel9finusername.getText()));
-
-                if (midao.create(im)) {
-                    JOptionPane.showMessageDialog(null, "successfully created");
-                   findtable(midao.findday( Integer.parseInt(this.jLabel9finusername.getText()), (c.get(Calendar.MONTH)+1), c.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "create failure");
-                }
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1createActionPerformed
 
     private void jButton2updatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2updatesActionPerformed
-        try {
-
-            int index = this.jTable1moneyinves.getSelectedRow();
-
-            if (index == -1) {
-                JOptionPane.showMessageDialog(null, "you choose not to update the line in the table");
-            } else {
-                String id = this.jTable1moneyinves.getValueAt(index, 0).toString();
-                //  Incomemoney imid = imdao.find(Integer.parseInt(id));
-                String type = String.valueOf(this.jComboBox1type.getSelectedItem());
-                String namemoney = this.jTextField1namevestment.getText();
-                String money = this.jTextField2money.getText();
-                String descipt = this.jTextArea1descript.getText();
-                if (namemoney.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Name money empty");
-                } else if (money.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Money empty");
-                } else if (!va.checmoney(money)) {
-                    JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-                } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                    MoneyInvesteed im = new MoneyInvesteed();
-                    im.setTypesofinvestments(String.valueOf(this.jComboBox1type.getSelectedItem()));
-                    im.setNameinvestments(namemoney);
-                    im.setMoney(Long.parseLong(money));
-                    im.setDate(this.jCalendarCombo1date.getDate());
-                    im.setDescription(descipt);
-                    im.getUserid().setUsersid(Integer.parseInt(this.jLabel9finusername.getText()));
-
-                    im.setId(Integer.parseInt(id));
-                    if (midao.updates(im)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
-                      findtable(midao.findday( Integer.parseInt(this.jLabel9finusername.getText()), (c.get(Calendar.MONTH)+1), c.get(Calendar.YEAR)));
-                    } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2updatesActionPerformed
 
     private void jButton3clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3clearnActionPerformed
@@ -481,23 +374,6 @@ public class JInternalFrameMoneyInvested extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3clearnActionPerformed
 
     private void jButton5deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5deleteActionPerformed
-        int index = this.jTable1moneyinves.getSelectedRow();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
-        } else {
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "money Invested delete", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                String id = this.jTable1moneyinves.getValueAt(index, 0).toString();
-                if (midao.delete(Integer.parseInt(id))) {
-                    JOptionPane.showMessageDialog(null, "successfully delete");
-                                findtable(midao.findday( Integer.parseInt(this.jLabel9finusername.getText()), (c.get(Calendar.MONTH)+1), c.get(Calendar.YEAR)));
-           
-                } else {
-                    JOptionPane.showMessageDialog(null, "not delete");
-                }
-
-            }
-        }
     }//GEN-LAST:event_jButton5deleteActionPerformed
 
     private void jButton4searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4searchActionPerformed
@@ -516,17 +392,6 @@ public class JInternalFrameMoneyInvested extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField3searchKeyPressed
 
     private void jButton6showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6showActionPerformed
-        try {
-            String month = String.valueOf(this.jComboBox2month.getSelectedItem());
-            String year = String.valueOf(this.jComboBox3year.getSelectedItem());
-            int months = Integer.parseInt(month);
-            int years = Integer.parseInt(year);
-
-            findtable(midao.findday(Integer.parseInt(this.jLabel9finusername.getText()), months, years));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton6showActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -541,21 +406,6 @@ public class JInternalFrameMoneyInvested extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable1moneyinvesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1moneyinvesMouseClicked
-        try {
-            
-            int index =  this.jTable1moneyinves.getSelectedRow();
-            String id =  this.jTable1moneyinves.getValueAt(index, 0).toString();
-            MoneyInvesteed mi = midao.find(Integer.parseInt(id));
-            this.jTextField1namevestment.setText(mi.getNameinvestments());
-            this.jComboBox1type.setSelectedItem(mi.getTypesofinvestments());
-            this.jTextField2money.setText(String.valueOf(mi.getMoney()));
-            this.jCalendarCombo1date.setDate(mi.getDate());
-            this.jTextArea1descript.setText(mi.getDescription());
-            
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jTable1moneyinvesMouseClicked
 
     public void search() {

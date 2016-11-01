@@ -6,7 +6,7 @@
 package phongkehoach;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -22,13 +22,12 @@ public class Nhan_Vien implements Serializable{
     private String queQuan;
     private String email;
     private String maCV;
-    private String maPB;
-    private String ghiChu;
-    private int trangThai;
     private Date ngaySinh;
     private Date ngayBDLamViec;
+    private String ghiChu;
+    private int trangThai;
 
-    public Nhan_Vien(String MaNV, String TenNV, String SDT, String DiaChi, String SoCMND, String QueQuan, String Email, String MaCV, String MaPB, String GhiChu, int TrangThai, Date NgaySinh, Date NgayBDLamViec) {
+    public Nhan_Vien(String MaNV, String TenNV, String SDT, String DiaChi, String SoCMND, String QueQuan, String Email, String MaCV,  Date NgaySinh, Date NgayBDLamViec,String GhiChu, int TrangThai) {
         this.maNV = MaNV;
         this.tenNV = TenNV;
         this.sDT = SDT;
@@ -37,11 +36,10 @@ public class Nhan_Vien implements Serializable{
         this.queQuan = QueQuan;
         this.email = Email;
         this.maCV = MaCV;
-        this.maPB = MaPB;
-        this.ghiChu = GhiChu;
-        this.trangThai = TrangThai;
         this.ngaySinh = NgaySinh;
         this.ngayBDLamViec = NgayBDLamViec;
+        this.ghiChu = GhiChu;
+        this.trangThai = TrangThai;
     }
 
     public String getMaNV() {
@@ -108,14 +106,6 @@ public class Nhan_Vien implements Serializable{
         this.maCV = MaCV;
     }
 
-    public String getMaPB() {
-        return maPB;
-    }
-
-    public void setMaPB(String MaPB) {
-        this.maPB = MaPB;
-    }
-
     public String getGhiChu() {
         return ghiChu;
     }
@@ -175,7 +165,7 @@ public class Nhan_Vien implements Serializable{
 
     @Override
     public String toString() {
-        return "Nhan_Vien{" + "MaNV=" + maNV + ", TenNV=" + tenNV + ", SDT=" + sDT + ", DiaChi=" + diaChi + ", SoCMND=" + soCMND + ", QueQuan=" + queQuan + ", Email=" + email + ", MaCV=" + maCV + ", MaPB=" + maPB + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + ", NgaySinh=" + ngaySinh + ", NgayBDLamViec=" + ngayBDLamViec + '}';
+        return "Nhan_Vien{" + "MaNV=" + maNV + ", TenNV=" + tenNV + ", SDT=" + sDT + ", DiaChi=" + diaChi + ", SoCMND=" + soCMND + ", QueQuan=" + queQuan + ", Email=" + email + ", MaCV=" + maCV + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + ", NgaySinh=" + ngaySinh + ", NgayBDLamViec=" + ngayBDLamViec + '}';
     }
 
     

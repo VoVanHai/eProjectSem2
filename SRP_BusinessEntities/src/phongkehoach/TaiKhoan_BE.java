@@ -14,6 +14,7 @@ import dataaccess.phongkehoach.TKDangNhapImp;
 public class TaiKhoan_BE {
     private TK_Dang_Nhap tk;
     
+    
     public TaiKhoan_BE(TK_Dang_Nhap tk) { 
         this.tk = tk;
     }
@@ -36,8 +37,6 @@ public class TaiKhoan_BE {
     
     public void update() throws Exception{
         new TKDangNhapImp().update(tk);
-    }
-    
-    
+    }   
     
 }

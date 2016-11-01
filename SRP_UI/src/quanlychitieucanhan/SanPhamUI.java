@@ -8,17 +8,11 @@ package quanlychitieucanhan;
 import javax.swing.table.*;
 import java.util.*;
 import javax.swing.*;
-import entities.*;
-import Data.*;
-import Cryptography.*;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 
 public class SanPhamUI extends javax.swing.JInternalFrame {
 
-    Userdao usdao = new Userdao();
-    Valition va = new Valition();
-    Daidymoneydao dmdao = new Daidymoneydao();
   Calendar C = Calendar.getInstance();
      
     public SanPhamUI(String username) {
@@ -26,34 +20,13 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
         this.setLocation(5, 98);
         this.setSize(1366, 720);
 
-        Users us = usdao.findusername(username);
 
          C.setTime(new Date());
         
-        this.jLabel6finduseid.setText(String.valueOf(us.getUsersid()));
         this.jLabel6finduseid.setVisible(false);
         //findtable(dmdao.findll(Integer.parseInt(this.jLabel6finduseid.getText())));
-        findtable(dmdao.findllday(Integer.parseInt(this.jLabel6finduseid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
     }
   SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd");
-    public void findtable(List<DailyMoney> listdm) {
-        try {
-
-            DefaultTableModel dfm = new DefaultTableModel();
-            dfm.addColumn("Id");
-            dfm.addColumn("Name money");
-            dfm.addColumn("Money");
-            dfm.addColumn("Date");
-            dfm.addColumn("Description");
-
-            for (DailyMoney dm : listdm) {
-                dfm.addRow(new Object[]{dm.getId(), dm.getNamemoney(), dm.getMoney(), sdf.format(dm.getDate()), dm.getDescription()});
-            }
-            this.jTable1daidymoney.setModel(dfm);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -421,102 +394,20 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            String masp = this.txtMaSP.getText();
-            String tensp = this.txtTenSP.getText();
-            String gia = this.txtGia.getText();
-            String nhacc = this.cbNcc.getSelectedItem().toString();
-            String nhasx = this.cbNhaSX.getSelectedItem().toString();
-            String hinhanh  = this.
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3clearnActionPerformed
-        this.txtNCC.setText("");
         this.txtTenSP.setText("");
         this.taMoTa.setText("");
     }//GEN-LAST:event_jButton3clearnActionPerformed
 
     private void jButton2updatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2updatesActionPerformed
-        try {
-
-            int index = this.jTable1daidymoney.getSelectedRow();
-
-            if (index == -1) {
-                JOptionPane.showMessageDialog(null, "you choose not to update the line in the table");
-            } else {
-                String id = this.jTable1daidymoney.getValueAt(index, 0).toString();
-              //  DailyMoney dai = dmdao.find(Integer.parseInt(id));
-                String namemoney = this.txtTenSP.getText();
-                String money = this.txtNCC.getText();
-                String descipt = this.taMoTa.getText();
-                if (namemoney.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Name money empty");
-                } else if (money.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Money empty");
-                } else if (!va.checmoney(money)) {
-                    JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-                } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                    DailyMoney daimoney = new DailyMoney();
-                    daimoney.setNamemoney(namemoney);
-                    daimoney.setMoney(Long.parseLong(money));
-                    daimoney.setDate(this.ccbHSD.getDate());
-                    daimoney.setDescription(descipt);
-                    daimoney.getUsersid().setUsersid(Integer.parseInt(this.jLabel6finduseid.getText()));
-
-                    daimoney.setId(Integer.parseInt(id));
-                    if (dmdao.updates(daimoney)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
-                               findtable(dmdao.findllday(Integer.parseInt(this.jLabel6finduseid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
-                    } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2updatesActionPerformed
 
     private void jTable1daidymoneyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1daidymoneyMouseClicked
-        try {
-
-            int index = this.jTable1daidymoney.getSelectedRow();
-            String id = this.jTable1daidymoney.getValueAt(index, 0).toString();
-            DailyMoney dai = dmdao.find(Integer.parseInt(id));
-            this.txtTenSP.setText(dai.getNamemoney());
-            this.txtNCC.setText(String.valueOf(dai.getMoney()));
-            this.taMoTa.setText(dai.getDescription());
-            this.ccbHSD.setDate(dai.getDate());
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jTable1daidymoneyMouseClicked
 
     private void jButton5deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5deleteActionPerformed
-        int index = this.jTable1daidymoney.getSelectedRow();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
-        } else {
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "Daidymoney delete", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                String id = this.jTable1daidymoney.getValueAt(index, 0).toString();
-                if (dmdao.delete(Integer.parseInt(id))) {
-                    JOptionPane.showMessageDialog(null, "successfully delete");
-                        findtable(dmdao.findllday(Integer.parseInt(this.jLabel6finduseid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "not delete");
-                }
-
-            }
-        }
 
 
     }//GEN-LAST:event_jButton5deleteActionPerformed
@@ -532,18 +423,6 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField3searchKeyPressed
 
     private void jButton2showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2showActionPerformed
-        try {
-            String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year =   String.valueOf(this.jComboBox2year.getSelectedItem());
-           int months =  Integer.parseInt(month);
-           int years =  Integer.parseInt(year);
-           
-            findtable(dmdao.findllday(Integer.parseInt(this.jLabel6finduseid.getText()), months, years));
-           
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2showActionPerformed
 
     private void txtTenSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenSPActionPerformed

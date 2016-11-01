@@ -6,11 +6,11 @@
 package quanlychitieucanhan;
 
 import javax.swing.*;
-import entities.*;
-import Data.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.plaf.basic.BasicSliderUI;
 
 public class JFrameMain extends javax.swing.JFrame {
@@ -253,8 +253,14 @@ public class JFrameMain extends javax.swing.JFrame {
 
     private void jButton1logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1logoutActionPerformed
         dispose();
-        JFrameLogin lo = new JFrameLogin();
-        lo.setVisible(true);
+        JFrameLogin lo;
+        try {
+            lo = new JFrameLogin();
+            lo.setVisible(true);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
     }//GEN-LAST:event_jButton1logoutActionPerformed
 
     private void jButton4homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4homeActionPerformed

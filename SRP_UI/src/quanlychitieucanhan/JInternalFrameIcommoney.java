@@ -5,55 +5,24 @@
  */
 package quanlychitieucanhan;
 
-import Cryptography.Valition;
 import java.util.*;
-import entities.*;
-import Data.*;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.text.*;
 public class JInternalFrameIcommoney extends javax.swing.JInternalFrame {
-
-    
- 
-    
-     Userdao usdao = new Userdao();
-        Valition va = new Valition();
-        IcomeMoneydao imdao = new IcomeMoneydao();
         Calendar c = Calendar.getInstance();
     public JInternalFrameIcommoney(String username) {
         initComponents();
           this.setLocation(5, 98);
         this.setSize(1570, 720);
         this.jLabel1finduserid.setVisible(false);
-        Users us =  usdao.findusername(username);
-        this.jLabel1finduserid.setText(String.valueOf(us.getUsersid()));
         c.setTime(new Date());
-        findtable(imdao.findllday(Integer.parseInt(this.jLabel1finduserid.getText()), (c.get(Calendar.MONTH) + 1), c.get(Calendar.YEAR)));
          // findtable(imdao.findll(Integer.parseInt(this.jLabel1finduserid.getText())));
     }
 
        SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd");
     
-     public void findtable(List<Incomemoney> listim) {
-        try {
-
-            DefaultTableModel dfm = new DefaultTableModel();
-            dfm.addColumn("Id");
-            dfm.addColumn("Name money");
-            dfm.addColumn("Money");
-            dfm.addColumn("Date");
-            dfm.addColumn("Description");
-
-            for (Incomemoney im : listim) {
-                dfm.addRow(new Object[]{im.getId(), im.getNamemoney(), im.getMoney(), sdf.format(im.getDate()), im.getDescription()});
-            }
-            this.jTable1incomemoney.setModel(dfm);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -360,97 +329,12 @@ public class JInternalFrameIcommoney extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1createActionPerformed
-         try {
-              String namemoney = this.jTextField1namemoney.getText();
-            String money = this.jTextField2money.getText();
-            String descipt = this.jTextArea1descriotion.getText();
-            if (namemoney.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Name money empty");
-            } else if (money.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Money empty");
-            } else if (!va.checmoney(money)) {
-                JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-            } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                Incomemoney im = new Incomemoney();
-                im.setNamemoney(namemoney);
-                im.setMoney(Long.parseLong(money));
-                im.setDate(this.jCalendarCombo1date.getDate());
-                im.setDescription(descipt);
-                im.getUsersid().setUsersid(Integer.parseInt(this.jLabel1finduserid.getText()));
-
-                if (imdao.create(im)) {
-                    JOptionPane.showMessageDialog(null, "successfully created");
-                   findtable(imdao.findllday(Integer.parseInt(this.jLabel1finduserid.getText()), (c.get(Calendar.MONTH) + 1), c.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "create failure");
-                }
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1createActionPerformed
 
     private void jButton2updatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2updatesActionPerformed
-           try {
-
-            int index = this.jTable1incomemoney.getSelectedRow();
-
-            if (index == -1) {
-                JOptionPane.showMessageDialog(null, "you choose not to update the line in the table");
-            } else {
-                String id = this.jTable1incomemoney.getValueAt(index, 0).toString();
-              //  Incomemoney imid = imdao.find(Integer.parseInt(id));
-                String namemoney = this.jTextField1namemoney.getText();
-                String money = this.jTextField2money.getText();
-                String descipt = this.jTextArea1descriotion.getText();
-                if (namemoney.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Name money empty");
-                } else if (money.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Money empty");
-                } else if (!va.checmoney(money)) {
-                    JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-                } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                    Incomemoney im = new Incomemoney();
-                    im.setNamemoney(namemoney);
-                    im.setMoney(Long.parseLong(money));
-                    im.setDate(this.jCalendarCombo1date.getDate());
-                    im.setDescription(descipt);
-                    im.getUsersid().setUsersid(Integer.parseInt(this.jLabel1finduserid.getText()));
-
-                    im.setId(Integer.parseInt(id));
-                    if (imdao.updates(im)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
-                          findtable(imdao.findllday(Integer.parseInt(this.jLabel1finduserid.getText()), (c.get(Calendar.MONTH) + 1), c.get(Calendar.YEAR)));
-                    } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2updatesActionPerformed
 
     private void jTable1incomemoneyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1incomemoneyMouseClicked
-           try {
-
-            int index = this.jTable1incomemoney.getSelectedRow();
-            String id = this.jTable1incomemoney.getValueAt(index, 0).toString();
-           Incomemoney im = imdao.find(Integer.parseInt(id));
-            this.jTextField1namemoney.setText(im.getNamemoney());
-            this.jTextField2money.setText(String.valueOf(im.getMoney()));
-            this.jTextArea1descriotion.setText(im.getDescription());
-            this.jCalendarCombo1date.setDate(im.getDate());
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jTable1incomemoneyMouseClicked
 
     private void jButton3clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3clearnActionPerformed
@@ -460,22 +344,6 @@ public class JInternalFrameIcommoney extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3clearnActionPerformed
 
     private void jButton5deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5deleteActionPerformed
-             int index = this.jTable1incomemoney.getSelectedRow();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
-        } else {
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "Income money delete", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                String id = this.jTable1incomemoney.getValueAt(index, 0).toString();
-                if (imdao.delete(Integer.parseInt(id))) {
-                    JOptionPane.showMessageDialog(null, "successfully delete");
-                       findtable(imdao.findllday(Integer.parseInt(this.jLabel1finduserid.getText()), (c.get(Calendar.MONTH) + 1), c.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "not delete");
-                }
-
-            }
-        }
     }//GEN-LAST:event_jButton5deleteActionPerformed
 
     private void jButton4searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4searchActionPerformed
@@ -489,18 +357,6 @@ public class JInternalFrameIcommoney extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField3searchKeyPressed
 
     private void jButton1showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1showActionPerformed
-          try {
-            String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year =   String.valueOf(this.jComboBox2year.getSelectedItem());
-           int months =  Integer.parseInt(month);
-           int years =  Integer.parseInt(year);
-           
-            findtable(imdao.findllday(Integer.parseInt(this.jLabel1finduserid.getText()), months, years));
-           
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1showActionPerformed
 
 

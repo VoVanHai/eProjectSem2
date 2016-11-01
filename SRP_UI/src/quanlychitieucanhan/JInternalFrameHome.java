@@ -5,9 +5,7 @@
  */
 package quanlychitieucanhan;
 
-import entities.*;
 import java.util.*;
-import Data.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javax.swing.*;
@@ -17,13 +15,12 @@ import javax.swing.table.*;
 
 public class JInternalFrameHome extends javax.swing.JInternalFrame {
     
-    JFrameLogin lg = new JFrameLogin();
+    JFrameLogin lg;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-    Userdao userdao = new Userdao();
     
-    Statisticaldao stadao = new Statisticaldao();
     
-    public JInternalFrameHome(String findusername) {
+    public JInternalFrameHome(String findusername) throws Exception {
+        this.lg = new JFrameLogin();
         initComponents();
         this.setLocation(5, 98);
         this.setSize(1570, 720);
@@ -36,36 +33,10 @@ public class JInternalFrameHome extends javax.swing.JInternalFrame {
         
         this.jTextField4balanceof.setEditable(false);
         
-        Users us = userdao.findusername(findusername);
-        this.jLabel5usercode.setText(String.valueOf(us.getUsersid()));
-        this.jLabel5name.setText(us.getName());
-        this.jLabel5username.setText(us.getUsername());
-        this.jLabel6dateofbrith.setText(sdf.format(us.getDataofbrith()));
-        findtable(stadao.findll(Integer.parseInt(this.jLabel5usercode.getText())));
         
     }
     
-    public void findtable(List<Statistical> liststa) {
-        try {
-            
-            DefaultTableModel dft = new DefaultTableModel();
-            dft.addColumn("Id");
-            dft.addColumn("Total Money Spent");
-            dft.addColumn("Total Money Shopping");
-            dft.addColumn("Total Income");
-            dft.addColumn("The Balance Of The Month");
-            dft.addColumn("Date");
-            dft.addColumn("Userid");
-            for (Statistical sta : liststa) {
-                dft.addRow(new Object[]{sta.getId(), sta.getDailyMoney(), sta.getMoneyShopping(), sta.getIncomemoney(), sta.getCashbalance(), sta.getDate(), sta.getUsersid().getUsersid()});
-            }
-            
-            this.jTable1sta.setModel(dft);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
+    
     
     public void findusername(String username) {
         
@@ -372,43 +343,7 @@ public class JInternalFrameHome extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3showActionPerformed
-        try {
-            
-            String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year = String.valueOf(this.jComboBox2year.getSelectedItem());
-            
-            int months = Integer.parseInt(month);
-            int years = Integer.parseInt(year);
-            
-            List<DailyMoney> listdai = stadao.findlldaily(Integer.parseInt(this.jLabel5usercode.getText()), months, years);
-            List<MoneyShopping> listms = stadao.findllshop(Integer.parseInt(this.jLabel5usercode.getText()), months, years);
-            List<Incomemoney> listin = stadao.findllimco(Integer.parseInt(this.jLabel5usercode.getText()), months, years);
-            long s1 = 0;
-            long s2 = 0;
-            long s3 = 0;
-            long s4 = 0;
-            for (DailyMoney dai : listdai) {
-                s1 += dai.getMoney();
-                
-            }
-            for (MoneyShopping ms : listms) {
-                s2 += ms.getMoney();
-            }
-            
-            for (Incomemoney im : listin) {
-                s3 += im.getMoney();
-            }
-            
-            this.jTextField1moneyspent.setText(String.valueOf(s1));
-            this.jTextField2moneyshopping.setText(String.valueOf(s2));
-            this.jTextField3totalincome.setText(String.valueOf(s3));
-            
-            s4 = s3 - (s1 + s2);
-            this.jTextField4balanceof.setText(String.valueOf(s4));
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+       
     }//GEN-LAST:event_jButton3showActionPerformed
 
     private void jButton2clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2clearnActionPerformed
@@ -422,46 +357,11 @@ public class JInternalFrameHome extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2clearnActionPerformed
 
     private void jButton1saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1saveActionPerformed
-        try {
-            Statistical sta = new Statistical();
-            sta.setDailyMoney(Long.parseLong(this.jTextField1moneyspent.getText()));
-            sta.setMoneyShopping(Long.parseLong(this.jTextField2moneyshopping.getText()));
-            sta.setIncomemoney(Long.parseLong(this.jTextField3totalincome.getText()));
-            sta.setCashbalance(Long.parseLong(this.jTextField4balanceof.getText()));
-            sta.setDate(String.valueOf(this.jComboBox1month.getSelectedItem()) + "/" + String.valueOf(this.jComboBox2year.getSelectedItem()));
-            sta.getUsersid().setUsersid(Integer.parseInt(this.jLabel5usercode.getText()));
-            if (stadao.create(sta)) {
-                JOptionPane.showMessageDialog(null, "Save successfully");
-                findtable(stadao.findll(Integer.parseInt(this.jLabel5usercode.getText())));
-            } else {
-                JOptionPane.showMessageDialog(null, "Save No");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+       
     }//GEN-LAST:event_jButton1saveActionPerformed
 
     private void jMenuItem1xoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1xoaActionPerformed
-        try {
-            int index = this.jTable1sta.getSelectedRow();
-          
-            if(index ==-1){
-                
-            }else{
-                  String id = this.jTable1sta.getValueAt(index, 0).toString();
-                  int result =  JOptionPane.showConfirmDialog(null, "delete Statistical ", "Delete", JOptionPane.YES_NO_OPTION);
-                  if(result==JOptionPane.YES_NO_OPTION){
-                      if(stadao.delete(Integer.parseInt(id))){
-                          JOptionPane.showMessageDialog(null,"delete successfully");
-                            findtable(stadao.findll(Integer.parseInt(this.jLabel5usercode.getText())));
-                      }else{
-                             JOptionPane.showMessageDialog(null,"delete No");
-                      }
-                      
-                  }
-            }
-        } catch (Exception e) {
-        }
+        
     }//GEN-LAST:event_jMenuItem1xoaActionPerformed
 
 

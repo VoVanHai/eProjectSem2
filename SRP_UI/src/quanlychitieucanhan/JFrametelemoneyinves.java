@@ -7,12 +7,9 @@ package quanlychitieucanhan;
 
 import java.util.*;
 import javax.swing.*;
-import entities.*;
-import Data.*;
 
 public class JFrametelemoneyinves extends javax.swing.JFrame {
 
-    MoneyInvesdao midao = new MoneyInvesdao();
 
     public JFrametelemoneyinves() {
         initComponents();
@@ -258,99 +255,19 @@ public class JFrametelemoneyinves extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1currentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1currentActionPerformed
-        try {
-
-            List<MoneyInvesteed> dsmd = midao.findll(Integer.parseInt(this.jLabel4findusername.getText()));
-            long input = 0;
-            long output = 0;
-            for (MoneyInvesteed md : dsmd) {
-                if (md.getTypesofinvestments().equalsIgnoreCase("Input")) {
-                    input += md.getMoney();
-                } else if (md.getTypesofinvestments().equalsIgnoreCase("Output")) {
-                    output += md.getMoney();
-                }
-            }
-
-            long result = input - output;
-            this.jTextField1current.setText(String.valueOf(result));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jButton1currentActionPerformed
 
     private void jButton3showmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3showmonthActionPerformed
-        try {
-
-            String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year = String.valueOf(this.jComboBox2year.getSelectedItem());
-            int months = Integer.parseInt(month);
-            int years = Integer.parseInt(year);
-            long input = 0;
-            long output = 0;
-            List<MoneyInvesteed> listmid = midao.findday(Integer.parseInt(this.jLabel4findusername.getText()), months, years);
-
-            for (MoneyInvesteed mi : listmid) {
-                if (mi.getTypesofinvestments().equalsIgnoreCase("Input")) {
-                    input += mi.getMoney();
-                } else if (mi.getTypesofinvestments().equalsIgnoreCase("Output")) {
-                    output += mi.getMoney();
-                }
-            }
-
-            this.jTextField2monthinput.setText(String.valueOf(input));
-            this.jTextField3output.setText(String.valueOf(output));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
     }//GEN-LAST:event_jButton3showmonthActionPerformed
 
     private void jButton2showyearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2showyearActionPerformed
-        try {
-            String year = String.valueOf(this.jComboBox2year.getSelectedItem());
-            int years = Integer.parseInt(year);
-            long input = 0;
-            long output = 0;
-            List<MoneyInvesteed> listmoney = midao.findyear(Integer.parseInt(this.jLabel4findusername.getText()), years);
-            for (MoneyInvesteed mi : listmoney) {
-                if (mi.getTypesofinvestments().equalsIgnoreCase("Input")) {
-                    input += mi.getMoney();
-                } else if (mi.getTypesofinvestments().equalsIgnoreCase("Output")) {
-                    output += mi.getMoney();
-                }
-            }
-            
-               this.jTextField2monthinput.setText(String.valueOf(input));
-            this.jTextField3output.setText(String.valueOf(output));
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
     }//GEN-LAST:event_jButton2showyearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            
-              long input = 0;
-            long output = 0;
-            List<MoneyInvesteed> listmo = midao.findll(Integer.parseInt(this.jLabel4findusername.getText()));
-            for(MoneyInvesteed mo: listmo){
-                
-                if (mo.getTypesofinvestments().equalsIgnoreCase("Input")) {
-                    input += mo.getMoney();
-                } else if (mo.getTypesofinvestments().equalsIgnoreCase("Output")) {
-                    output += mo.getMoney();
-                }
-            }
-            
-              this.jTextField1tolalinput.setText(String.valueOf(input));
-            this.jTextField1totaloutput.setText(String.valueOf(output));
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

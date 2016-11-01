@@ -13,3 +13,7 @@
 /SRP_DataAccess/nbproject/private/
 /SRP_Tools/nbproject/private/
 /SRP_Businesslogic/build/
+/SRP_BusinessEntities/build/
+/SRP_Entities/dist/
+/SRP_DataAccess/dist/
+/SRP_BusinessEntities/dist/

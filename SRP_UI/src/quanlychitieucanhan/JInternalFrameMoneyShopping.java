@@ -5,10 +5,7 @@
  */
 package quanlychitieucanhan;
 
-import Cryptography.Valition;
 import java.util.*;
-import entities.*;
-import Data.*;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
@@ -16,10 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 public class JInternalFrameMoneyShopping extends javax.swing.JInternalFrame {
 
-   
-    Userdao usdao = new Userdao();
-        Valition va = new Valition();
-        Moneyshoppingdao msdao = new Moneyshoppingdao();
         Calendar c = Calendar.getInstance();
     public JInternalFrameMoneyShopping(String username) {
         initComponents();
@@ -28,32 +21,10 @@ public class JInternalFrameMoneyShopping extends javax.swing.JInternalFrame {
         
         c.setTime(new Date());
       
-        Users us = usdao.findusername(username);
-        this.jLabel6finduserid.setText(String.valueOf(us.getUsersid()));
          this.jLabel6finduserid.setVisible(false);
-         findtable(msdao.findday(Integer.parseInt(this.jLabel6finduserid.getText()), (c.get(Calendar.MONTH) + 1), (c.get(Calendar.YEAR))));
        // findtable(msdao.findll(Integer.parseInt(this.jLabel6finduserid.getText())));
         
         
-    }
-    SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd");
-        public void findtable(List<MoneyShopping> listms) {
-        try {
-
-            DefaultTableModel dfm = new DefaultTableModel();
-            dfm.addColumn("Id");
-            dfm.addColumn("Name money");
-            dfm.addColumn("Money");
-            dfm.addColumn("Date");
-            dfm.addColumn("Description");
-
-            for (MoneyShopping ms : listms) {
-                dfm.addRow(new Object[]{ms.getId(), ms.getNamemoney(), ms.getMoney(),sdf.format(ms.getDate()) , ms.getDescription()});
-            }
-            this.jTable1shoppingmoney.setModel(dfm);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }
     
     
@@ -366,81 +337,9 @@ public class JInternalFrameMoneyShopping extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1createActionPerformed
-          try {
-              String namemoney = this.jTextField1namemoney.getText();
-            String money = this.jTextField2money.getText();
-            String descipt = this.jTextArea1description.getText();
-            if (namemoney.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Name money empty");
-            } else if (money.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Money empty");
-            } else if (!va.checmoney(money)) {
-                JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-            } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                MoneyShopping ms = new MoneyShopping();
-                ms.setNamemoney(namemoney);
-                ms.setMoney(Long.parseLong(money));
-                ms.setDate(this.jCalendarCombo1date.getDate());
-                ms.setDescription(descipt);
-                ms.getUsersid().setUsersid(Integer.parseInt(this.jLabel6finduserid.getText()));
-
-                if (msdao.create(ms)) {
-                    JOptionPane.showMessageDialog(null, "successfully created");
-                  findtable(msdao.findday(Integer.parseInt(this.jLabel6finduserid.getText()), (c.get(Calendar.MONTH) + 1), (c.get(Calendar.YEAR))));
-                } else {
-                    JOptionPane.showMessageDialog(null, "create failure");
-                }
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1createActionPerformed
 
     private void jButton2updatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2updatesActionPerformed
-         try {
-
-            int index = this.jTable1shoppingmoney.getSelectedRow();
-
-            if (index == -1) {
-                JOptionPane.showMessageDialog(null, "you choose not to update the line in the table");
-            } else {
-                String id = this.jTable1shoppingmoney.getValueAt(index, 0).toString();
-               // MoneyShopping msid = msdao.find(Integer.parseInt(id));
-                String namemoney = this.jTextField1namemoney.getText();
-                String money = this.jTextField2money.getText();
-                String descipt = this.jTextArea1description.getText();
-                if (namemoney.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Name money empty");
-                } else if (money.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Money empty");
-                } else if (!va.checmoney(money)) {
-                    JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-                } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                    MoneyShopping ms = new MoneyShopping();
-                    ms.setNamemoney(namemoney);
-                    ms.setMoney(Long.parseLong(money));
-                    ms.setDate(this.jCalendarCombo1date.getDate());
-                    ms.setDescription(descipt);
-                    ms.getUsersid().setUsersid(Integer.parseInt(this.jLabel6finduserid.getText()));
-
-                    ms.setId(Integer.parseInt(id));
-                    if (msdao.updates(ms)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
-                   findtable(msdao.findday(Integer.parseInt(this.jLabel6finduserid.getText()), (c.get(Calendar.MONTH) + 1), (c.get(Calendar.YEAR))));
-                    } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2updatesActionPerformed
 
     private void jButton3clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3clearnActionPerformed
@@ -450,38 +349,9 @@ public class JInternalFrameMoneyShopping extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3clearnActionPerformed
 
     private void jTable1shoppingmoneyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1shoppingmoneyMouseClicked
-      try {
-
-            int index = this.jTable1shoppingmoney.getSelectedRow();
-            String id = this.jTable1shoppingmoney.getValueAt(index, 0).toString();
-            MoneyShopping ms = msdao.find(Integer.parseInt(id));
-            this.jTextField1namemoney.setText(ms.getNamemoney());
-            this.jTextField2money.setText(String.valueOf(ms.getMoney()));
-            this.jTextArea1description.setText(ms.getDescription());
-            this.jCalendarCombo1date.setDate(ms.getDate());
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jTable1shoppingmoneyMouseClicked
 
     private void jButton5deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5deleteActionPerformed
-            int index = this.jTable1shoppingmoney.getSelectedRow();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
-        } else {
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "Money shopping delete", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                String id = this.jTable1shoppingmoney.getValueAt(index, 0).toString();
-                if (msdao.delete(Integer.parseInt(id))) {
-                    JOptionPane.showMessageDialog(null, "successfully delete");
-                         findtable(msdao.findday(Integer.parseInt(this.jLabel6finduserid.getText()), (c.get(Calendar.MONTH) + 1), (c.get(Calendar.YEAR))));
-                } else {
-                    JOptionPane.showMessageDialog(null, "not delete");
-                }
-
-            }
-        }
     }//GEN-LAST:event_jButton5deleteActionPerformed
 
     private void jButton4searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4searchActionPerformed
@@ -495,15 +365,6 @@ public class JInternalFrameMoneyShopping extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField3searchKeyPressed
 
     private void jButton1showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1showActionPerformed
-        try {
-              String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year =   String.valueOf(this.jComboBox2year.getSelectedItem());
-           int months =  Integer.parseInt(month);
-           int years =  Integer.parseInt(year);
-           
-            findtable(msdao.findday(Integer.parseInt(this.jLabel6finduserid.getText()), months, years));
-        } catch (Exception e) {
-        }
     }//GEN-LAST:event_jButton1showActionPerformed
 
     
