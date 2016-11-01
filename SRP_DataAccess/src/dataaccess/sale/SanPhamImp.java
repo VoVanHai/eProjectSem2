@@ -59,7 +59,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean update(SanPham dao) throws Exception {
-        String sql = "update SAN_PHAM set TenSP =? , MotaSP =? , MaNCC = ? ,NhaSX =?,HinhAnh=?,NgaySX=?,HanSuDung = ?" + " where MaSP=?";
+        String sql = "update SAN_PHAM set TenSP =? ,Gia=? ,MotaSP =? , MaNCC = ? ,NhaSX =?,HinhAnh=?,NgaySX=?,HanSuDung = ?" + " where MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getTenSP());
         ps.setInt(2, dao.getGiaSP());
@@ -102,7 +102,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
     @Override
     public ArrayList<SanPham> getAll() throws Exception {
         ArrayList<SanPham> lst = new ArrayList<>();
-        String sql = "select * from SAN_PHAM" + " where TrangThai = 1";
+        String sql = "select * from SAN_PHAM" + " where TrangThai = 1 ORDER BY MaSP DESC";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

@@ -470,6 +470,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                 String mota = taMoTa.getText();
                 String nhacc = cbNcc.getSelectedItem().toString();
                 String nhasx = txtNhaSX.getText();
+                String hinhanh = txtBrowser.getText();
 
                 if (ma.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Mã trống");
@@ -486,15 +487,15 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                     sanpham.setMotaSP(mota);
                     sanpham.setMaNCC(nhacc);
                     sanpham.setNhaSX(nhasx);
-                    sanpham.setHinhAnh(nhasx);
-                    sanpham.setNgaySX(this.ccbHSD.getDate());
+                    sanpham.setHinhAnh(hinhanh);
+                    sanpham.setNgaySX(this.ccbNgaySX.getDate());
                     sanpham.setHanSuDung(this.ccbHSD.getDate());
 
                     if (smip.update(sanpham)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
+                        JOptionPane.showMessageDialog(null, "Cập nhập thành công");
                         findtable(simp.getAll());
                     } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
+                        JOptionPane.showMessageDialog(null, "Cập nhập thất bại");
                     }
 
                 }
@@ -509,20 +510,20 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int index = this.tblSanPham.getSelectedRow();
         if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
+            JOptionPane.showMessageDialog(null, "Không thể delete dòng trên bảng");
         } else {
 
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "Daidymoney delete", JOptionPane.YES_NO_OPTION);
+            int result = JOptionPane.showConfirmDialog(null, "Bạn có chắc không", "Xóa Sản Phẩm", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 try {
                     String masp = this.tblSanPham.getValueAt(index, 0).toString();
                     SanPham sp = new SanPham();
                     sp.setMaSP(masp);
                     if (simp.remove(sp)) {
-                        JOptionPane.showMessageDialog(null, "successfully delete");
+                        JOptionPane.showMessageDialog(null, "Xóa thành công");
                         findtable(simp.getAll());
                     } else {
-                        JOptionPane.showMessageDialog(null, "not delete");
+                        JOptionPane.showMessageDialog(null, "Xóa thất bại");
                     }
                 } catch (Exception ex) {
                     Logger.getLogger(SanPhamUI.class.getName()).log(Level.SEVERE, null, ex);
