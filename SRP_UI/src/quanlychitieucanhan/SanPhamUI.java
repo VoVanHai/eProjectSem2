@@ -31,6 +31,8 @@ import sale.SanPham;
 
 public class SanPhamUI extends javax.swing.JInternalFrame {
 
+    //êdeeeeeeeeeee
+    DefaultComboBoxModel cb = new DefaultComboBoxModel();
     Valition va = new Valition();
     Calendar C = Calendar.getInstance();
     SanPhamImp simp = new SanPhamImp();
@@ -38,12 +40,16 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
 
     public SanPhamUI(String username) throws Exception {
         initComponents();
+
+        cbNcc.setModel(cb);
+
         this.setLocation(5, 98);
         this.setSize(1350, 600);
 
         C.setTime(new Date());
         findtable(simp.getAll());
         load2ComboBox();
+        // cb.addElement(new NhaCungCap("1","uuu"));
 
     }
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -55,6 +61,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             dfm.addColumn("Mã SP");
             dfm.addColumn("Tên SP");
             dfm.addColumn("Giá");
+            dfm.addColumn("Số Lượng");
             dfm.addColumn("Nhà CC");
             dfm.addColumn("Mô tả");
             dfm.addColumn("Nha SX");
@@ -67,6 +74,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                     dm.getMaSP(),
                     dm.getTenSP(),
                     dm.getGiaSP(),
+                    dm.getSoluong(),
                     dm.getMaNCC(),
                     dm.getMotaSP(),
                     dm.getNhaSX(),
@@ -112,6 +120,8 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
         txtNhaSX = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         txtBrowser = new javax.swing.JTextField();
+        txtSL = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jTextField3search = new javax.swing.JTextField();
         jButton4search = new javax.swing.JButton();
         jLabel6finduseid = new javax.swing.JLabel();
@@ -186,14 +196,21 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Nhà Sản Xuất");
 
+        cbNcc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbNccItemStateChanged(evt);
+            }
+        });
         cbNcc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNccActionPerformed(evt);
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Hạn Sử Dụng");
 
         txtGia.addActionListener(new java.awt.event.ActionListener() {
@@ -202,8 +219,10 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Giá");
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Hình ảnh");
 
         btnOpen.setText("Open");
@@ -223,6 +242,9 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Số Lượng");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -230,16 +252,21 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel9))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel3))
+                                .addGap(6, 6, 6)))
                         .addGap(109, 109, 109))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(8, Short.MAX_VALUE)
@@ -253,7 +280,6 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                     .addComponent(txtTenSP)
                     .addComponent(jScrollPane1)
                     .addComponent(ccbHSD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtGia)
                     .addComponent(txtNhaSX)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -263,49 +289,59 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtBrowser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnOpen)))
+                        .addComponent(btnOpen))
+                    .addComponent(txtGia, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtSL))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cbNcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(txtNhaSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOpen))
+                    .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ccbNgaySX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(cbNcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ccbHSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNhaSX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnOpen)
+                            .addComponent(txtBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addGap(55, 55, 55))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ccbNgaySX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ccbHSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,7 +372,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
             }
         ));
         tblSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -374,18 +410,16 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField3search, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6finduseid, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6finduseid, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -397,8 +431,11 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             SanPhamImp spip = new SanPhamImp();
             String ten = this.txtTenSP.getText();
             String gia = this.txtGia.getText();
+            String sl = txtSL.getText();
             String mota = taMoTa.getText();
-            String nhacc = cbNcc.getSelectedItem().toString();
+            NhaCungCap nhacctam = (NhaCungCap) cbNcc.getSelectedItem();
+            String nhacc = nhacctam.getMaNCC().toString();
+            //String nhacc=cbNcc.getSelectedItem().toString();
             String nhasx = txtNhaSX.getText();
             String ha = txtBrowser.getText();
 
@@ -413,6 +450,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                 SanPham sp = new SanPham();
                 sp.setTenSP(ten);
                 sp.setGiaSP(Integer.parseInt(gia));
+                sp.setSoluong(Integer.parseInt(sl));
                 sp.setMotaSP(mota);
                 sp.setMaNCC(nhacc);
                 sp.setNhaSX(nhasx);
@@ -455,8 +493,10 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                 //  DailyMoney dai = dmdao.find(Integer.parseInt(id));
                 String ten = this.txtTenSP.getText();
                 String gia = this.txtGia.getText();
+                String sl = txtSL.getText();
                 String mota = taMoTa.getText();
-                String nhacc = cbNcc.getSelectedItem().toString();
+                NhaCungCap nhacctam = (NhaCungCap) cbNcc.getSelectedItem();
+                String nhacc = nhacctam.getMaNCC().toString();
                 String nhasx = txtNhaSX.getText();
                 String hinhanh = txtBrowser.getText();
 
@@ -469,8 +509,10 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
                 } else if (!ten.isEmpty() && !gia.isEmpty()) {
 
                     SanPham sanpham = new SanPham();
+                    sanpham.setMaSP(id);
                     sanpham.setTenSP(ten);
                     sanpham.setGiaSP(Integer.parseInt(gia));
+                    sanpham.setSoluong(Integer.parseInt(sl));
                     sanpham.setMotaSP(mota);
                     sanpham.setMaNCC(nhacc);
                     sanpham.setNhaSX(nhasx);
@@ -526,7 +568,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
         NhaCungCapImp ncci = new NhaCungCapImp();
         ArrayList<NhaCungCap> lst = ncci.getAll();
         for (NhaCungCap s : lst) {
-            cbNcc.addItem(s.toString());
+            cb.addElement(new NhaCungCap(s.getMaNCC().toString(), s.getTenNCC().toString()));
         }
     }
 
@@ -550,7 +592,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
 
     private void btnOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenActionPerformed
         JFileChooser s = new JFileChooser();
-        FileFilter file = new FileNameExtensionFilter("Image file", "gif","png","jpg");
+        FileFilter file = new FileNameExtensionFilter("Image file", "gif", "png", "jpg");
         s.setFileFilter(file);
         int returnValue = s.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
@@ -570,6 +612,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
             sp = simp.find(sp);
             txtTenSP.setText(sp.getTenSP());
             txtGia.setText(String.valueOf(sp.getGiaSP()));
+            txtSL.setText(String.valueOf(sp.getSoluong()));
             taMoTa.setText(sp.getMotaSP());
             cbNcc.setSelectedItem(sp.getMaNCC());
             txtNhaSX.setText(sp.getNhaSX());
@@ -585,6 +628,10 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     private void cbNccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNccActionPerformed
 
     }//GEN-LAST:event_cbNccActionPerformed
+
+    private void cbNccItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbNccItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbNccItemStateChanged
 
     public void search() {
         DefaultTableModel dtm = (DefaultTableModel) this.tblSanPham.getModel();
@@ -605,6 +652,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     private org.freixas.jcalendar.JCalendarCombo ccbHSD;
     private org.freixas.jcalendar.JCalendarCombo ccbNgaySX;
     private javax.swing.JButton jButton4search;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -623,6 +671,7 @@ public class SanPhamUI extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBrowser;
     private javax.swing.JTextField txtGia;
     private javax.swing.JTextField txtNhaSX;
+    private javax.swing.JTextField txtSL;
     private javax.swing.JTextField txtTenSP;
     // End of variables declaration//GEN-END:variables
 }

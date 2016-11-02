@@ -33,16 +33,17 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean add(SanPham dao) throws Exception {
-        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,1)";
+        String sql = "insert into SAN_PHAM values(?,?,?,?,?,?,?,?,?,1)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getTenSP());
         ps.setInt(2, dao.getGiaSP());
-        ps.setString(3, dao.getMotaSP());
-        ps.setString(4, dao.getMaNCC());
-        ps.setString(5, dao.getNhaSX());
-        ps.setString(6, dao.getHinhAnh());
-        ps.setDate(7, new java.sql.Date(dao.getNgaySX().getTime()));
-        ps.setDate(8, new java.sql.Date(dao.getHanSuDung().getTime()));
+        ps.setInt(3, dao.getSoluong());
+        ps.setString(4, dao.getMotaSP());
+        ps.setString(5, dao.getMaNCC());
+        ps.setString(6, dao.getNhaSX());
+        ps.setString(7, dao.getHinhAnh());
+        ps.setDate(8, new java.sql.Date(dao.getNgaySX().getTime()));
+        ps.setDate(9, new java.sql.Date(dao.getHanSuDung().getTime()));
 
         return ps.executeUpdate() > 0;
 
@@ -58,17 +59,18 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
 
     @Override
     public boolean update(SanPham dao) throws Exception {
-        String sql = "update SAN_PHAM set TenSP =? ,Gia=? ,MotaSP =? , MaNCC = ? ,NhaSX =?,HinhAnh=?,NgaySX=?,HanSuDung = ?" + " where MaSP=?";
+        String sql = "update SAN_PHAM set TenSP =? ,Gia=? ,SoLuong = ? ,MotaSP =? , MaNCC = ? ,NhaSX =?,HinhAnh=?,NgaySX=?,HanSuDung = ?" + " where MaSP=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getTenSP());
         ps.setInt(2, dao.getGiaSP());
-        ps.setString(3, dao.getMotaSP());
-        ps.setString(4, dao.getMaNCC());
-        ps.setString(5, dao.getNhaSX());
-        ps.setString(6, dao.getHinhAnh());
-        ps.setDate(7, new java.sql.Date(dao.getNgaySX().getTime()));
-        ps.setDate(8, new java.sql.Date(dao.getHanSuDung().getTime()));
-        ps.setString(9, dao.getMaSP());
+        ps.setInt(3, dao.getSoluong());
+        ps.setString(4, dao.getMotaSP());
+        ps.setString(5, dao.getMaNCC());
+        ps.setString(6, dao.getNhaSX());
+        ps.setString(7, dao.getHinhAnh());
+        ps.setDate(8, new java.sql.Date(dao.getNgaySX().getTime()));
+        ps.setDate(9, new java.sql.Date(dao.getHanSuDung().getTime()));
+        ps.setString(10, dao.getMaSP());
 
         return ps.executeUpdate() > 0;
 
@@ -87,6 +89,7 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
             sp.setMaSP(rs.getString("MaSP"));
             sp.setTenSP(rs.getString("TenSP"));
             sp.setGiaSP(rs.getInt("Gia"));
+            sp.setSoluong(rs.getInt("SoLuong"));
             sp.setMotaSP(rs.getString("MotaSP"));
             sp.setMaNCC(rs.getString("MaNCC"));
             sp.setNhaSX(rs.getString("NhaSX"));
@@ -101,15 +104,20 @@ public class SanPhamImp implements NhomBanHangDAO<SanPham> {
     @Override
     public ArrayList<SanPham> getAll() throws Exception {
         ArrayList<SanPham> lst = new ArrayList<>();
-        String sql = "select * from SAN_PHAM" + " where TrangThai = 1 ORDER BY MaSP DESC";
+        String sql = "SELECT "
+                + "                sp.MaSP,sp.TenSP, sp.Gia,sp.SoLuong, sp.MotaSP,"
+                + "                 ncc.TenNCC,sp.NhaSX,sp.HinhAnh,sp.NgaySX,sp.HanSuDung"
+                + "                  FROM dbo.SAN_PHAM sp, dbo.NHA_CUNG_CAP ncc "
+                + "                 WHERE sp.MaNCC=ncc.MaNCC AND sp.TrangThai = 1 ORDER BY MaSP DESC";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             SanPham sp = new SanPham(rs.getString("MaSP"),
                     rs.getString("TenSP"),
                     rs.getInt("Gia"),
+                    rs.getInt("SoLuong"),
                     rs.getString("MotaSP"),
-                    rs.getString("MaNCC"),
+                    rs.getString("TenNCC"),
                     rs.getString("NhaSX"),
                     rs.getString("HinhAnh"),
                     rs.getDate("NgaySX"),

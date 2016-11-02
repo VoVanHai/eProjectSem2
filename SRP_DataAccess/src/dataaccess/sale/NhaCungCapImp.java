@@ -85,11 +85,11 @@ public class NhaCungCapImp implements NhomBanHangDAO<NhaCungCap> {
     @Override
     public ArrayList<NhaCungCap> getAll() throws Exception {
         ArrayList<NhaCungCap> lst = new ArrayList<>();
-        String sql = "select MaNCC from NHA_CUNG_CAP" + " where TrangThai = 1 ";
+        String sql = "select MaNCC,TenNCC from NHA_CUNG_CAP" + " where TrangThai = 1 ";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            NhaCungCap ncc = new NhaCungCap(rs.getString("MaNCC"));
+            NhaCungCap ncc = new NhaCungCap(rs.getString("MaNCC"),rs.getString("TenNCC"));
             lst.add(ncc);
         }
         return lst;

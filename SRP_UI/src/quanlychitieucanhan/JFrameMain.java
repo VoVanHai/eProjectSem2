@@ -27,8 +27,6 @@ public class JFrameMain extends javax.swing.JFrame {
         this.jLabel2findusername.setText(username);
     }
 
-   
-
     public void timer() {
         this.timer = new Timer(1000, new ActionListener() {
 
@@ -115,7 +113,7 @@ public class JFrameMain extends javax.swing.JFrame {
         jButton2moneyshopping.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2moneyshopping.setForeground(new java.awt.Color(255, 102, 102));
         jButton2moneyshopping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imgaes/bill-icon.png"))); // NOI18N
-        jButton2moneyshopping.setText("Giỏ Hàng");
+        jButton2moneyshopping.setText("Barcode");
         jButton2moneyshopping.setFocusable(false);
         jButton2moneyshopping.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2moneyshopping.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -206,7 +204,7 @@ public class JFrameMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jLabel3timer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2day, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,83 +251,84 @@ public class JFrameMain extends javax.swing.JFrame {
 
     private void jButton4homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4homeActionPerformed
         try {
-             JInternalFrameHome jhome = new JInternalFrameHome(this.jLabel2findusername.getText());
-        jhome.setVisible(true);
+            JInternalFrameHome jhome = new JInternalFrameHome(this.jLabel2findusername.getText());
+            jhome.setVisible(true);
 
-        this.jDesktopPane1.add(jhome);
-        jhome.setSelected(true);
+            this.jDesktopPane1.add(jhome);
+            jhome.setSelected(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-       
-      
+
+
     }//GEN-LAST:event_jButton4homeActionPerformed
 
     private void jButton1dailymneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1dailymneyActionPerformed
 
         try {
-              SanPhamUI jdaimoney = new SanPhamUI("ákdhsdkhfk");
-        jdaimoney.setVisible(true);
-  
-        this.jDesktopPane1.add(jdaimoney);
-             jdaimoney.setSelected(true);
+            SanPhamUI jdaimoney = new SanPhamUI("ákdhsdkhfk");
+            jdaimoney.setVisible(true);
+
+            this.jDesktopPane1.add(jdaimoney);
+            jdaimoney.setSelected(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-      
+
 
     }//GEN-LAST:event_jButton1dailymneyActionPerformed
 
     private void jButton2moneyshoppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2moneyshoppingActionPerformed
-        try {
-                JInternalFrameMoneyShopping jmoney = new JInternalFrameMoneyShopping(this.jLabel2findusername.getText());
-        jmoney.setVisible(true);
-        this.jDesktopPane1.add(jmoney);
-        jmoney.setSelected(true);
+         try {
+            BarcodeUI ui = new BarcodeUI("sdfsdfds");
+            ui.setVisible(true);
+
+            this.jDesktopPane1.add(ui);
+            ui.setSelected(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    
+
     }//GEN-LAST:event_jButton2moneyshoppingActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
+
         try {
-               JInternalFrameIcommoney jimoney = new JInternalFrameIcommoney(this.jLabel2findusername.getText());
-       jimoney.setVisible(true);
-          this.jDesktopPane1.add(jimoney);
-          jimoney.setSelected(true);
+            JInternalFrameIcommoney jimoney = new JInternalFrameIcommoney(this.jLabel2findusername.getText());
+            jimoney.setVisible(true);
+            this.jDesktopPane1.add(jimoney);
+            jimoney.setSelected(true);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-     
-       
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1cashbalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1cashbalanceActionPerformed
         try {
-              JInternalFramecashbalance jfc = new JInternalFramecashbalance(this.jLabel2findusername.getText());
-             jfc.setVisible(true);
-             this.jDesktopPane1.add(jfc);
-             jfc.setSelected(true);
+            JInternalFramecashbalance jfc = new JInternalFramecashbalance(this.jLabel2findusername.getText());
+            jfc.setVisible(true);
+            this.jDesktopPane1.add(jfc);
+            jfc.setSelected(true);
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-   
-      
+
+
     }//GEN-LAST:event_jButton1cashbalanceActionPerformed
 
     private void jButton1moneyinvesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1moneyinvesActionPerformed
-        
+
         try {
-               JInternalFrameMoneyInvested jmi = new JInternalFrameMoneyInvested(this.jLabel2findusername.getText());
-          jmi.setVisible(true);
-          this.jDesktopPane1.add(jmi);
-          jmi.setSelected(true);
+            JInternalFrameMoneyInvested jmi = new JInternalFrameMoneyInvested(this.jLabel2findusername.getText());
+            jmi.setVisible(true);
+            this.jDesktopPane1.add(jmi);
+            jmi.setSelected(true);
         } catch (Exception e) {
-               JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-       
+
     }//GEN-LAST:event_jButton1moneyinvesActionPerformed
 
     public static void main(String[] args) {

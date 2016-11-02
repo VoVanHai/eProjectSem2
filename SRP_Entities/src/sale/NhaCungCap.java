@@ -25,7 +25,10 @@ public class NhaCungCap implements Serializable {
         this.maNCC = maNCC;
     }
     
-    
+    public NhaCungCap(String _maNCC,String _tenNCC) {
+        this.maNCC = _maNCC;
+        this.tenNCC = _tenNCC;
+    }
 
     public NhaCungCap(String MaNCC, String TenNCC, String DiaChi, String SDT, String Email, String TenNguoiDaiDien, String GhiChu) {
         this.maNCC = MaNCC;
@@ -122,7 +125,7 @@ public class NhaCungCap implements Serializable {
 
     @Override
     public String toString() {
-        return maNCC;
+        return tenNCC;
     }
     
 }

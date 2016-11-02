@@ -18,6 +18,7 @@ public class SanPham implements Serializable {
     private String maSP;
     private String tenSP;
     private int giaSP;
+    private int soluong;
     private String motaSP;
     private String maNCC;
     private String nhaSX;
@@ -27,12 +28,12 @@ public class SanPham implements Serializable {
 
     public SanPham() {
     }
-    
 
-    public SanPham(String maSP, String tenSP, int giaSP, String motaSP, String maNCC, String nhaSX, String hinhAnh, Date ngaySX, Date hanSuDung) {
+    public SanPham(String maSP, String tenSP, int giaSP, int soluong, String motaSP, String maNCC, String nhaSX, String hinhAnh, Date ngaySX, Date hanSuDung) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.giaSP = giaSP;
+        this.soluong = soluong;
         this.motaSP = motaSP;
         this.maNCC = maNCC;
         this.nhaSX = nhaSX;
@@ -63,6 +64,14 @@ public class SanPham implements Serializable {
 
     public void setGiaSP(int giaSP) {
         this.giaSP = giaSP;
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 
     public String getMotaSP() {
@@ -116,7 +125,7 @@ public class SanPham implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.maSP);
+        hash = 53 * hash + Objects.hashCode(this.maSP);
         return hash;
     }
 
@@ -140,7 +149,9 @@ public class SanPham implements Serializable {
 
     @Override
     public String toString() {
-        return "SanPham{" + "maSP=" + maSP + ", tenSP=" + tenSP + ", giaSP=" + giaSP + ", motaSP=" + motaSP + ", maNCC=" + maNCC + ", nhaSX=" + nhaSX + ", hinhAnh=" + hinhAnh + ", ngaySX=" + ngaySX + ", hanSuDung=" + hanSuDung + '}';
+        return "SanPham{" + "maSP=" + maSP + ", tenSP=" + tenSP + ", giaSP=" + giaSP + ", soluong=" + soluong + ", motaSP=" + motaSP + ", maNCC=" + maNCC + ", nhaSX=" + nhaSX + ", hinhAnh=" + hinhAnh + ", ngaySX=" + ngaySX + ", hanSuDung=" + hanSuDung + '}';
     }
+    
 
+    
 }
