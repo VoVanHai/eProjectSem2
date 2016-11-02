@@ -8,18 +8,11 @@ package quanlychitieucanhan;
 import java.util.*;
 import javax.swing.*;
 import java.security.*;
-import entities.*;
-import Data.*;
-import Cryptography.*;
 import java.util.regex.*;
 
 public class Register extends javax.swing.JFrame {
 
-    Users user = new Users();
-    Userdao userdao = new Userdao();
-    Valition va = new Valition();
 
-passwordEncryption pass = new passwordEncryption();
     public Register() {
         initComponents();
         this.setLocation(900, 100);
@@ -196,48 +189,6 @@ passwordEncryption pass = new passwordEncryption();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1createActionPerformed
-        try {
-
-            String name = this.jTextField1name.getText();
-            String username = this.jTextField2uername.getText();
-            String password = String.valueOf(this.jPasswordField1password.getPassword());
-
-            if (name.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "name is empty");
-            } else if (username.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "username is empty");
-            } else if (password.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "password is empty");
-            } else if (va.checkname(name)) {
-                JOptionPane.showMessageDialog(null, "you enter an invalid name (name must not contain special characters)");
-            } else if (va.checkusernamepassword(username)) {
-                JOptionPane.showMessageDialog(null, "you enter an invalid username (username must not contain special characters and spaces)");
-            } else if (va.checkusernamepassword(password)) {
-                JOptionPane.showMessageDialog(null, "you enter an invalid password (password must not contain special characters and spaces)");
-            } else if (!name.isEmpty() && !username.isEmpty() && !password.isEmpty() && !va.checkname(name) && !va.checkusernamepassword(username) && !va.checkusernamepassword(password)) {
-
-                if (checkusernameagian(username)) {
-                    JOptionPane.showMessageDialog(null, "username already exists");
-                } else {
-                    user.setName(name);
-                    user.setUsername(username);
-                    user.setPassword(pass.MD5(password));
-                    user.setDataofbrith(this.jCalendarCombo1datereg.getDate());
-                    if (userdao.create(user)) {
-                        JOptionPane.showMessageDialog(null, "created successfully");
-
-                    } else {
-                        JOptionPane.showMessageDialog(null, "create failure");
-                    }
-                }
-            }
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, e.getMessage());
-
-        }
-
-
     }//GEN-LAST:event_jButton1createActionPerformed
 
     private void jButton1clearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1clearnActionPerformed
@@ -250,14 +201,6 @@ passwordEncryption pass = new passwordEncryption();
         dispose();
     }//GEN-LAST:event_jButton2exitActionPerformed
 
-    public boolean checkusernameagian(String username) {
-        for (Users us : userdao.finllusername()) {
-            if (us.getUsername().toUpperCase().equalsIgnoreCase(username.toUpperCase())) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     /**
      * @param args the command line arguments

@@ -13,9 +13,8 @@ public class ConnectionFactory {
     private static ConnectionFactory factory;
 
     private ConnectionFactory() throws Exception {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=QL_BAN_HANG";
-        conDB = DriverManager.getConnection(url, "sa", "123456");//change user/passwprd
+        String url="jdbc:sqlserver://localhost:1433;databaseName=QL_BAN_HANG";
+        conDB = DriverManager.getConnection(url, "sa", "binosaka");//change user/passwprd
     }
 
     public synchronized static ConnectionFactory getInstance() throws Exception {
@@ -28,11 +27,6 @@ public class ConnectionFactory {
     public Connection getConection() {
         return conDB;
     }
+   
     
-
-//    public static void main(String[] args) throws Exception{
-//        ConnectionFactory fac=ConnectionFactory.getInstance();
-//        Connection x = fac.getConection();
-//        System.out.println(x);
-//    }
 }

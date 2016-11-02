@@ -23,7 +23,7 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
     }
     @Override
     public boolean add(Nhan_Vien dao) throws Exception {
-        String sql = "insert into NHAN_VIEN values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into NHAN_VIEN values(?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaNV());
         ps.setString(2, dao.getTenNV());
@@ -33,11 +33,10 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
         ps.setString(6, dao.getQueQuan());
         ps.setString(7, dao.getEmail());
         ps.setString(8, dao.getMaCV());
-        ps.setString(9, dao.getMaPB());
-        ps.setString(10, dao.getGhiChu());
-        ps.setInt(11, dao.getTrangThai());
-        ps.setDate(12, dao.getNgaySinh());
-        ps.setDate(13, dao.getNgayBDLamViec());
+        ps.setDate(9,new java.sql.Date( dao.getNgaySinh().getTime()));
+        ps.setDate(10,new java.sql.Date( dao.getNgayBDLamViec().getTime()));
+        ps.setString(11, dao.getGhiChu());
+        ps.setInt(12, dao.getTrangThai());
 
         return ps.executeUpdate() > 0;
     }
@@ -52,7 +51,7 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
 
     @Override
     public Nhan_Vien find(Nhan_Vien dao) throws Exception {
-        String sql = "select * form NHAN_VIEN where MaNV = ?" + " where TrangThai = 1";
+        String sql = "select * from NHAN_VIEN where MaNV = ?" + " where TrangThai = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaNV());
         ResultSet rs = ps.executeQuery();
@@ -66,18 +65,17 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
                     rs.getString("QueQuan"),
                     rs.getString("Email"),
                     rs.getString("MaCV"),
-                    rs.getString("MaPB"),
-                    rs.getString("GhiChu"),
-                    rs.getInt("TrangThai"),
                     rs.getDate("NgaySinh"),
-                    rs.getDate("NgayBDLamviec"));
+                    rs.getDate("NgayBDLamviec"),
+                    rs.getString("GhiChu"),
+                    rs.getInt("TrangThai"));
         }
         return nv;
     }
 
     @Override
     public boolean update(Nhan_Vien dao) throws Exception {
-        String sql = "update NHAN_VIEN set TenNV =? , SDT =? , DiaChi = ? ,SoCMND =?,QueQuan=?,Email=?,MaCV = ? ,MaPB = ?,GhiChu= ?,TrangThai= ?,NgaySinh= ?,NgayBDLamviec= ? "
+        String sql = "update NHAN_VIEN set TenNV =? , SDT =? , DiaChi = ? ,SoCMND =?,QueQuan=?,Email=?,MaCV = ?,NgaySinh= ?,NgayBDLamviec= ?,GhiChu= ?,TrangThai= ? "
                 + " where MaNV=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getTenNV());
@@ -87,12 +85,11 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
         ps.setString(5, dao.getQueQuan());
         ps.setString(6, dao.getEmail());
         ps.setString(7, dao.getMaCV());
-        ps.setString(8, dao.getMaPB());
-        ps.setString(9, dao.getGhiChu());
-        ps.setInt(10, dao.getTrangThai());
-        ps.setDate(11, dao.getNgaySinh());
-        ps.setDate(12, dao.getNgayBDLamViec());
-        ps.setString(13, dao.getMaNV());
+        ps.setDate(8,new java.sql.Date( dao.getNgaySinh().getTime()));
+        ps.setDate(9,new java.sql.Date(dao.getNgayBDLamViec().getTime()));
+        ps.setString(10, dao.getGhiChu());
+        ps.setInt(11, dao.getTrangThai());
+        ps.setString(12, dao.getMaNV());
     
         return ps.executeUpdate() > 0;
     }
@@ -112,11 +109,10 @@ public class NhanVienImp implements PhongKeHoachDAO<Nhan_Vien>{
                     rs.getString("QueQuan"),
                     rs.getString("Email"),
                     rs.getString("MaCV"),
-                    rs.getString("MaPB"),
-                    rs.getString("GhiChu"),
-                    rs.getInt("TrangThai"),
                     rs.getDate("NgaySinh"),
-                    rs.getDate("NgayBDLamviec"));
+                    rs.getDate("NgayBDLamviec"),
+                    rs.getString("GhiChu"),
+                    rs.getInt("TrangThai"));
             lst.add(nv);
         }
         return lst;

@@ -5,9 +5,6 @@
  */
 package quanlychitieucanhan;
 
-import Cryptography.Valition;
-import entities.*;
-import Data.*;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 
@@ -18,43 +15,19 @@ import javax.swing.table.TableRowSorter;
 
 public class JInternalFramecashbalance extends javax.swing.JInternalFrame {
 
-     Userdao usdao = new Userdao();
-    Valition va = new Valition();
-  Cashbalancedao cbdao = new Cashbalancedao();
   Calendar C = Calendar.getInstance();
     public JInternalFramecashbalance(String username) {
         initComponents();
           this.setLocation(5, 98);
         this.setSize(1570, 720);
-          Users us = usdao.findusername(username);
 
          C.setTime(new Date());
-           this.jLabel8userid.setText(String.valueOf(us.getUsersid()));
         this.jLabel8userid.setVisible(false);
         
-           findtable(cbdao.findday(Integer.parseInt(this.jLabel8userid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
     }
 
     
         SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd");
-      public void findtable(List<cashbalance> listcb) {
-        try {
-
-            DefaultTableModel dfm = new DefaultTableModel();
-            dfm.addColumn("Id");
-            dfm.addColumn("Name money");
-            dfm.addColumn("Money");
-            dfm.addColumn("Date");
-            dfm.addColumn("Description");
-
-            for (cashbalance cb : listcb) {
-                dfm.addRow(new Object[]{cb.getId(), cb.getNamemoney(), cb.getMoney(), sdf.format(cb.getDate()), cb.getDescription()});
-            }
-            this.jTable1cashbalance.setModel(dfm);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -347,103 +320,13 @@ public class JInternalFramecashbalance extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5deleteActionPerformed
-         int index = this.jTable1cashbalance.getSelectedRow();
-        if (index == -1) {
-            JOptionPane.showMessageDialog(null, "you choose not to delete the line in the table");
-        } else {
-            int result = JOptionPane.showConfirmDialog(null, "are you sure", "cash balance delete", JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                String id = this.jTable1cashbalance.getValueAt(index, 0).toString();
-                if (cbdao.delete(Integer.parseInt(id))) {
-                    JOptionPane.showMessageDialog(null, "successfully delete");
-         findtable(cbdao.findday(Integer.parseInt(this.jLabel8userid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "not delete");
-                }
-
-            }
-        }
 
     }//GEN-LAST:event_jButton5deleteActionPerformed
 
     private void jButton1createActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1createActionPerformed
-         try {
-
-            String namemoney = this.jTextField1namemoney.getText();
-            String money = this.jTextField2money.getText();
-            String descipt = this.jTextArea1descripton.getText();
-            if (namemoney.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Name money empty");
-            } else if (money.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Money empty");
-            } else if (!va.checmoney(money)) {
-                JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-            } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                cashbalance cb = new cashbalance();
-                cb.setNamemoney(namemoney);
-                cb.setMoney(Long.parseLong(money));
-                cb.setDate(this.jCalendarCombo1date.getDate());
-                cb.setDescription(descipt);
-                cb.getUsersid().setUsersid(Integer.parseInt(this.jLabel8userid.getText()));
-
-                if (cbdao.create(cb)) {
-                    JOptionPane.showMessageDialog(null, "successfully created");
-                      findtable(cbdao.findday(Integer.parseInt(this.jLabel8userid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
-                } else {
-                    JOptionPane.showMessageDialog(null, "create failure");
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton1createActionPerformed
 
     private void jButton2updatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2updatesActionPerformed
-           try {
-
-            int index = this.jTable1cashbalance.getSelectedRow();
-
-            if (index == -1) {
-                JOptionPane.showMessageDialog(null, "you choose not to update the line in the table");
-            } else {
-                String id = this.jTable1cashbalance.getValueAt(index, 0).toString();
-              //  DailyMoney dai = dmdao.find(Integer.parseInt(id));
-                String namemoney = this.jTextField1namemoney.getText();
-                String money = this.jTextField2money.getText();
-                String descipt = this.jTextArea1descripton.getText();
-                if (namemoney.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Name money empty");
-                } else if (money.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Money empty");
-                } else if (!va.checmoney(money)) {
-                    JOptionPane.showMessageDialog(null, "you enter no reasonable money");
-                } else if (!namemoney.isEmpty() && !money.isEmpty()) {
-
-                   cashbalance cb = new cashbalance();
-                    cb.setNamemoney(namemoney);
-                    cb.setMoney(Long.parseLong(money));
-                    cb.setDate(this.jCalendarCombo1date.getDate());
-                    cb.setDescription(descipt);
-                    cb.getUsersid().setUsersid(Integer.parseInt(this.jLabel8userid.getText()));
-
-                    cb.setId(Integer.parseInt(id));
-                    if (cbdao.updates(cb)) {
-                        JOptionPane.showMessageDialog(null, "successfully Updates");
-                     findtable(cbdao.findday(Integer.parseInt(this.jLabel8userid.getText()), (C.get(Calendar.MONTH)+1), C.get(Calendar.YEAR)));
-                    } else {
-                        JOptionPane.showMessageDialog(null, "failure Updates");
-                    }
-
-                }
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton2updatesActionPerformed
 
     private void jButton3cleaenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3cleaenActionPerformed
@@ -453,17 +336,6 @@ public class JInternalFramecashbalance extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3cleaenActionPerformed
 
     private void jButton6showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6showActionPerformed
-               try {
-            String month = String.valueOf(this.jComboBox1month.getSelectedItem());
-            String year =   String.valueOf(this.jComboBox2year.getSelectedItem());
-           int months =  Integer.parseInt(month);
-           int years =  Integer.parseInt(year);
-           
-            findtable(cbdao.findday(Integer.parseInt(this.jLabel8userid.getText()), months, years));
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
     }//GEN-LAST:event_jButton6showActionPerformed
 
     private void jButton4shearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4shearchActionPerformed

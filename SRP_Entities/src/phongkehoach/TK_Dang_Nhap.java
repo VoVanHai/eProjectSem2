@@ -18,60 +18,61 @@ public class TK_Dang_Nhap implements Serializable{
     private int matKhau;
     private String ghiChu;
     private int trangThai;
-
-    public TK_Dang_Nhap(String MaNV, String TenTK, int MatKhau, String GhiChu, int TrangThai) {
-        this.maNV = MaNV;
-        this.tenTK = TenTK;
-        this.matKhau = MatKhau;
-        this.ghiChu = GhiChu;
-        this.trangThai = TrangThai;
-    }
+    private String maTK;
 
     public String getMaNV() {
         return maNV;
     }
 
-    public void setMaNV(String MaNV) {
-        this.maNV = MaNV;
+    public void setMaNV(String maNV) {
+        this.maNV = maNV;
     }
 
     public String getTenTK() {
         return tenTK;
     }
 
-    public void setTenTK(String TenTK) {
-        this.tenTK = TenTK;
+    public void setTenTK(String tenTK) {
+        this.tenTK = tenTK;
     }
 
     public int getMatKhau() {
         return matKhau;
     }
 
-    public void setMatKhau(int MatKhau) {
-        this.matKhau = MatKhau;
+    public void setMatKhau(int matKhau) {
+        this.matKhau = matKhau;
     }
 
     public String getGhiChu() {
         return ghiChu;
     }
 
-    public void setGhiChu(String GhiChu) {
-        this.ghiChu = GhiChu;
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
     }
 
     public int getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int TrangThai) {
-        this.trangThai = TrangThai;
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public String getMaTK() {
+        return maTK;
+    }
+
+    public void setMaTK(String maTK) {
+        this.maTK = maTK;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.maNV);
-        hash = 89 * hash + Objects.hashCode(this.tenTK);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.maNV);
+        hash = 79 * hash + Objects.hashCode(this.maTK);
         return hash;
     }
 
@@ -90,16 +91,26 @@ public class TK_Dang_Nhap implements Serializable{
         if (!Objects.equals(this.maNV, other.maNV)) {
             return false;
         }
-        if (!Objects.equals(this.tenTK, other.tenTK)) {
+        if (!Objects.equals(this.maTK, other.maTK)) {
             return false;
         }
         return true;
     }
 
+    public TK_Dang_Nhap(String maNV, String tenTK, int matKhau, String ghiChu, int trangThai, String maTK) {
+        this.maNV = maNV;
+        this.tenTK = tenTK;
+        this.matKhau = matKhau;
+        this.ghiChu = ghiChu;
+        this.trangThai = trangThai;
+        this.maTK = maTK;
+    }
 
     @Override
     public String toString() {
-        return "TK_Dang_Nhap{" + "MaNV=" + maNV + ", TenTK=" + tenTK + ", MatKhau=" + matKhau + ", GhiChu=" + ghiChu + ", TrangThai=" + trangThai + '}';
+        return "TK_Dang_Nhap{" + "maNV=" + maNV + ", tenTK=" + tenTK + ", matKhau=" + matKhau + ", ghiChu=" + ghiChu + ", trangThai=" + trangThai + ", maTK=" + maTK + '}';
     }
+
+    
     
 }

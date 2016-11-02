@@ -44,7 +44,7 @@ public class ChucVuImp implements PhongKeHoachDAO<Chuc_Vu>{
 
     @Override
     public Chuc_Vu find(Chuc_Vu dao) throws Exception {
-        String sql = "select * form CHUC_VU where MaCV = ?" + " where TrangThai = 1";
+        String sql = "select * from CHUC_VU where MaCV = ?" + " where TrangThai = 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, dao.getMaCV());
         ResultSet rs = ps.executeQuery();
